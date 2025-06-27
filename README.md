@@ -1,58 +1,210 @@
+# **Videoyfw**
 
+> 测试运行环境：
 
-由于项目代码结构未提供详细信息，以下是一个通用模板，适用于典型的 OpenHarmony 或 ArkTS 项目。在实际使用前，请根据具体项目内容进行相应调整。
+>> nova 14 Ultra MRT-AL10
+
+>>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP6C00E130R5P5patch02)
+
+>>> API版本：5.0.5(17)
+
+>> HUAWEI Mate 60 BRA-AL00
+
+>>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP8C00E130R4P4patch06)
+
+>>> API版本：5.0.5(17)
+
+>> HUAWEI MatePad Pro 12.2" MRO-W00
+
+>>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP8C00E130R1P2patch03)
+
+>>> API版本：5.0.5(17)
+
+> 可运行环境：
+
+>> HUAWEI Mate X6 & HUAWEI MateBook Pro / Fold Ultimate Design & HUAWEI nova 14 / Pro & HUAWEI MatePad Pro 13.2" 2025
+
+>> API版本：5.0.5(17)
 
 ---
 
-# 项目名称
+# 快速跳转
 
-## 简介
-这是一个基于 OpenHarmony 的应用项目，使用 ETS（Extended TypeScript）语言进行开发。项目包含基础 UI 页面、资源文件以及相关配置文件，适用于智能设备上的应用开发。
+> ## [开发指南 All versions](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide)
 
-## 功能特性
-- 支持基础页面展示
-- 包含应用图标和 UI 资源
-- 提供模块化配置和构建配置
-- 包含单元测试和 UI 测试文件
+>> ## [视频播放 (Video)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-video-player)
 
-## 项目结构
-- `AppScope/` - 应用全局资源配置
-- `entry/` - 应用主模块
-  - `src/main/ets/` - 主源码目录，包含 ETS 文件
-  - `resources/base/` - 基础资源文件，如颜色、字符串、图片等
-  - `src/test/` - 测试文件目录
-- `hvigor/` - 构建配置目录
-- `.gitignore`, `oh-package.json5`, `build-profile.json5` 等 - 项目配置文件
+>>> 指南>应用框架>ArkUI（方舟UI框架）>UI开发 (ArkTS声明式开发范式)>添加组件>视频播放 (Video)
 
-## 环境要求
-- OpenHarmony SDK
-- DevEco Studio（或支持 ArkTS 的 IDE）
-- Node.js（如项目依赖前端构建工具）
+>> ## [Video](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-media-components-video)
 
-## 安装步骤
-1. 克隆仓库
-2. 打开 DevEco Studio，导入项目
-3. 确保 SDK 版本与项目配置匹配
-4. 构建并运行项目
+>>> API参考>应用框架>ArkUI（方舟UI框架）>ArkTS组件>图片与视频>Video
 
-## 使用说明
-- 应用入口文件：`EntryAbility.ets`
-- 主页面：`Index.ets`
-- 配置文件：`module.json5`, `oh-package.json5`
+>> ## [按钮 (Button)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-common-components-button)
 
-## 测试
-- 单元测试：`LocalUnit.test.ets`
-- UI 测试：`List.test.ets`, `Ability.test.ets`
+>>> 指南>应用框架>ArkUI（方舟UI框架）>UI开发 (ArkTS声明式开发范式)>添加组件>按钮 (Button)
 
-## 贡献指南
-请遵循以下步骤进行贡献：
-1. Fork 项目
-2. 创建新分支
-3. 提交 Pull Request
+>> ## [Scroll](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-container-scroll)
 
-## 许可证
-本项目采用 [MIT License]（请根据实际许可证修改）。
+>>> API参考>应用框架>ArkUI（方舟UI框架）>ArkTS组件>滚动与滑动>Scroll
 
---- 
+>> ## [开发应用沉浸式效果](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects)
 
-如需根据具体代码生成详细 README，请提供更详细的代码分析或内容。
+>>> API参考>应用框架>ArkUI（方舟UI框架）>UI开发 (ArkTS声明式开发范式)>开发布局>开发应用沉浸式效果
+
+>> ## [显示图片 (Image)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-graphics-display)
+
+>>> API参考>应用框架>ArkUI（方舟UI框架）>UI开发 (ArkTS声明式开发范式)>添加组件>显示图片 (Image)
+
+>> ## [app.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B)
+
+>>> 指南>基础入门>开发基础知识>应用配置文件（Stage模型）>app.json5配置文件
+
+>> ## [即时反馈（Toast）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)
+
+>>> API参考>应用框架>ArkUI（方舟UI框架）>UI开发 (ArkTS声明式开发范式)>使用弹窗>即时反馈（Toast）
+
+>> ## [发起认证](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/start-authentication)
+
+>>> 指南>系统>安全>User Authentication Kit（用户认证服务）>用户身份认证开发指导>发起认证
+
+>> ## [scanBarcode (默认界面扫码)](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/scan-scanbarcode-api)
+
+>>> API参考>媒体>Scan Kit（统一扫码服务）>ArkTS API>scanBarcode (默认界面扫码)
+
+>> ## [显式Want与隐式Want匹配规则](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/explicit-implicit-want-mappings#uri%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99)
+
+>>> 指南>应用框架>Ability Kit（程序框架服务）>Stage模型开发指导>Stage模型应用组件>信息传递载体Want>显式Want与隐式Want匹配规则
+
+>> ## [使用App Linking实现应用间跳转)](https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-applinking-app-link-0000001886072257#section033841691518)
+
+>>> 指南>App Linking>HarmonyOS NEXT>HarmonyOS NEXT应用>使用App Linking实现应用间跳转
+
+>> ## [接入“扫码直达”服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-directservice)
+
+>>> 指南>媒体>Scan Kit（统一扫码服务）>接入“扫码直达”服务
+
+>> ## [使用App Linking实现应用间跳转](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/scan-directservice)
+
+>>> 指南>应用框架>Ability Kit（程序框架服务）>Stage模型开发指导>应用间跳转>拉起指定应用>使用App Linking实现应用间跳转
+
+>> ## [如何使用App Linking实现应用跳转](https://developer.huawei.com/consumer/cn/doc/architecture-guides/common-v1_26-ts_61-0000002298561877)
+
+>>> 指南>公共关键技术方案>公共技术方案常见问题>如何使用App Linking实现应用跳转
+
+>> ## [应用链接说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-uri-config) uris标签文件说明
+
+>>> 指南>应用框架>Ability Kit（程序框架服务）>Stage模型开发指导>应用间跳转>拉起指定应用>应用链接说明
+
+>> ## [走近 HarmonyOS](https://consumer.huawei.com/cn/support/harmonyos-video/)
+
+>> ## [HarmonyOS Symbol](https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/)
+
+> # 预期参考指南
+
+>> ## [使用AVPlayer播放视频(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-develop-apply-immersive-effects)
+
+>>> 指南>媒体>Media Kit（媒体服务）>媒体开发指导(ArkTS)>播放>使用AVPlayer播放视频(ArkTS)
+
+>> ## [使用AVPlayer设置播放URL(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/playback-url-setting-method)
+
+>>> 指南>媒体>Media Kit（媒体服务）>媒体开发指导(ArkTS)>播放>使用AVPlayer设置播放URL(ArkTS)
+
+>> ## [使用AVPlayer播放流媒体(ArkTS)](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/streaming-media-playback-development-guide)
+
+>>> 指南>媒体>Media Kit（媒体服务）>媒体开发指导(ArkTS)>播放>使用AVPlayer播放流媒体(ArkTS)
+
+>> ## [应用接续开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-continuation-guide)
+
+>>> 指南>自由流转>应用接续>应用接续开发指导
+>
+---
+
+# 参考项目
+
+> ## [鸿蒙场景化示例合集](https://gitee.com/scenario-samples/demo-index)
+
+> ## [HarmonyOS-Cases/Cases](https://gitee.com/harmonyos-cases/cases)
+
+>> ### [video-demo](https://gitee.com/scenario-samples/video-demo)
+
+>> ### [avplayer-video](https://gitee.com/scenario-samples/avplayer-video)
+
+>> ### [scenario-samples](https://gitee.com/scenario-samples)
+
+---
+
+# 额外参考项目
+
+> ### [用户认证、指纹认证、锁屏密码认证](https://gitee.com/scenario-samples/user-auth-demo)
+
+---
+
+# 预期功能参考项目
+
+> ### [视频全屏切换案例](https://gitee.com/harmonyos-cases/cases/tree/master/CommonAppDevelopment/feature/mediafullscreen)
+
+> ### [获取视频信息](https://gitee.com/scenario-samples/get-video-size-and-duration)
+
+> ### [沉浸式布局demo](https://gitee.com/scenario-samples/immersive)
+
+> ### [Scroll中点击图片移动到顶端](https://gitee.com/scenario-samples/move-to-top)
+
+> ### [Menu显隐demo](https://gitee.com/scenario-samples/menu-hidden)
+
+> ### [视频横竖屏切换及进度条热区拖动案例](https://gitee.com/harmonyos-cases/cases/tree/master/CommonAppDevelopment/feature/videoscreendirectionswitching)
+
+> ### [网络状态监听](https://gitee.com/harmonyos-cases/cases/blob/master/CommonAppDevelopment/feature/networkstatusobserver/README.md)
+
+> ### [视频截取gif图](https://gitee.com/harmonyos-cases/cases/blob/master/CommonAppDevelopment/feature/videocreategif/README.md)
+
+> ### [视频悬浮窗](https://gitee.com/harmonyos-cases/cases/blob/master/CommonAppDevelopment/feature/pipwindow/README.md)
+
+> ### [实现视频播放的功能](https://gitee.com/harmonyos_samples/video-show#%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E7%9A%84%E5%8A%9F%E8%83%BD)
+
+
+---
+
+# 工程目录
+### [entry/src/main/ets/](https://gitee.com/hnyqwq/video/tree/master/entry/src/main/ets)
+```
+entry/src/main/ets/
+|---entryability
+|   |---EntryAbility.ets    
+|---pages
+|   |---Index.ets
+```
+
+---
+
+# 链接
+
+> ##  [OpenHarmony 组件库](https://gitee.com/explore/harmony)
+> ##  [OpenHarmony 教程指南](https://gitee.com/explore/harmonyos-guide)
+> ##  [HarmonyOS NEXT开源组件市场](https://gitee.com/harmonyos-cases/cases)
+
+> ## [HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/consumer/cn/activity/developerbeta/harmonyos-developer-beta-6/)
+[![HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/activity/0620hdcbeta/banner-2560-574.jpg)](https://developer.huawei.com/consumer/cn/activity/developerbeta/harmonyos-developer-beta-6/)
+
+> ## [APPGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)
+[![APPGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/static/img/logo-white.b4f1c5f9.png)](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)
+
+> ## [DEVELOPERS](https://developer.huawei.com/consumer/cn/)
+[![DEVELOPERS](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/home-1223/pc-0116.jpeg)](https://developer.huawei.com/consumer/cn/)
+
+> ## [开发入门](https://developer.huawei.com/consumer/cn/devstarts/)
+[![开发入门](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/Ark/overview-pathway/rukouye-banner-2560x517-0311-v2.jpg)](https://developer.huawei.com/consumer/cn/devstarts/)
+
+> ## [HarmonyOS 5](https://consumer.huawei.com/cn/harmonyos-next/)
+[![HarmonyOS 5](https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/harmonyos-next/images/update/harmonyos-next-update-2x.webp)](https://consumer.huawei.com/cn/harmonyos-next/)
+
+> ## [HarmonyOS 5 支持机型](https://consumer.huawei.com/cn/support/harmonyos/models-next/)
+[![HarmonyOS 5 支持机型](https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/harmonyos-next/images/interconnection/harmonyos-next-collaboration-2x.webp)](https://consumer.huawei.com/cn/support/harmonyos/models-next/)
+
+> ## [鸿蒙电脑 HarmonyOS 5](https://consumer.huawei.com/cn/harmonyos-computer/harmonyos-5/)
+[![鸿蒙电脑 HarmonyOS 5](https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/harmonyos-next/images/system/system.png)](https://consumer.huawei.com/cn/harmonyos-computer/harmonyos-5/)
+
+> ## [AppGallery](https://appgallery.huawei.com/app/detail?id=com.huawei.hmsapp.appgallery)
+[![HarmonyOS 5](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/Ark/overview-pathway/AGC-icon-gaoqing.png)](https://appgallery.huawei.com/app/detail?id=com.huawei.hmsapp.appgallery)
+
+> ## [HUAWEI Share](https://consumer.huawei.com/content/dam/huawei-cbg-site/cn/mkt/harmonyos-next/videos/1025/harmonyos-next-huawei-share-video.mp4)
