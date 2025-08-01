@@ -39,7 +39,7 @@ export struct MinePage {
           Image($r('app.media.startIcon'))
             .width(60)
             .height(60);
-          Text('CatVideo')
+          Text('hvideo')
             .fontWeight(700)
             .fontSize('14fp')
             .margin({ top: 10 });
@@ -123,7 +123,7 @@ export struct MinePage {
 
         Column() {
           Text() {
-            Span('CatVideo用户协议')
+            Span('hvideo用户协议')
               .onClick(() => {
                 try {
                   let want: Want = {
@@ -146,7 +146,7 @@ export struct MinePage {
               .fontSize(12);
             Span($r('app.string.and'))
               .fontSize(12);
-            Span('CatVideo与隐私的声明')
+            Span('hvideo与隐私的声明')
               .onClick(() => {
                 try {
                   let want: Want = {
@@ -155,7 +155,7 @@ export struct MinePage {
                     "action": "ohos.want.action.viewData",
                     // entities can be omitted.
                     "entities": ["entity.system.browsable"],
-                    uri: 'https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=1716156245246792064',
+                    uri: 'https://hnyqwq.cn/hvideo/hvideo.html',
                     "type": "text/plain"
                   }
                   let context = getContext(this) as common.UIAbilityContext;
