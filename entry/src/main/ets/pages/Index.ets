@@ -1,5 +1,4 @@
 import { HomePage } from './HomePage';
-import { SecondPage } from './SecondPage';
 import { MinePage } from './MinePage';
 
 @Entry

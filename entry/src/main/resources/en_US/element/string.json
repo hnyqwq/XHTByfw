@@ -1,0 +1,252 @@
+{
+  "string":[
+    {
+      "name":"module_desc",
+      "value":"module description"
+    },
+    {
+      "name":"EntryAbility_desc",
+      "value":"description"
+    },
+    {
+      "name":"EntryAbility_label",
+      "value":"CatVideo"
+    },
+    {
+      "name":"servicecollabutton",
+      "value":"Use remote device to insert images"
+    },
+    {
+      "name":"defaultForm_label",
+      "value":"Default Form Label"
+    },
+    {
+      "name":"defaultForm_desc",
+      "value":"Default Form Description"
+    },
+    {
+      "name":"void",
+      "value":" "
+    },
+    {
+      "name":"JumpLabel",
+      "value":"JumpLabel"
+    },
+    {
+      "name":"ButtonA",
+      "value":"ButtonA"
+    },
+    {
+      "name":"ButtonB",
+      "value":"Start APP"
+    },
+    {
+      "name": "shareinfo",
+      "value": "Share Video Link"
+    },
+    {
+      "name": "pengyipeng_title",
+      "value": "Share Video Link"
+    },
+    {
+      "name": "pengyipeng_description",
+      "value": "hvideo · Tap to Transfer"
+    },
+    {
+      "name": "gekong_description",
+      "value": "hvideo · AI Air Transfer Sharing"
+    },
+    {
+      "name":"nopeng",
+      "value":"It seems there’s no video to share at the moment. ⪩ ⪨"
+    },
+    {
+      "name":"aboutpage",
+      "value":"About"
+    },
+    {
+      "name":"Home",
+      "value":"Video"
+    },
+    {
+      "name":"Second",
+      "value":"OCR"
+    },
+    {
+      "name":"Mine",
+      "value":"Mine"
+    },
+    {
+      "name":"controlon",
+      "value":"Playback controls are now visible. ^•ω<^"
+    },
+    {
+      "name":"controloff",
+      "value":"Playback controls are now hidden. ⌯>₃<⌯ಣ"
+    },
+    {
+      "name":"linkinput",
+      "value":"\uDB80\uDDDB Enter video link"
+    },
+    {
+      "name":"share",
+      "value":"\uDB80\uDC3D"
+    },
+    {
+      "name":"play",
+      "value":"\uDB80\uDCB4/\uDB80\uDCB1"
+    },
+    {
+      "name":"playing",
+      "value":"Video is playing... ᜊ•ᴗ•ᜊ"
+    },
+    {
+      "name":"noplay",
+      "value":"Please enter the video link ⪩ ⪨"
+    },
+    {
+      "name":"paused",
+      "value":"Paused~"
+    },
+    {
+      "name":"testinput",
+      "value":"\uDB81\uDC94 Use some test videos, just enter the name.e.g.,w/k/55/ay/bxqy/ctxn/dly/dsm/jzn/qxmst/ssy/y/ylzz/yzjt/sr/sq"
+    },
+    {
+      "name":"scancode",
+      "value":"\uDB80\uDC28\uDB80\uDD28"
+    },
+    {
+      "name":"downloaded",
+      "value":"\uDB80\uDCD0\uDB80\uDC13 Download request successful! After the download is complete, you can view the video in Albums > Videos , and it will be categorized by the video’s creation date ."
+    },
+    {
+      "name":"pastedtishi",
+      "value":"\uDB80\uDC6D Paste from clipboard successfully!!!"
+    },
+    {
+      "name":"speedtitle",
+      "value":"Speed"
+    },
+    {
+      "name":"1xspeed",
+      "value":"1x Speed（Normal Speed）"
+    },
+    {
+      "name":"1xspeedyes",
+      "value":"You have successfully switched to normal(1x) playback speed."
+    },
+    {
+      "name":"125xspeed",
+      "value":"1.25x Speed"
+    },
+    {
+      "name":"125xspeedyes",
+      "value":"You have successfully switched to 1.25x playback speed."
+    },
+    {
+      "name":"175xspeed",
+      "value":"1.75x Speed"
+    },
+    {
+      "name":"175xspeedyes",
+      "value":"You have successfully switched to 1.75x playback speed."
+    },
+    {
+      "name":"2xspeed",
+      "value":"2x Speed"
+    },
+    {
+      "name":"2xspeedyes",
+      "value":"You have successfully switched to 2x playback speed."
+    },
+    {
+      "name":"075xspeed",
+      "value":"0.75x Speed"
+    },
+    {
+      "name":"075xspeedyes",
+      "value":"You have successfully switched to 0.75x playback speed."
+    },
+    {
+      "name":"fullscreen",
+      "value":"\uDB82\uDCAD Landscape"
+    },
+    {
+      "name":"ImageFittitle",
+      "value":"Scaling Mode"
+    },
+    {
+      "name":"Fill",
+      "value":"Force Full Screen / Stretch to Fit"
+    },
+    {
+      "name":"Fillyes",
+      "value":"Current scaling mode: Force Full Screen / Stretch to Fit ⌯･ᴗ･⌯ಣ"
+    },
+    {
+      "name":"Auto",
+      "value":"Adaptive / Auto Fit"
+    },
+    {
+      "name":"Autoyes",
+      "value":"Current scaling mode: Adaptive / Auto Fit ⌯ᕑᗢᓫ⌯ಣ"
+    },
+    {
+      "name":"Contain",
+      "value":"Maintain Aspect Ratio"
+    },
+    {
+      "name":"Containyes",
+      "value":"Current scaling mode: Maintain Aspect Ratio ⌯ᕑᗢᓫ⌯ಣ"
+    },
+    {
+      "name":"Cover",
+      "value":"\uDB80\uDC09 Proportional Zoom"
+    },
+    {
+      "name":"Coveryes",
+      "value":"\uDB80\uDC09 Current scaling mode: Proportional Zoom / Fit to Fill (Aspect Ratio Zoom Fill) ⌯>ᴗo⌯ಣ"
+    },
+    {
+      "name":"nowplaying",
+      "value":"The link to the currently playing video"
+    },
+    {
+      "name":"pick",
+      "value":"\uDB81\uDCE5 Pick"
+    },
+    {
+      "name":"takephotos",
+      "value":"Take a photo using this device. ៷>ᴗ<៷"
+    },
+    {
+      "name":"pickphotos",
+      "value":"Select an image from this device. ꒰⑅•ᴗ•⑅꒱"
+    },
+    {
+      "name":"and",
+      "value":"and"
+    },
+    {
+      "name":"copyright",
+      "value":"All rights reserved © 2025."
+    },
+    {
+      "name":"mineunder",
+      "value":"Download AppTest"
+    },
+    {
+      "name":"expagetitle",
+      "value":"Hidden Page > < "
+    },
+    {
+      "name":"exunder",
+      "value":"Go to MeoW to subscribe to HSR news updates"
+    },
+    {
+      "name":"infopagetitle",
+      "value":"Device Info > < "
+    }
+  ]
+}

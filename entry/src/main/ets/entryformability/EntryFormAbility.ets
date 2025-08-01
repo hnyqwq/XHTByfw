@@ -1,16 +1,13 @@
-//import { FormHttpUpdate } from '../formcommon/HttpIndex';
 import FormPreference from '../formcommon/utils/FormPreference';
-//import { FormDbUpdate } from '../formcommon/DbIndex';
-import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
+import { formBindingData, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
 
-export default class EntryFormAbility extends FormExtensionAbility {
+export default class EntryFormAbility {
   onAddForm(want: Want) {
     /**
      * This is the automatically generated code for the logic of card interactions.
      * Used to persist formId and formName.
      */
-    FormPreference.persistForm(want, this.context)
 
 
     // Called to return a FormBindingData object.
@@ -35,8 +32,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Used to update(scheduledUpdateTime or updateDuration) form by database.
      */
-    //FormDbUpdate.updateForm(formId, this.context);
-
 
     // Called to notify the form provider to update a specified form.
   }
@@ -56,9 +51,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
     /**
      * This is the automatically generated code for the logic of card interactions.
      * Used to database update form through message event.
-     */
-    //FormDbUpdate.formEvent(formId, message, this.context);
-
 
     // Called when a specified message event defined by the form provider is triggered.
   }
@@ -68,7 +60,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Remove formId and formName from persistence.
      */
-    FormPreference.removePersistentForm(formId, this.context);
 
 
     // Called to notify the form provider that a specified form has been destroyed.

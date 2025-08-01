@@ -4,31 +4,35 @@
 
 >> nova 14 Ultra MRT-AL10
 
->>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP6C00E130R5P5patch02)
+>>> HarmonyOS版本：HarmonyOS 5.1.0.128 (SP8C00E128R5P1patch01)
 
 >>> API版本：5.0.5(17)
 
 >> HUAWEI Mate 60 BRA-AL00
 
->>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP8C00E130R4P4patch06)
+>>> HarmonyOS版本：HarmonyOS 6.0.0.35 (SP51DEVC00E36R4P2logpatch01) Developer Beta
 
->>> API版本：5.0.5(17)
+>>> API版本：6.0.0(20) Beta1
 
 >> HUAWEI MatePad Pro 12.2" MRO-W00
 
->>> HarmonyOS版本：HarmonyOS 5.0.1.130 (SP8C00E130R1P2patch03)
+>>> HarmonyOS版本：HarmonyOS 5.1.0.128 (SP5C00E128R1P1patch03)
 
 >>> API版本：5.0.5(17)
 
 > 可运行环境：
 
->> HUAWEI Mate X6 & HUAWEI MateBook Pro / Fold Ultimate Design & HUAWEI nova 14 / Pro & HUAWEI MatePad Pro 13.2" 2025
-
->> API版本：5.0.5(17)
+>> - **手机**：HUAWEI nova 14 / HUAWEI nova 14 Pro / HUAWEI Pura 80 / HUAWEI Pura 80 Pro / HUAWEI Pura 80 Pro+ / HUAWEI Pura 80 Ultra
+>> - **折叠屏**：HUAWEI Mate X6
+>> - **阔折叠**：
+>> - **平板**：HUAWEI MatePad Pro 13.2" 2025 & HUAWEI MatePad Pro 12.2" 2025
+>> - **2in1**：HUAWEI MateBook Pro
+>> - **折叠2in1**：HUAWEI MateBook Fold Ultimate Design
+>> - **API版本**：5.0.5(17) / 5.1.0(18) / 5.1.1(19)
 
 ---
 
-# 快速跳转
+# 快速跳转指南
 
 > ## [开发指南 All versions](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide)
 
@@ -59,6 +63,10 @@
 >> ## [app.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-configuration-file#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E7%A4%BA%E4%BE%8B)
 
 >>> 指南>基础入门>开发基础知识>应用配置文件（Stage模型）>app.json5配置文件
+
+>> ## [module.json5配置文件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/module-configuration-file)
+
+>>> 指南>基础入门>开发基础知识>应用配置文件（Stage模型）>module.json5配置文件
 
 >> ## [即时反馈（Toast）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-create-toast)
 
@@ -96,6 +104,26 @@
 
 >>> 指南>应用框架>Ability Kit（程序框架服务）>Stage模型开发指导>应用间跳转>拉起指定应用>应用链接说明
 
+>> ## [跨设备互通开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/servicecollaboration-dev-guides)
+
+>>> 指南>系统>网络>Service Collaboration Kit（协同服务）>跨设备互通（ArkTS）>跨设备互通开发指导
+
+>> ## [Menu](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-basic-components-menu#%E7%A4%BA%E4%BE%8B2%E8%AE%BE%E7%BD%AEsymbol%E7%B1%BB%E5%9E%8B%E5%9B%BE%E6%A0%87)
+
+>>> API参考>应用框架>ArkUI（方舟UI框架）>ArkTS组件>菜单>Menu
+
+>> ## [使用粘贴控件](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/pastebutton)
+
+>>> 指南>系统>安全>程序访问控制>使用安全控件>使用粘贴控件
+
+>> ## [使用剪贴板进行复制粘贴](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/use_pasteboard_to_copy_and_paste)
+
+>>> 指南>系统>基础功能>Basic Services Kit（基础服务）>剪贴板服务>使用剪贴板进行复制粘贴
+
+>> ## [Share Kit（分享服务）](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/share-kit-guide)
+
+>>> 指南>应用服务>Share Kit（分享服务）
+
 >> ## [走近 HarmonyOS](https://consumer.huawei.com/cn/support/harmonyos-video/)
 
 >> ## [HarmonyOS Symbol](https://developer.huawei.com/consumer/cn/design/harmonyos-symbol/)
@@ -117,8 +145,8 @@
 >> ## [应用接续开发指导](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-continuation-guide)
 
 >>> 指南>自由流转>应用接续>应用接续开发指导
->
----
+
+--- 
 
 # 参考项目
 
@@ -126,17 +154,27 @@
 
 > ## [HarmonyOS-Cases/Cases](https://gitee.com/harmonyos-cases/cases)
 
->> ### [video-demo](https://gitee.com/scenario-samples/video-demo)
+>> ### [实现播放视频功能 video-demo](https://gitee.com/scenario-samples/video-demo)
 
->> ### [avplayer-video](https://gitee.com/scenario-samples/avplayer-video)
+>> ### [实现播放视频功能 avplayer-video](https://gitee.com/scenario-samples/avplayer-video)
 
->> ### [scenario-samples](https://gitee.com/scenario-samples)
+>> ### [鸿蒙 HarmonyOS NEXT场景化示例代码仓 scenario-samples](https://gitee.com/scenario-samples)
+
+> ## [HarmonyOS_Samples](https://gitee.com/harmonyos_samples)
+
+>> ### [通用文字识别 CoreVisionKit-SampleCode-ArkTS-OcrDemo](https://gitee.com/harmonyos_samples/core-vision-kit-sample-code-ark-ts-ocr-demo)
+
+>> ### [基于应用接续及跨设备互通功能实现内容发布功能 ContinuePublish](https://gitee.com/harmonyos_samples/ContinuePublish/tree/br_release_hmos)
+
+>> ### [跨设备互通 ServiceCollaborationKit-SampleCode-ArkTS](https://gitee.com/harmonyos_samples/service-collaboration-kit-sample-code-arkts)
+
+>> ### [实现剪切板复制粘贴的功能 Pasteboard](https://gitee.com/harmonyos_samples/pasteboard)
 
 ---
 
 # 额外参考项目
 
-> ### [用户认证、指纹认证、锁屏密码认证](https://gitee.com/scenario-samples/user-auth-demo)
+> ### [用户认证、指纹认证、锁屏密码认证 UserAuthDemo](https://gitee.com/scenario-samples/user-auth-demo)
 
 ---
 
@@ -173,6 +211,10 @@ entry/src/main/ets/
 |   |---EntryAbility.ets    
 |---pages
 |   |---Index.ets
+|   |---HomePage.ets
+|   |---SecondPage.ets
+|   |---MinePage.ets
+|   |---exPage.ets
 ```
 
 ---
@@ -183,8 +225,8 @@ entry/src/main/ets/
 > ##  [OpenHarmony 教程指南](https://gitee.com/explore/harmonyos-guide)
 > ##  [HarmonyOS NEXT开源组件市场](https://gitee.com/harmonyos-cases/cases)
 
-> ## [HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/consumer/cn/activity/developerbeta/harmonyos-developer-beta-6/)
-[![HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/activity/0620hdcbeta/banner-2560-574.jpg)](https://developer.huawei.com/consumer/cn/activity/developerbeta/harmonyos-developer-beta-6/)
+> ## [HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/consumer/cn/features/?ha_source=sousuo&ha_sourceId=89000251)
+[![HarmonyOS 6 开发者预览版 Beta 招募](https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/activity/0620hdcbeta/banner-2560-574.jpg)](https://developer.huawei.com/consumer/cn/features/?ha_source=sousuo&ha_sourceId=89000251)
 
 > ## [APPGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)
 [![APPGallery Connect](https://developer.huawei.com/consumer/cn/service/josp/agc/static/img/logo-white.b4f1c5f9.png)](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/)

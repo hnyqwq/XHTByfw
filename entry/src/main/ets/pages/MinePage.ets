@@ -1,6 +1,7 @@
 import { common, Want } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import router from '@ohos.router';
+import { promptAction } from '@kit.ArkUI';
 
 @Observed
   //设置条目信息构造
@@ -24,7 +25,7 @@ class SettingMenu {
 export struct MinePage {
   //设置条目信息数组
   @State menuGroup: SettingMenu[] = [
-    new SettingMenu('setting', $r('app.media.mine_settings'), '前往官网', $r('app.string.void')),
+    new SettingMenu('setting', $r('app.media.mine_settings'), '设备信息', $r('app.string.void')),
     new SettingMenu('vipownsetting', $r('app.media.mine_vipsettings'), '神秘功能', $r('app.string.void')),
     new SettingMenu('mycollection', $r('app.media.ic_collect'), '关注哔哩哔哩', $r('app.string.void')),
     new SettingMenu('mylike', $r('app.media.mine_like'), '关注抖音', $r('app.string.void')),
@@ -38,11 +39,11 @@ export struct MinePage {
           Image($r('app.media.startIcon'))
             .width(60)
             .height(60);
-          Text('hvideo')
+          Text('CatVideo')
             .fontWeight(700)
             .fontSize('14fp')
             .margin({ top: 10 });
-          Text('版本 1.3.0（1000030）')
+          Text('')
             .fontWeight(600)
             .fontSize('12fp')
             .margin({ top: 10 });
@@ -66,7 +67,12 @@ export struct MinePage {
                     let uri = '';
                     switch (item.id) {
                       case 'setting': // 官网
-                        uri = 'https://hnyqwq.cn';
+                        /*uri = 'https://hnyqwq.cn';
+                        break;*/
+                        router.pushUrl({ url: 'pages/infoPage' })
+                          .catch((e: BusinessError) => {
+                            console.error('路由跳转失败', e);
+                          });
                         break;
                       case 'vipownsetting':
                         // 应用内页面跳转
@@ -80,7 +86,7 @@ export struct MinePage {
                         break;
                       case 'mylike': // 分享功能（需集成分享SDK）
                         uri =
-                          'https://m.douyin.com/share/user/MS4wLjABAAAAu-191qiFh5x3NLdZXeT7y8uMMhqaT9ZQCdgpe1H2ZIcEVCCoGrpDeuRb5diMrBmd';
+                          'snssdk1128://user/profile/2118115953227692?refer=web';
                         break
                         // harmonyShare.share(...);
                         break;
@@ -116,39 +122,57 @@ export struct MinePage {
         .layoutWeight(1);
 
         Column() {
-          /*Text() {
-            Span('hvideo用户协议')
+          Text() {
+            Span('CatVideo用户协议')
               .onClick(() => {
-                const want: Want = { uri: `https://hnyqwq.cn/hvideo/yhxy.html` };
-                const context = getContext(this) as common.UIAbilityContext;
-                context.startAbility(want).then(() => { //拉起成功
-                  console.info('拉起应用商店成功')
-                }).catch((e: BusinessError) => { // 拉起失败
-                  console.info('拉起应用商店失败')
-                });
+                try {
+                  let want: Want = {
+                    // uncomment line below if wish to implicitly query only in the specific bundle.
+                    // bundleName: "com.example.myapplication",
+                    "action": "ohos.want.action.viewData",
+                    // entities can be omitted.
+                    "entities": ["entity.system.browsable"],
+                    uri: 'https://hnyqwq.cn/hvideo/yhxy.html',
+                    "type": "text/plain"
+                  }
+                  let context = getContext(this) as common.UIAbilityContext;
+                  context.startAbility(want)
+                  console.info(`explicit start ability succeed`)
+                } catch (error) {
+                  console.info(`explicit start ability failed with ${error.code}`)
+                }
               })
               .fontColor(Color.Blue)
               .fontSize(12);
-            Span('和')
+            Span($r('app.string.and'))
               .fontSize(12);
-            Span('hvideo与隐私的声明')
+            Span('CatVideo与隐私的声明')
               .onClick(() => {
-                const want: Want = { uri: `https://www.hnyqwq.cn/hvideo/hvideo.html` };
-                const context = getContext(this) as common.UIAbilityContext;
-                context.startAbility(want).then(() => { //拉起成功
-                  console.info('拉起应用商店成功')
-                }).catch((e: BusinessError) => { // 拉起失败
-                  console.info('拉起应用商店失败')
-                });
+                try {
+                  let want: Want = {
+                    // uncomment line below if wish to implicitly query only in the specific bundle.
+                    // bundleName: "com.example.myapplication",
+                    "action": "ohos.want.action.viewData",
+                    // entities can be omitted.
+                    "entities": ["entity.system.browsable"],
+                    uri: 'https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=1716156245246792064',
+                    "type": "text/plain"
+                  }
+                  let context = getContext(this) as common.UIAbilityContext;
+                  context.startAbility(want)
+                  console.info(`explicit start ability succeed`)
+                } catch (error) {
+                  console.info(`explicit start ability failed with ${error.code}`)
+                }
               })
               .fontColor(Color.Blue)
               .fontSize(12);
-          };*/
+          };
 
-          Text('版权所有◎ 2025 保留一切权利')
+          Text($r('app.string.copyright'))
             .fontSize(12);
           Text() {
-            Span('前往下载AppTest')
+            Span($r('app.string.mineunder'))
               .onClick(() => {
                 const want: Want = { uri: `store://appgallery.huawei.com/app/detail?id=com.huawei.hmsapp.apptest` };
                 const context = getContext(this) as common.UIAbilityContext;
@@ -166,9 +190,8 @@ export struct MinePage {
         .height(60);
       }
       .height('100%')
-      .title('关于页')
+      .title($r('app.string.aboutpage'))
       //.titleMode(NavigationTitleMode.Mini)
-      .backgroundColor($r('app.color.listColor'));
     };
   }
 }

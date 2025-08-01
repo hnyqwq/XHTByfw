@@ -35,8 +35,8 @@ export struct exPage {
     new SettingMenu('setting', $r('app.media.mine_settings'), '想亲亲你的小脸 =-= ', $r('app.string.void')),
     new SettingMenu('vipownsetting', $r('app.media.mine_vipsettings'), '想摸摸你的小手指 QwQ ', $r('app.string.void')),
     new SettingMenu('mycollection', $r('app.media.ic_collect'), '想看看你的密码 awa ', $r('app.string.void')),
-    //new SettingMenu('mylike', $r('app.media.mine_like'), '关注抖音', $r('app.string.void')),
-    //new SettingMenu('browsinghistory', $r('app.media.mine_time'), '前往个人博客', $r('app.string.void'))
+  //new SettingMenu('mylike', $r('app.media.mine_like'), '关注抖音', $r('app.string.void')),
+  //new SettingMenu('browsinghistory', $r('app.media.mine_time'), '前往个人博客', $r('app.string.void'))
   ];
 
   @State message: string = '用户认证'
@@ -53,7 +53,7 @@ export struct exPage {
             .fontWeight(700)
             .fontSize('14fp')
             .margin({ top: 10 });
-          Text('当前最新支持的API版本：6.0.0(20) Beta1')
+          Text('1.3.1.2（10301002）')
             .fontWeight(600)
             .fontSize('12fp')
             .margin({ top: 10 });
@@ -177,13 +177,13 @@ export struct exPage {
               .fontSize(12);
           };*/
 
-          Text('版权所有◎ 2025 保留一切权利')
+          Text($r('app.string.copyright'))
             .fontSize(12);
           Text() {
-            Span('前往hvideo APP')
+            Span($r('app.string.exunder'))
               .onClick(() => {
                 //const want: Want = { uri: `store://appgallery.huawei.com/app/detail?id=com.chuckfang.meow` };
-                const want: Want = { uri: `https://appgallery.huawei.com/apptest/join/5812f59180f170a3836917fc4599f7a4` };
+                const want: Want = { uri: `https://www.chuckfang.com/MeoW/appLinking?channelId=9687404a1b84433184ba27f16a57da3e` };
                 const context = getContext(this) as common.UIAbilityContext;
                 context.startAbility(want).then(() => { //拉起成功
                   console.info('拉起应用商店成功')
@@ -199,9 +199,9 @@ export struct exPage {
         .height(60);
       }
       .height('100%')
-      .title('嘘！不要告诉别人哦~ > < ')
+      .title($r('app.string.expagetitle'))
       .titleMode(NavigationTitleMode.Mini)
-      .backgroundColor($r('app.color.listColor'))
+      .backgroundColor($r('app.color.start_window_background'))
       .padding({ top: 50 })
     };
   }startUserAuth (authParam: userAuth.AuthParam, widgetParam: userAuth.WidgetParam) {

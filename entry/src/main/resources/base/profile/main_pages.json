@@ -1,6 +1,9 @@
 {
   "src": [
     "pages/Index",
-    "pages/exPage"
+    "pages/HomePage",
+    "pages/MinePage",
+    "pages/exPage",
+    "pages/infoPage"
   ]
 }

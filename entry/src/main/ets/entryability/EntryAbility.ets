@@ -1,5 +1,3 @@
-//import { createDbInsertData } from '../formcommon/DbIndex';
-import { actionCreate, actionNewWant, actionWindowStageCreate } from '../formcommon/formsetting/FormAction';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
@@ -13,8 +11,6 @@ export default class EntryAbility extends UIAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Used to card action.
      */
-    actionCreate(want)
-
 
     /**
      * This is the automatically generated code for the logic of card interactions.
@@ -51,8 +47,6 @@ export default class EntryAbility extends UIAbility {
       }
     }
 
-    // 保留原有逻辑
-    actionCreate(want);
     //createDbInsertData(this.context);
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
   }
@@ -62,7 +56,7 @@ export default class EntryAbility extends UIAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Used to card action.
      */
-    actionNewWant(want, this);
+
 
 
     hilog.info(0x0001, '[Scan Access]', 'Ability onNewWant');
@@ -92,9 +86,6 @@ export default class EntryAbility extends UIAbility {
           `Failed to process scan result: ${error.message}`);
       }
     }
-
-    // 保留原有逻辑
-    actionNewWant(want, this);
     //createDbInsertData(this.context);
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
   }
@@ -107,8 +98,7 @@ export default class EntryAbility extends UIAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Used to card action.
      */
-    actionWindowStageCreate(windowStage);
-    // Main window is created, set main page for this ability
+// Main window is created, set main page for this ability
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
         return;

@@ -1,32 +1,258 @@
 {
-  "string": [
-    {
-      "name": "module_desc",
-      "value": "module description"
-    },
-    {
-      "name": "EntryAbility_desc",
-      "value": "description"
-    },
-    {
-      "name": "EntryAbility_label",
-      "value": "hvideo"
-    },
-    {
-      "name": "servicecollabutton",
-      "value": "Use remote device to insert images"
-    },
-    {
-      "name": "defaultForm_label",
-      "value": "Default Form Label"
-    },
-    {
-      "name": "defaultForm_desc",
-      "value": "Default Form Description"
-    },
-    {
-      "name": "void",
-      "value": " "
-    }
-  ]
+	"string":[
+		{
+			"name":"module_desc",
+			"value":"module description"
+		},
+		{
+			"name":"EntryAbility_desc",
+			"value":"description"
+		},
+		{
+			"name":"EntryAbility_label",
+			"value":"CatVideo"
+		},
+		{
+			"name":"servicecollabutton",
+			"value":"Use remote device to insert images"
+		},
+		{
+			"name":"defaultForm_label",
+			"value":"Default Form Label"
+		},
+		{
+			"name":"defaultForm_desc",
+			"value":"Default Form Description"
+		},
+		{
+			"name":"void",
+			"value":" "
+		},
+		{
+			"name":"JumpLabel",
+			"value":"JumpLabel"
+		},
+		{
+			"name":"ButtonA",
+			"value":"ButtonA"
+		},
+		{
+			"name":"ButtonB",
+			"value":"ButtonB"
+		},
+		{
+			"name": "shareinfo",
+			"value": "视频链接分享"
+		},
+		{
+			"name": "pengyipeng_title",
+			"value": "分享当前的视频链接"
+		},
+		{
+			"name": "pengyipeng_description",
+			"value": "hvideo · 碰一碰分享"
+		},
+		{
+			"name": "gekong_description",
+			"value": "hvideo · 隔空传送分享"
+		},
+		{
+			"name":"nopeng",
+			"value":"没有可以分享的视频链接 ⪩ ⪨"
+		},
+		{
+			"name":"aboutpage",
+			"value":"aboutpage"
+		},
+		{
+			"name":"Home",
+			"value":"主页"
+		},
+		{
+			"name":"Second",
+			"value":"OCR"
+		},
+		{
+			"name":"Mine",
+			"value":"我的"
+		},
+		{
+			"name":"controlon",
+			"value":"控制栏已显示 ^•ω<^"
+		},
+		{
+			"name":"controloff",
+			"value":"控制栏已隐藏 ⌯>₃<⌯ಣ"
+		},
+		{
+			"name":"linkinput",
+			"value":"linkinput"
+		},
+		{
+			"name":"share",
+			"value":"\uDB80\uDC3D"
+		},
+		{
+			"name":"play",
+			"value":"\uDB80\uDCB4/\uDB80\uDCB1"
+		},
+		{
+			"name":"playing",
+			"value":"正在播放视频... ᜊ•ᴗ•ᜊ"
+		},
+		{
+			"name":"noplay",
+			"value":"请输入视频链接 ⪩ ⪨"
+		},
+		{
+			"name":"paused",
+			"value":"按暂停了喵 QAQ"
+		},
+		{
+			"name":"testinput",
+			"value":"\uDB81\uDC94 使用测试视频，仅需输入名称，如w/k/55/ay/bxqy/ctxn/dly/dsm/jzn/qxmst/ssy/y/ylzz/yzjt/sr/sq"
+		},
+		{
+			"name":"scancode",
+			"value":"\uDB80\uDC28\uDB80\uDD28"
+		},
+		{
+			"name":"downloaded",
+			"value":"\uDB80\uDCD0\uDB80\uDC13 请求下载成功！下载成功后可以在相册>视频中看到，日期为视频创建日期哦~"
+		},
+		{
+			"name":"pastedtishi",
+			"value":"\uDB80\uDC6D 从剪贴板粘贴成功！！！"
+		},
+		{
+			"name":"speedtitle",
+			"value":"倍速"
+		},
+		{
+			"name":"1xspeed",
+			"value":"1倍速（原速）"
+		},
+		{
+			"name":"1xspeedyes",
+			"value":"已成功切换至1倍速播放"
+		},
+		{
+			"name":"125xspeed",
+			"value":"1.25倍速"
+		},
+		{
+			"name":"125xspeedyes",
+			"value":"已成功切换至1.25倍速播放"
+		},
+		{
+			"name":"175xspeed",
+			"value":"1.75倍速"
+		},
+		{
+			"name":"175xspeedyes",
+			"value":"已成功切换至1.75倍速播放"
+		},
+		{
+			"name":"2xspeed",
+			"value":"2倍速"
+		},
+		{
+			"name":"2xspeedyes",
+			"value":"已成功切换至2倍速播放"
+		},
+		{
+			"name":"075xspeed",
+			"value":"0.75倍速"
+		},
+		{
+			"name":"fullscreen",
+			"value":"\uDB82\uDCAD 横屏播放"
+		},
+		{
+			"name":"ImageFittitle",
+			"value":"视频缩放方式"
+		},
+		{
+			"name":"075xspeedyes",
+			"value":"已成功切换至0.75倍速播放"
+		},
+		{
+			"name":"Fill",
+			"value":"强制填充屏幕（拉伸以完全填满屏幕）"
+		},
+		{
+			"name":"Fillyes",
+			"value":"当前缩放模式为：强制填充屏幕，表示内容会拉伸以完全填满屏幕，可能会导致画面变形（宽高比失真），但不会有黑边或裁剪。 ⌯･ᴗ･⌯ಣ"
+		},
+		{
+			"name":"Auto",
+			"value":"自适应（根据显示区域自动调整缩放比例）"
+		},
+		{
+			"name":"Autoyes",
+			"value":"当前缩放模式为：自适应，表示内容会根据显示区域自动调整缩放比例，通常会在保持比例和填充屏幕之间取得平衡，以适配不同分辨率或屏幕尺寸。 ⌯ᕑᗢᓫ⌯ಣ"
+		},
+		{
+			"name":"Contain",
+			"value":"保持比例（按照原始宽高比进行缩放）"
+		},
+		{
+			"name":"Containyes",
+			"value":"当前缩放模式：保持比例，表示内容会按照原始宽高比进行缩放，以适应显示区域，不会拉伸或变形，但可能会有黑边或留白。 ⌯˃ ᵕ ˂⌯ಣ"
+		},
+		{
+			"name":"Cover",
+			"value":"\uDB80\uDC09 比例放大填充（按原始比例放大以填满显示区域）"
+		},
+		{
+			"name":"Coveryes",
+			"value":"\uDB80\uDC09 当前缩放模式为：比例放大填充，意味着画面会按原始比例放大以填满显示区域，可能会裁剪部分边缘内容，但不会变形。 ⌯>ᴗo⌯ಣ"
+		},
+		{
+			"name":"nowplaying",
+			"value":"当前播放的视频链接"
+		},
+		{
+			"name":"pick",
+			"value":"\uDB81\uDCE5 选图"
+		},
+		{
+			"name":"takephotos",
+			"value":"使用本机拍照 ៷>ᴗ<៷"
+		},
+		{
+			"name":"pickphotos",
+			"value":"选取本机图片꒰⑅•ᴗ•⑅꒱"
+		},
+		{
+			"name":"and",
+			"value":"和"
+		},
+		{
+			"name":"copyright",
+			"value":"版权所有 © 2025 保留一切权利"
+		},
+		{
+			"name":"mineunder",
+			"value":"前往下载AppTest"
+		},
+		{
+			"name":"expagetitle",
+			"value":"嘘！不要告诉别人哦~ > < "
+		},
+		{
+			"name":"exunder",
+			"value":"前往MeoW订阅时事推送"
+		},
+		{
+			"name":"infopagetitle",
+			"value":"设备信息 > < "
+		}
+	,{
+      "name": "widget_desc",
+      "value": "This is a service widget."
+    },{
+      "name": "widget_display_name",
+      "value": "widget"
+    }]
 }

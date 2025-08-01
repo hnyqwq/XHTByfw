@@ -1,8 +1,6 @@
 /**
  * This file is not modifiable. This file will be reset when a new card is generated.
  */
-
-/*
 import dataRdb from '@ohos.data.relationalStore';
 import { formDbInfoArray } from '../../formsetting/formdbsetting/formdbinfo/Index';
 
@@ -12,13 +10,10 @@ export const STORE_CONFIG: dataRdb.StoreConfig = {
   name: DB_NAME,
   securityLevel: dataRdb.SecurityLevel.S1
 } as dataRdb.StoreConfig;
-*/
 
 /**
  * db table column info.
  */
-
-/*
 export class ColumnInfo {
   name: string;
   type: string;
@@ -135,4 +130,4 @@ function saveData(dbStore: dataRdb.RdbStore, tableName: string, values: Array<da
   }).catch((err: Error) => {
     callback(err);
   })
-}*/
+}

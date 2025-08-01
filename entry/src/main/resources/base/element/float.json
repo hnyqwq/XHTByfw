@@ -2,7 +2,7 @@
   "float": [
     {
       "name": "stroke_width",
-      "value": "0.5"
+      "value": "2"
     },
     {
       "name": "opacity",
@@ -12,5 +12,8 @@
       "name": "safe_area_bottom",
       "value": "100vp"
     }
-  ]
+  ,{
+      "name": "font_size",
+      "value": "14fp"
+    }]
 }
