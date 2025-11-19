@@ -106,30 +106,6 @@ export struct HomePage {
     })
   }
 
-  //碰一碰分享
-  private readonly cardSwiperResources: CardRes[] = [
-    {
-      text: '对方手机需 HarmonyOS 5 及以上版本。',
-      rawfilePrefix: 'knock_share_guide/knock_share_guide_phone_',
-      framesCount: 128,
-      startDelay: 50,
-      stopDelay: 500,
-    },
-    {
-      text: '对方电脑需 HarmonyOS 6 及以上版本。',
-      rawfilePrefix: 'knock_share_guide/knock_share_guide_pc_',
-      framesCount: 104,
-      startDelay: 50,
-      stopDelay: 50,
-    },
-    {
-      text: '对方手机需 HarmonyOS 6 及以上版本。',
-      rawfilePrefix: 'knock_share_guide/knock_share_guide_pc_pull_',
-      framesCount: 150,
-      startDelay: 500,
-      stopDelay: 1000,
-    },
-  ];
   private debounceTimer: number = 0
 
   // 修改 handleImageUpdate 方法
@@ -325,8 +301,6 @@ export struct HomePage {
               .fontColor($r('sys.color.font_secondary'))
               .fontFamily('HarmonyHeiTi')
               .textAlign(TextAlign.Center)
-            KnockShareGuideCard({ cardSwiperResources: this.cardSwiperResources })
-              .padding({ top: 2 })
 
             /*Text(this.myFileName)
               .focusable(true)
