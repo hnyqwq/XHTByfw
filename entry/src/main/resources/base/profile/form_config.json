@@ -1,7 +1,7 @@
 {
   "forms": [
     {
-      "name": "sa",
+      "name": "startApp",
       "description": "Click to start app",
       "src": "./ets/sa/pages/sa.ets",
       "uiSyntax": "arkts",

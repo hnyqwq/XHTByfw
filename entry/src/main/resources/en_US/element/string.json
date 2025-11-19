@@ -10,7 +10,7 @@
     },
     {
       "name":"EntryAbility_label",
-      "value":"hvideo"
+      "value":"Xinghe Tool Box"
     },
     {
       "name":"servicecollabutton",
@@ -42,35 +42,35 @@
     },
     {
       "name": "shareinfo",
-      "value": "Share Video Link"
+      "value": "Share text or Link"
     },
     {
       "name": "pengyipeng_title",
-      "value": "Share Video Link"
+      "value": "Share text or Link"
     },
     {
       "name": "pengyipeng_description",
-      "value": "hvideo · Tap to Transfer"
+      "value": "星河工具盒 · Tap to Transfer"
     },
     {
       "name": "gekong_description",
-      "value": "hvideo · AI Air Transfer Sharing"
+      "value": "星河工具盒 · AI Air Transfer Sharing"
     },
     {
       "name":"nopeng",
-      "value":"It seems there’s no video to share at the moment. ⪩ ⪨"
+      "value": "It seems there's no text or link to share at the moment. ⪩ ⪨"
     },
     {
       "name":"aboutpage",
-      "value":"About"
+      "value":"Mine"
     },
     {
       "name":"Home",
-      "value":"Video"
+      "value": "Tools"
     },
     {
       "name":"Second",
-      "value":"OCR"
+      "value":"Tools"
     },
     {
       "name":"Mine",
@@ -86,11 +86,15 @@
     },
     {
       "name":"linkinput",
-      "value":"\uDB80\uDDDB Enter video link"
+      "value":"\uDB80\uDDDB Enter text or link"
     },
     {
       "name":"share",
-      "value":"\uDB80\uDC3D"
+      "value":"\uDB80\uDC3D Use System Share Menu"
+    },
+    {
+      "name":"sharesuccess",
+      "value":"Sharing initiated successfully! Currently sharing:"
     },
     {
       "name":"play",
@@ -102,7 +106,7 @@
     },
     {
       "name":"noplay",
-      "value":"Please enter the video link ⪩ ⪨"
+      "value":"Please enter the text or link ⪩ ⪨"
     },
     {
       "name":"paused",
@@ -110,11 +114,11 @@
     },
     {
       "name":"testinput",
-      "value":"\uDB81\uDC94 Use some test videos, just enter the name.e.g.,w/k/55/ay/bxqy/ctxn/dly/dsm/jzn/qxmst/ssy/y/ylzz/yzjt/sr/sq"
+      "value":"\uDB81\uDC94 Text or link to share"
     },
     {
       "name":"scancode",
-      "value":"\uDB80\uDC28\uDB80\uDD28"
+      "value":"\uDB80\uDC28\uDB80\uDD28 Scan QR Codes"
     },
     {
       "name":"downloaded",
@@ -209,12 +213,16 @@
       "value":"\uDB80\uDC09 Current scaling mode: Proportional Zoom / Fit to Fill (Aspect Ratio Zoom Fill) ⌯>ᴗo⌯ಣ"
     },
     {
+      "name":"nowplayingon",
+      "value":"Tap to Transfer is available"
+    },
+    {
       "name":"nowplaying",
-      "value":"The link to the currently playing video"
+      "value":"③Current scan results , texts or links pending sharing or processing."
     },
     {
       "name":"pick",
-      "value":"\uDB81\uDCE5 Pick"
+      "value":"\uDB80\uDD28 Create QRCode"
     },
     {
       "name":"takephotos",
@@ -246,7 +254,114 @@
     },
     {
       "name":"infopagetitle",
-      "value":"Device Info > < "
+      "value":"APP Info > < "
+    },
+    {
+      "name":"mine1",
+      "value":"APP info"
+    },
+    {
+      "name":"mine2",
+      "value":"Official website"
+    },
+    {
+      "name":"mine3",
+      "value":"Subscribe bilibili"
+    },
+    {
+      "name":"mine4",
+      "value":"Subscribe Douyin"
+    },
+    {
+      "name":"mine5",
+      "value":"Official Blog"
+    },
+    {
+      "name":"info1",
+      "value":"Model name"
+    },
+    {
+      "name":"info2",
+      "value":"Model number"
+    },
+    {
+      "name":"info3",
+      "value":"HarmonyOS version"
+    },
+    {
+      "name":"info4",
+      "value":"Serial number"
+    },
+    {
+      "name":"info5",
+      "value":"HarmonyOS"
+    },
+    {
+      "name":"choose",
+      "value":"Choose local photo"
+    },
+    {
+      "name":"appname",
+      "value":"Xinghe Tool Box"
+    },
+    {
+      "name":"appyhxy",
+      "value":"Xinghe Tool Box rules "
+    },
+    {
+      "name":"appysxy",
+      "value":" Service agreements"
+    },
+    {
+      "name":"speak",
+      "value":"Enter the text to be spoken"
+    },
+    {
+      "name":"qrcode",
+      "value":"Enter the text to generate a QR code"
+    },
+    {
+      "name":"sharepngon",
+      "value": "Photo link"
+    },
+    {
+      "name":"sharepng",
+      "value":"\uDB81\uDC94 Enter the direct link to the background image for sharing"
+    },
+    {
+      "name":"texton",
+      "value": "Create QR Code"
+    },{
+      "name": "local_image_selected",
+      "value": "Local image selected"
+    },
+    {
+      "name": "select_image_failed",
+      "value": "Select image failed"
+    },
+    {
+      "name": "share_failed",
+      "value": "Share failed"
+    },
+    {
+      "name": "pengtitleset",
+      "value": "Custom Sharing title"
+    },
+    {
+      "name": "minelongpress",
+      "value": "Go to APP"
+    },
+    {
+      "name": "ShareUIAbility_label",
+      "value": "Share link"
+    },
+    {
+      "name": "back",
+      "value": "Back"
+    },
+    {
+      "name": "toshare",
+      "value": "Go to app sharing"
     }
   ]
 }

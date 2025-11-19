@@ -10,7 +10,7 @@
 		},
 		{
 			"name":"EntryAbility_label",
-			"value":"hvideo"
+			"value":"Xinghe Tool Box"
 		},
 		{
 			"name":"servicecollabutton",
@@ -42,35 +42,35 @@
 		},
 		{
 			"name": "shareinfo",
-			"value": "视频链接分享"
+			"value": "文本/链接分享"
 		},
 		{
 			"name": "pengyipeng_title",
-			"value": "分享当前的视频链接"
+			"value": "分享当前的文本/链接"
 		},
 		{
 			"name": "pengyipeng_description",
-			"value": "hvideo · 碰一碰分享"
+			"value": "星河工具盒 · 碰一碰分享"
 		},
 		{
 			"name": "gekong_description",
-			"value": "hvideo · 隔空传送分享"
+			"value": "星河工具盒 · 隔空传送分享"
 		},
 		{
 			"name":"nopeng",
-			"value":"没有可以分享的视频链接 ⪩ ⪨"
+			"value":"没有可以分享的文本/链接 ⪩ ⪨"
 		},
 		{
 			"name":"aboutpage",
-			"value":"aboutpage"
+			"value":"我的"
 		},
 		{
 			"name":"Home",
-			"value":"主页"
+			"value": "工具"
 		},
 		{
 			"name":"Second",
-			"value":"OCR"
+			"value":"工具列表"
 		},
 		{
 			"name":"Mine",
@@ -90,7 +90,11 @@
 		},
 		{
 			"name":"share",
-			"value":"\uDB80\uDC3D"
+			"value":"\uDB80\uDC3D 使用系统分享"
+		},
+		{
+			"name":"sharesuccess",
+			"value":"发起分享成功！当前正在分享："
 		},
 		{
 			"name":"play",
@@ -102,7 +106,7 @@
 		},
 		{
 			"name":"noplay",
-			"value":"请输入视频链接 ⪩ ⪨"
+			"value":"请输入要分享的文本/视频链接 ⪩ ⪨"
 		},
 		{
 			"name":"paused",
@@ -110,11 +114,11 @@
 		},
 		{
 			"name":"testinput",
-			"value":"\uDB81\uDC94 使用测试视频，仅需输入名称，如w/k/55/ay/bxqy/ctxn/dly/dsm/jzn/qxmst/ssy/y/ylzz/yzjt/sr/sq"
+			"value":"\uDB81\uDC94 输入文本/链接"
 		},
 		{
 			"name":"scancode",
-			"value":"\uDB80\uDC28\uDB80\uDD28"
+			"value":"\uDB80\uDC28\uDB80\uDD28 扫码提取文本或链接，可复制"
 		},
 		{
 			"name":"downloaded",
@@ -209,12 +213,16 @@
 			"value":"\uDB80\uDC09 当前缩放模式为：比例放大填充，意味着画面会按原始比例放大以填满显示区域，可能会裁剪部分边缘内容，但不会变形。 ⌯>ᴗo⌯ಣ"
 		},
 		{
+			"name":"nowplayingon",
+			"value":"可碰一碰分享至 HarmonyOS 5 及以上版本手机"
+		},
+		{
 			"name":"nowplaying",
-			"value":"当前播放的视频链接"
+			"value":"③当前扫描的结果/待分享/待处理的文本或链接"
 		},
 		{
 			"name":"pick",
-			"value":"\uDB81\uDCE5 选图"
+			"value":"\uDB80\uDD28 生成二维码"
 		},
 		{
 			"name":"takephotos",
@@ -246,13 +254,426 @@
 		},
 		{
 			"name":"infopagetitle",
-			"value":"设备信息 > < "
+			"value":"软件信息 > < "
+		},
+		{
+			"name":"mine1",
+			"value":"软件信息"
+		},
+		{
+			"name":"mine2",
+			"value":"前往官网"
+		},
+		{
+			"name":"mine3",
+			"value":"关注哔哩哔哩"
+		},
+		{
+			"name":"mine4",
+			"value":"关注抖音"
+		},
+		{
+			"name":"mine5",
+			"value":"前往个人博客"
+		},
+		{
+			"name":"info1",
+			"value":"型号名称"
+		},
+		{
+			"name":"info2",
+			"value":"型号代码"
+		},
+		{
+			"name":"info3",
+			"value":"HarmonyOS 版本"
+		},
+		{
+			"name":"info4",
+			"value":"软件版本"
+		},
+		{
+			"name":"info5",
+			"value":"HarmonyOS"
+		},
+		{
+			"name":"choose",
+			"value":"选择图片"
+		},
+		{
+			"name":"appname",
+			"value":"星河工具盒"
+		},
+		{
+			"name":"appyhxy",
+			"value":"星河工具盒用户协议"
+		},
+		{
+			"name":"appysxy",
+			"value":"星河工具盒与隐私的声明"
+		},
+		{
+			"name":"speak",
+			"value":"输入需要朗读的文本"
+		},
+		{
+			"name":"qrcode",
+			"value":"输入需要生成二维码的文本"
+		},
+		{
+			"name":"sharepngon",
+			"value": "查看图片直链"
+		},
+		{
+			"name":"sharepng",
+			"value":"\uDB81\uDC94 输入分享的背景图片直链"
+		},
+		{
+			"name":"texton",
+			"value": "文本/链接生成二维码"
+		},{
+			"name": "local_image_selected",
+			"value": "已选择本地图片"
+		},
+		{
+			"name": "select_image_failed",
+			"value": "选择图片失败"
+		},
+		{
+			"name": "share_failed",
+			"value": "分享失败"
+		},
+		{
+			"name": "pengtitleset",
+			"value": "自定义分享标题"
+		},
+		{
+			"name": "minelongpress",
+			"value": "前往星河工具盒/云影工具屋APP"
+		},
+		{
+			"name": "ShareUIAbility_label",
+			"value": "分享链接"
+		},
+		{
+			"name": "back",
+			"value": "返回"
+		},
+		{
+			"name": "toshare",
+			"value": "前往APP分享"
+		},
+		{
+			"name": "ShareExtensionAbility_label",
+			"value": "分享链接"
+		},
+		{
+			"name": "page_title",
+			"value": "工具列表"
+		},
+		{
+			"name": "sub_title1",
+			"value": "常用工具"
+		},
+		{
+			"name": "sub_title2",
+			"value": "文本处理"
+		},
+		{
+			"name": "sub_title3",
+			"value": "网络"
+		},
+		{
+			"name": "sub_title4",
+			"value": "轻松娱乐"
+		},
+		{
+			"name": "sub_title5",
+			"value": "出行助手"
+		},
+		{
+			"name": "sub_title6",
+			"value": "拓展业务"
+		},
+		{
+			"name": "sub_title1_value1",
+			"value": "朗读&生成二维码"
+		},
+		{
+			"name": "sub_title1_value2",
+			"value": "网络认证工具"
+		},
+		{
+			"name": "sub_title1_value3",
+			"value": "航旅商城"
+		},
+		{
+			"name": "sub_title1_value4",
+			"value": "我的订单"
+		},
+		{
+			"name": "sub_title1_value5",
+			"value": "自助退票"
+		},
+		{
+			"name": "sub_title1_value6",
+			"value": "机票兑换"
+		},
+		{
+			"name": "sub_title1_value7",
+			"value": "我的行程"
+		},
+		{
+			"name": "sub_title2_value1",
+			"value": "朗读&生成二维码"
+		},
+		{
+			"name": "sub_title2_value2",
+			"value": "网络认证工具"
+		},
+		{
+			"name": "sub_title2_value3",
+			"value": "我的订单"
+		},
+		{
+			"name": "sub_title2_value4",
+			"value": "退改服务"
+		},
+		{
+			"name": "sub_title2_value5",
+			"value": "行李购买"
+		},
+		{
+			"name": "sub_title2_value6",
+			"value": "轻装出行"
+		},
+		{
+			"name": "sub_title2_value7",
+			"value": "贵宾休息室"
+		},
+		{
+			"name": "sub_title2_value8",
+			"value": "地面畅行"
+		},
+		{
+			"name": "sub_title2_value9",
+			"value": "礼品"
+		},
+		{
+			"name": "sub_title2_value10",
+			"value": "自助归票"
+		},
+		{
+			"name": "sub_title2_value11",
+			"value": "电子发票"
+		},
+		{
+			"name": "sub_title2_value12",
+			"value": "登机牌"
+		},
+		{
+			"name": "sub_title2_value13",
+			"value": "行李查询"
+		},
+		{
+			"name": "sub_title2_value14",
+			"value": "美食预定"
+		},
+		{
+			"name": "sub_title3_value1",
+			"value": "网络认证工具"
+		},
+		{
+			"name": "sub_title3_value2",
+			"value": "机场接送"
+		},
+		{
+			"name": "sub_title3_value3",
+			"value": "中转旅游"
+		},
+		{
+			"name": "sub_title4_value1",
+			"value": "我的家庭"
+		},
+		{
+			"name": "sub_title4_value2",
+			"value": "机票兑换"
+		},
+		{
+			"name": "sub_title4_value3",
+			"value": "积分补登"
+		},
+		{
+			"name": "sub_title4_value4",
+			"value": "积分乐园"
+		},
+		{
+			"name": "sub_title4_value5",
+			"value": "积分商城"
+		},
+		{
+			"name": "sub_title4_value6",
+			"value": "积分计算器"
+		},
+		{
+			"name": "sub_title5_value1",
+			"value": "我的家庭"
+		},
+		{
+			"name": "sub_title5_value2",
+			"value": "机票兑换"
+		},
+		{
+			"name": "sub_title5_value3",
+			"value": "积分补登"
+		},
+		{
+			"name": "sub_title5_value4",
+			"value": "积分乐园"
+		},
+		{
+			"name": "sub_title5_value5",
+			"value": "积分商城"
+		},
+		{
+			"name": "sub_title5_value6",
+			"value": "积分计算器"
+		},
+		{
+			"name": "sub_title6_value1",
+			"value": "外卖"
+		},
+		{
+			"name": "sub_title6_value2",
+			"value": "酒店预定"
+		},
+		{
+			"name": "sub_title6_value3",
+			"value": "游玩攻略"
+		},
+		{
+			"name": "sub_title6_value4",
+			"value": "开发票"
+		},
+		{
+			"name": "sub_title6_value5",
+			"value": "手机充值"
+		},
+		{
+			"name": "sub_title6_value6",
+			"value": "公益活动"
+		},
+		{
+			"name": "sub_title6_value7",
+			"value": "鲜花"
+		},
+		{
+			"name": "sub_title6_value8",
+			"value": "KTV"
+		},
+		{
+			"name": "sub_title7_value1",
+			"value": "外卖"
+		},
+		{
+			"name": "sub_title7_value2",
+			"value": "酒店预定"
+		},
+		{
+			"name": "sub_title7_value3",
+			"value": "游玩攻略"
+		},
+		{
+			"name": "sub_title7_value4",
+			"value": "开发票"
+		},
+		{
+			"name": "sub_title7_value5",
+			"value": "手机充值"
+		},
+		{
+			"name": "sub_title7_value6",
+			"value": "公益活动"
+		},
+		{
+			"name": "sub_title7_value7",
+			"value": "鲜花"
+		},
+		{
+			"name": "sub_title7_value8",
+			"value": "KTV"
+		},
+		{
+			"name": "sub_title8_value1",
+			"value": "外卖"
+		},
+		{
+			"name": "sub_title8_value2",
+			"value": "酒店预定"
+		},
+		{
+			"name": "sub_title8_value3",
+			"value": "游玩攻略"
+		},
+		{
+			"name": "sub_title8_value4",
+			"value": "开发票"
+		},
+		{
+			"name": "InternetMon",
+			"value": "请确保当前WIFI已连接需要认证的网络，当前正在尝试打开："
+		},
+		{
+			"name": "Internet1",
+			"value": "华为源\n华为默认跳转"
+		},
+		{
+			"name": "Internet2",
+			"value": "Microsoft源\nPC默认跳转"
+		},
+		{
+			"name": "Internet3",
+			"value": "Apple源\n苹果默认跳转"
+		},
+		{
+			"name": "Internet4",
+			"value": "Google源"
+		},
+		{
+			"name": "Internet5",
+			"value": "1.1.1.1"
+		},
+		{
+			"name": "Internet6",
+			"value": "测试链接情况\n打开网页"
+		},
+		{
+			"name": "Internet7",
+			"value": "测试链接情况\n播放视频"
+		},
+		{
+			"name": "Internet1success",
+			"value": "显示 404 Not Found 即表示已连接到互联网，否则会自动跳转登录页面"
+		},
+		{
+			"name": "Internet2success",
+			"value": "显示 空白界面 即表示已连接到互联网，否则会自动跳转登录页面"
+		},
+		{
+			"name": "Internetmsnsuccess",
+			"value": "显示 MSN主页 即表示已连接到互联网，否则会自动跳转登录页面"
+		},
+		{
+			"name": "Internetapplesuccess",
+			"value": "显示 空白界面或Success 即表示已连接到互联网，否则会自动跳转登录页面"
+		},
+		{
+			"name": "Internet3success",
+			"value": "打开 版本说明>所有HarmonyOS版本 即表示已连接到互联网，否则会无法打开"
+		},
+		{
+			"name": "Internetselfsuccess",
+			"value": "自动播放intro视频 即表示已连接到互联网，否则会无法播放"
 		}
-	,{
-      "name": "widget_desc",
-      "value": "This is a service widget."
-    },{
-      "name": "widget_display_name",
-      "value": "widget"
-    }]
+	]
 }

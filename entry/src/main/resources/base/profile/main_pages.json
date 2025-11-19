@@ -3,7 +3,6 @@
     "pages/Index",
     "pages/HomePage",
     "pages/MinePage",
-    "pages/exPage",
     "pages/infoPage"
   ]
 }

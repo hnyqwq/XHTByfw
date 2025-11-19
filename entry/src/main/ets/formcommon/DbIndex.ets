@@ -1,4 +1,5 @@
-import { createDbInsertData } from './utils/dbutils/RdbUtils'
+import { FormDbUpdate } from './utils/dbutils/FormDbUpdate'
 
-export {  createDbInsertData
+export {
+  FormDbUpdate
 }

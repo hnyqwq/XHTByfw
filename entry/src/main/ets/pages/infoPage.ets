@@ -1,64 +1,21 @@
-import { common, Want } from '@kit.AbilityKit';
-import { BusinessError } from '@kit.BasicServicesKit';
 import router from '@ohos.router';
 
 import { deviceInfo } from '@kit.BasicServicesKit';
 
-import userAuth from '@ohos.userIAM.userAuth';
-import { promptAction } from '@kit.ArkUI';
-
-const TAG = 'User_Auth';
-
-let deviceTypeInfo: string = deviceInfo.deviceType;
-// 输出结果：the value of the deviceType is :wearable
-console.info('the value of the deviceType is :' + deviceTypeInfo);
-
-let brandInfo: string = deviceInfo.brand;
-// 输出结果：the value of the brand is :HUAWEI
-console.info('the value of the device brand is :' + brandInfo);
-
 let productModelInfo: string = deviceInfo.productModel;
 // 输出结果：the value of the productModel is :TAS-AL00
 console.info('the value of the deviceInfo productModel is :' + productModelInfo);
-
-let productModelAliasInfo: string = deviceInfo.productModelAlias;
-console.info('the value of the deviceInfo productModelAlias is :' + productModelAliasInfo);
-
-let osFullNameInfo: string = deviceInfo.osFullName;
-// 输出结果：the value of the osFullName is :OpenHarmony-5.0.0.1
-console.info('the value of the deviceInfo osFullName is :' + osFullNameInfo);
-
-let sdkApiVersionInfo: number = deviceInfo.sdkApiVersion;
-// 输出结果：the value of the sdkApiVersion is :12
-console.info('the value of the deviceInfo sdkApiVersion is :' + sdkApiVersionInfo);
 
 @Observed
   //设置条目信息构造
 class FirstMenu {
   public uri?: string;
   public id: string; // 唯一id
-  public title: string; // 标题文本
+  public title: Resource; // 标题文本
   public text: string; // 菜单文本
   public des: Resource; //后缀文本
 
-  constructor(id: string, title: string, text: string, des: Resource) {
-    this.id = id;
-    this.title = title;
-    this.text = text;
-    this.des = des;
-  }
-}
-
-@Observed
-  //设置条目信息构造
-class SecondMenu {
-  public uri?: string;
-  public id: string; // 唯一id
-  public title: string; // 标题文本
-  public text: string; // 菜单文本
-  public des: Resource; //后缀文本
-
-  constructor(id: string, title: string, text: string, des: Resource) {
+  constructor(id: string, title: Resource, text: string, des: Resource) {
     this.id = id;
     this.title = title;
     this.text = text;
@@ -75,59 +32,59 @@ export struct infoPage {
   topRectHeight: number = 0;
   //设置条目信息数组
   @State FirstMenuGroup: FirstMenu[] = [
-    //new FirstMenu('one', '型号名称', marketNameInfo, $r('app.string.void')),
-    new FirstMenu('two', '型号代码', productModelInfo, $r('app.string.void')),
-    //new FirstMenu('three', 'HarmonyOS 版本',distributionOSVersion, $r('app.string.void')),
-    //new FirstMenu('four', '软件版本',fullVersionsr, $r('app.string.void')),
-  //new FirstMenu('five', '序列号', '前往个人博客', $r('app.string.void'))
+    new FirstMenu('two', $r('app.string.info2'), productModelInfo, $r('app.string.void')),
   ];
-  @State SecondMenuGroup: SecondMenu[] = [
-    //new SecondMenu('one', '型号名称', marketNameInfo, $r('app.string.void')),
-    new SecondMenu('two', '型号代码', productModelInfo, $r('app.string.void')),
-    //new SecondMenu('three', 'HarmonyOS 版本', distributionOSVersion, $r('app.string.void')),
-    //new SecondMenu('four', '软件版本', fullVersionsr, $r('app.string.void')),
-  //new SecondMenu('five', '序列号', '前往个人博客', $r('app.string.void'))
-  ];
-  @State message: string = '用户认证'
-  @State userAuthResult?: userAuth.UserAuthResult = undefined
 
   build() {
     Scroll() {
       Column() {
-        Navigation() {
+        Column() {
+          Row()
+          {
+            Text('󰃚') // 自定义返回图标
+              .fontSize(35)
+              .margin({ left: 20 }) // 左侧留白
+              .onClick(() => {
+                  router.back();
+                })
+            Text($r('app.string.infopagetitle'))
+              .fontSize(20)
+              .fontColor($r('app.color.font_color_info'))
+              .fontWeight(FontWeight.Bold)
+              //.layoutWeight(1)  // 占据剩余空间
+              .position({ x: '50%', y: '2.5%' }) // 基于组件自身宽高定位
+              .translate({ x: '-50%', y: '-50%' }) // 偏移补偿
+          }
+          .width('100%')          // 占满父容器宽度
+          .justifyContent(FlexAlign.Start) // 主轴线左对齐
+        }
+        .padding({ bottom: 20 })
           Stack() {
             Row() {
               Image($r('app.media.harmonyos'))
-                .width('1100px')
+                //.width('1100px')
                 .height('1500px')
+                .width('90%')
+                .margin({ left: '5%', right: '5%' })
                 .margin({ bottom: '3%' }) // 图片下方留白
             }
             .clip(true) // 如这里不设置clip为true，则Row组件的圆角不会限制其中的Image组件，Image组件的四个角会超出Row
             .borderRadius(20)
 
-            Button('检查更新')
-            //.type(ButtonType.Capsule)
-              .width('50%')
-              .height(40)
-              .margin({ top: 220 })
-              .onClick(() => {
-                promptAction.showToast({ message: '切，让你点到爽 (ᗜ ˰ ᗜ)' });
-              })
-
             Column() {
-              Image($r('app.media.startIcon'))
+              Image($r('app.media.CIcon'))
                 .width(60)
                 .height(60)
-              /*Text('hvideo')
+              /*Text(versionSegsr)
                 .fontWeight(700)
                 .fontSize('16fp')
                 .margin({ top: 10 })*/
-              /*Text(versionSegsr)
+              Text('1.6.0.0（10600000）')
                 .fontWeight(600)
                 .fontSize('20fp')
                 .margin({ top: 10 })
                 .opacity(0.7)
-                .fontColor($r('app.color.version_color_182431'))*/
+                .fontColor($r('app.color.version_color_182431'))
             }
             .alignItems(HorizontalAlign.Center)
 
@@ -161,7 +118,7 @@ export struct infoPage {
               top: $r('app.integer.layout_size_12'), // 增加顶部间距
               bottom: $r('app.integer.layout_size_12')
             })
-            .backgroundColor($r('app.color.color_info'));
+            .backgroundColor($r('app.color.info'));
 
             /*Row() {
               List() {
@@ -191,22 +148,24 @@ export struct infoPage {
           .layoutWeight(1);
 
           Column() {
-            Text($r('app.string.copyright'))
+            Text($r('app.string.appname'))
               .fontSize(12);
+            Text('com.atomicservice.6917580573298834443')
+              .fontSize(12);
+            /*Text($r('app.string.copyright'))
+              .fontSize(12);*/
           }
           .width('100%')
-          .height(60);
-        }
-        .height('100%')
-        .title($r('app.string.infopagetitle'))
-        .titleMode(NavigationTitleMode.Mini)
-        //.backgroundColor($r('app.color.listColor'))
-        .backgroundColor($r('app.color.start_window_background'))
-        .padding({ top: 50 })
+          .height(60)
+          .alignItems(HorizontalAlign.Center)
       }
+      .width('100%')
+      .height('100%')
+      //.backgroundColor($r('app.color.start_window_background'))
+      .padding({ top: 10 }) // 为标题栏留出空间
     }
-    .scrollable(ScrollDirection.Vertical) // 设置垂直滚动方向
-    .height('100%') // 必须设置高度为100%以撑满父容器
+    .scrollable(ScrollDirection.Vertical)
+    .height('100%')
   }
 }
 

@@ -1,112 +1,107 @@
+import { actionCreate, actionNewWant, actionWindowStageCreate } from '../formcommon/formsetting/FormAction';
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { router } from '@kit.ArkUI';
-import { url } from '@kit.ArkTS';
+//接续
+import Logger from '../utils/Loggerr';
+
+const TAG: string = 'EntryAbility';
+const DOMAIN_NUMBER: number = 0xFF00;
 
 export default class EntryAbility extends UIAbility {
+  private selectPage: string = '';
+  private currentWindowStage: window.WindowStage | null = null;
+  storage: LocalStorage = new LocalStorage();
+  private want: Want | undefined = undefined;
+  private launchParam: AbilityConstant.LaunchParam | undefined = undefined;
+
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    /**
-     * This is the automatically generated code for the logic of card interactions.
-     * Used to card action.
-     */
+    this.want = want;
+    this.launchParam = launchParam;
+    actionCreate(want);
+    //接续
+    this.storage.setOrCreate('networkVideoSrc', 'default_url');
+    // 初始化 networkVideoSrc
+    this.storage.setOrCreate('networkVideoSrc', 'default_url');
+    // 在页面加载时显式检查
+    if (!this.storage.get('networkVideoSrc')) {
+      hilog.error(DOMAIN_NUMBER, TAG, 'Invalid video URL detected');
+    }
+    // 处理分享链接（AppLinking/碰一碰）
+    const receivedLink = want.parameters?.['link'] || want.uri;
+    if (receivedLink) {
+      AppStorage.setOrCreate<string>('sharedVideoUrl', receivedLink.toString());
+    }
 
-    /**
-     * This is the automatically generated code for the logic of card interactions.
-     * Used to create a database and insert update card data.
-     */
-    //createDbInsertData(this.context)
-
-
-    hilog.info(0x0001, '[Scan Access]', 'Ability onCreate');
-
-    // 处理扫码结果
+    // 原有扫码逻辑保留
     let uri = want?.uri;
     if (uri) {
-      try {
-        // 解析URL
-        let urlObject = url.URL.parseURL(uri);
-        if (!urlObject) {
-          throw new Error('Invalid URL format');
-        }
-
-        // 传递扫码结果
+      setTimeout(() => {
         router.pushUrl({
-          url: 'pages/Index',
+          url: 'pages/Index', // 确保跳转到正确的页面
           params: {
             videoUrl: uri,
             source: 'scan'
           }
+        }).catch((e: BusinessError) => {
+          console.error('扫码路由跳转失败', e);
         });
-
-        hilog.info(0x0001, '[Scan Access]', `Processed scan result: ${uri}`);
-      } catch (error) {
-        hilog.error(0x0001, '[Scan Access]',
-          `Failed to process scan result: ${error.message}`);
-      }
+      }, 100);
     }
 
-    //createDbInsertData(this.context);
+    // 保留原有逻辑
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
+    hilog.info(DOMAIN_NUMBER, TAG, `Ability onCreate: ${JSON.stringify(want?.parameters)}`);
+    if (want?.parameters?.params) {
+      // want.parameters.params 对应 postCardAction() 中 params 内容
+      let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
+      this.selectPage = params.targetPage as string;
+      hilog.info(DOMAIN_NUMBER, TAG, `onCreate selectPage: ${this.selectPage}`);
+    }
+    this.context.eventHub.emit('urlUpdate', receivedLink)
+
+    //快捷方式的快速打开页面跳转
+    if (want.parameters?.ShortCutPage) {
+      setTimeout(() => {
+        if (want.parameters && want.parameters.ShortCutPage === 'infoPage') {
+          router.pushUrl({ url: 'pages/infoPage' })
+            .catch((e: BusinessError) => {
+              console.error('路由跳转失败', e);
+            });
+        }
+      }, 50);
+    }
   }
-// 热启动场景通过onNewWant回调获取码值信息
+
+  // 热启动场景通过onNewWant回调获取码值信息
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    /**
-     * This is the automatically generated code for the logic of card interactions.
-     * Used to card action.
-     */
-
-
-
-    hilog.info(0x0001, '[Scan Access]', 'Ability onNewWant');
-
-    // 处理扫码结果
-    let uri = want?.uri;
-    if (uri) {
-      try {
-        // 解析URL
-        let urlObject = url.URL.parseURL(uri);
-        if (!urlObject) {
-          throw new Error('Invalid URL format');
-        }
-
-        // 传递扫码结果
-        router.pushUrl({
-          url: 'pages/Index',
-          params: {
-            videoUrl: uri,
-            source: 'scan'
-          }
-        });
-
-        hilog.info(0x0001, '[Scan Access]', `Processed scan result: ${uri}`);
-      } catch (error) {
-        hilog.error(0x0001, '[Scan Access]',
-          `Failed to process scan result: ${error.message}`);
-      }
+    actionNewWant(want, this);
+    const receivedLink = want.parameters?.['link'] || want.uri;
+    if (receivedLink) {
+      AppStorage.setOrCreate<string>('sharedVideoUrl', receivedLink.toString());
+      // 触发页面刷新逻辑
+      this.currentWindowStage?.loadContent('pages/HomePage')
     }
-    //createDbInsertData(this.context);
+    // 保留原有逻辑
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
   }
+
   onDestroy(): void {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
   }
 
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    /**
-     * This is the automatically generated code for the logic of card interactions.
-     * Used to card action.
-     */
-// Main window is created, set main page for this ability
+    actionWindowStageCreate(windowStage);
+    // Main window is created, set main page for this ability
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
         return;
       }
-
       let windowClass: window.Window = windowStage.getMainWindowSync(); // 获取应用主窗口
       // 1. 设置窗口全屏
-      let isLayoutFullScreen = true;
+      /*let isLayoutFullScreen = true;
       windowClass.setWindowLayoutFullScreen(isLayoutFullScreen).then(() => {
         console.info('Succeeded in setting the window layout to full-screen mode.');
       }).catch((err: BusinessError) => {
@@ -124,15 +119,26 @@ export default class EntryAbility extends UIAbility {
         console.info('Succeeded in setting the navigation indicator to be invisible.');
       }).catch((err: BusinessError) => {
         console.error(`Failed to set the navigation indicator to be invisible. Code is ${err.code}, message is ${err.message}`);
-      });
-
-
+      });*/
+      //接续
+      if (!this.storage.get('networkVideoSrc')) {
+        Logger.warn(TAG, 'networkVideoSrc is empty!');
+      }
     });
+  }
+
+  async onContinue(wantParam: Record<string, Object>): Promise<AbilityConstant.OnContinueResult> {
+    const networkVideoSrc: string | null | undefined = this.storage.get('networkVideoSrc');
+    if (networkVideoSrc !== null && networkVideoSrc !== undefined) {
+      wantParam.networkVideoSrc = networkVideoSrc;
+    }
+    return AbilityConstant.OnContinueResult.AGREE;
   }
 
   onWindowStageDestroy(): void {
     // Main window is destroyed, release UI related resources
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+    this.currentWindowStage = null;
   }
 
   onForeground(): void {

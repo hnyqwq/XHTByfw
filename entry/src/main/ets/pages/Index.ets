@@ -19,18 +19,8 @@ export struct Index {
         icon: this.currentTabIndex === 0 ?
         $r('app.media.home_active') :
         $r('app.media.home'),
-        text: '主页'
+        text: $r('app.string.Home')
       })
-
-      // 第二个Tab（OCR页）
-      /*TabContent() {
-        SecondPage()
-      }.tabBar({
-        icon: this.currentTabIndex === 1 ?
-        $r('app.media.ocr_active') :
-        $r('app.media.ocr'),
-        text: '图片'
-      })*/
 
       // 第三个Tab
       TabContent() {
@@ -39,7 +29,7 @@ export struct Index {
         icon: this.currentTabIndex === 2 ?
         $r('app.media.mine_active') :
         $r('app.media.mine'),
-        text: '我的'
+        text: $r('app.string.Mine')
       })
     }
     .onChange((index: number) => {
@@ -47,6 +37,8 @@ export struct Index {
     })
     .width('100%')
     .height('100%')
-    .backgroundColor('#F5F5F5')
+    //.backgroundColor('#F5F5F5')
+    //.backgroundColor($r('app.color.listColor'));
+    //.backgroundColor($r('app.color.start_window_background'))
   }
 }
