@@ -5,6 +5,10 @@
       "value": "#F1F3F5"
     },
     {
+      "name": "barBackgroundColor",
+      "value": "#CCF1F3F5"
+    },
+    {
       "name": "font_color_00000",
       "value": "#0c000000"
     },
@@ -31,6 +35,10 @@
     {
       "name": "version_color_182431",
       "value": "#182431"
+    },
+    {
+      "name": "pengtitle",
+      "value": "#000000"
     },
     {
       "name": "mine",
@@ -75,6 +83,46 @@
     {
       "name": "tab_text_color_unselected",
       "value": "#E6000000"
+    },
+    {
+      "name": "comp_background_list_card",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "card_border_color",
+      "value": "#E0E0E0"
+    },
+    {
+      "name": "card_container_background",
+      "value": "#F5F5F5"
+    },
+    {
+      "name": "font_secondary",
+      "value": "#999999"
+    },
+    {
+      "name": "font_primary",
+      "value": "#182431"
+    },
+    {
+      "name": "icon_primary",
+      "value": "#007DFF"
+    },
+    {
+      "name": "page_background_gradient_end",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "back_button_light",
+      "value": "#000000"
+    },
+    {
+      "name": "back_button_dark",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "brand",
+      "value": "#0A59F7"
     }
   ]
 }

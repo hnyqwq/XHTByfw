@@ -1,12 +1,16 @@
+import { UsageTracker } from '../common/utils/UsageTracker';
+
 export class GridItemInfo {
   name: ResourceStr = '';
-  pageUrl: ResourceStr | string = ''; // 页面路径，可以是 ResourceStr 或 string
-  icon: Resource = $r('app.media.ic_grid_item_entrances_icon'); // 默认图标
+  pageUrl: string = '';
+  symbol?: Resource;
+  icon?: Resource;
 
-  constructor(name: ResourceStr, pageUrl: ResourceStr | string = '', icon: Resource = $r('app.media.ic_grid_item_entrances_icon')) {
+  constructor(name: ResourceStr, pageUrl: string = '', icon?: Resource, symbol?: Resource) {
     this.name = name;
     this.pageUrl = pageUrl;
     this.icon = icon;
+    this.symbol = symbol;
   }
 }
 
@@ -20,71 +24,81 @@ export class GridData {
   }
 }
 
-export const featureGridData: GridData = new GridData($r('app.string.sub_title1'),
-  [
-    new GridItemInfo($r('app.string.sub_title1_value1'), 'XHTB/ReadQR', $r('app.media.ic_swiper_grid_image2')),
-    new GridItemInfo($r('app.string.sub_title1_value2'), 'XHTB/Internet', $r('app.media.ic_swiper_grid_image7'))/*,
-    new GridItemInfo($r('app.string.sub_title1_value3'), 'pages/MinePage'),
-    new GridItemInfo($r('app.string.sub_title1_value4'), 'pages/infoPage'),
-    new GridItemInfo($r('app.string.sub_title1_value5'), 'XHTB/ReadQR'),
-    new GridItemInfo($r('app.string.sub_title1_value6')),
-    new GridItemInfo($r('app.string.sub_title1_value7'))*/
-  ]);
+const allToolItems: GridItemInfo[] = [
+  new GridItemInfo($r('app.string.sub_title2_value1'), 'XHTB/TextToSpeechPage', undefined, $r('sys.symbol.speaker_wave_2')),
+  new GridItemInfo($r('app.string.sub_title2_value2'), 'XHTB/QRCodePage', undefined, $r('sys.symbol.qrcode')),
+  new GridItemInfo($r('app.string.sub_title3_value1'), 'XHTB/Internet', undefined, $r('sys.symbol.wifi_router')),
+  new GridItemInfo($r('app.string.sub_title4_value1'), 'XHTB/TextTools/WordCountPage', undefined, $r('sys.symbol.doc_text')),
+  new GridItemInfo($r('app.string.sub_title4_value2'), 'XHTB/TextTools/EncryptPage', undefined, $r('sys.symbol.lock')),
+  new GridItemInfo($r('app.string.sub_title4_value3'), 'XHTB/TextTools/JsonFormatPage', undefined, $r('sys.symbol.list_square_bill')),
+        new GridItemInfo($r('app.string.sub_title5_value1'), 'XHTB/ImageTools/ImageCompressPage', undefined, $r('sys.symbol.arrow_down')),
+  new GridItemInfo($r('app.string.sub_title5_value2'), 'XHTB/ImageTools/ImageConvertPage', undefined, $r('sys.symbol.arrow_left_arrow_right')),
+  new GridItemInfo($r('app.string.sub_title5_value3'), 'XHTB/ImageTools/ImageInfoPage', undefined, $r('sys.symbol.info_circle')),
+        new GridItemInfo($r('app.string.sub_title6_value1'), 'XHTB/NetTools/IPQueryPage', undefined, $r('sys.symbol.wifi_6plus')),
+  new GridItemInfo($r('app.string.sub_title6_value2'), 'XHTB/NetTools/LatencyTestPage', undefined, $r('sys.symbol.clock')),
+  new GridItemInfo($r('app.string.sub_title6_value3'), 'XHTB/NetTools/HttpStatusPage', undefined, $r('sys.symbol.mobiledata')),
+  new GridItemInfo($r('app.string.sub_title7_value1'), 'XHTB/Utils/PasswordGeneratorPage', undefined, $r('sys.symbol.key')),
+  new GridItemInfo($r('app.string.sub_title7_value2'), 'XHTB/Utils/ColorPickerPage', undefined, $r('sys.symbol.paintbrush')),
+  new GridItemInfo($r('app.string.sub_title7_value3'), 'XHTB/Utils/StopwatchPage', undefined, $r('sys.symbol.stopwatch')),
+];
+
+const defaultFeatureItems: GridItemInfo[] = [
+  new GridItemInfo($r('app.string.sub_title1_value1'), 'XHTB/TextToSpeechPage', undefined, $r('sys.symbol.speaker_wave_2')),
+  new GridItemInfo($r('app.string.sub_title1_value2'), 'XHTB/QRCodePage', undefined, $r('sys.symbol.wifi_router')),
+];
+
+export function getFeatureGridDataByUsage(): GridData {
+  let tracker = UsageTracker.getInstance();
+  if (!tracker.hasAnyUsage()) {
+    return new GridData($r('app.string.sub_title1'), defaultFeatureItems);
+  }
+  let sorted = allToolItems.slice();
+  sorted.sort((a: GridItemInfo, b: GridItemInfo): number => {
+    let countA = tracker.getUsageCount(a.pageUrl);
+    let countB = tracker.getUsageCount(b.pageUrl);
+    return countB - countA;
+  });
+  let topItems: GridItemInfo[] = [];
+  for (let i = 0; i < sorted.length; i++) {
+    if (tracker.getUsageCount(sorted[i].pageUrl) > 0 && topItems.length < 4) {
+      topItems.push(sorted[i]);
+    }
+  }
+  if (topItems.length === 0) {
+    return new GridData($r('app.string.sub_title1'), defaultFeatureItems);
+  }
+  return new GridData($r('app.string.sub_title1'), topItems);
+}
+
+export const featureGridData: GridData = new GridData($r('app.string.sub_title1'), defaultFeatureItems);
 
 export const
   otherGridDataList: GridData[] = [
     new GridData($r('app.string.sub_title2'),
       [
-        new GridItemInfo($r('app.string.sub_title2_value1'), 'XHTB/ReadQR', $r('app.media.ic_swiper_grid_image2')),
-        /*new GridItemInfo($r('app.string.sub_title2_value2'), 'XHTB/Internet', $r('app.media.ic_swiper_grid_image7')),
-        new GridItemInfo($r('app.string.sub_title2_value3'), 'pages/MinePage'),
-        new GridItemInfo($r('app.string.sub_title2_value4'), 'pages/infoPage'),
-        new GridItemInfo($r('app.string.sub_title2_value5'), 'XHTB/ReadQR'),
-        new GridItemInfo($r('app.string.sub_title2_value6')),
-        new GridItemInfo($r('app.string.sub_title2_value7')),
-        new GridItemInfo($r('app.string.sub_title2_value8')),
-        new GridItemInfo($r('app.string.sub_title2_value9')),
-        new GridItemInfo($r('app.string.sub_title2_value10')),
-        new GridItemInfo($r('app.string.sub_title2_value11')),
-        new GridItemInfo($r('app.string.sub_title2_value12')),
-        new GridItemInfo($r('app.string.sub_title2_value13')),
-        new GridItemInfo($r('app.string.sub_title2_value14'))*/
-
-
-
+        new GridItemInfo($r('app.string.sub_title2_value1'), 'XHTB/TextToSpeechPage', undefined, $r('sys.symbol.speaker_wave_2')),
+        new GridItemInfo($r('app.string.sub_title2_value2'), 'XHTB/QRCodePage', undefined, $r('sys.symbol.qrcode')),
+        new GridItemInfo($r('app.string.sub_title4_value1'), 'XHTB/TextTools/WordCountPage', undefined, $r('sys.symbol.doc_text')),
+        new GridItemInfo($r('app.string.sub_title4_value2'), 'XHTB/TextTools/EncryptPage', undefined, $r('sys.symbol.lock')),
+        new GridItemInfo($r('app.string.sub_title4_value3'), 'XHTB/TextTools/JsonFormatPage', undefined, $r('sys.symbol.list_square_bill')),
       ]),
     new GridData($r('app.string.sub_title3'),
       [
-        new GridItemInfo($r('app.string.sub_title3_value1'), 'XHTB/Internet', $r('app.media.ic_swiper_grid_image7'))/*,
-        new GridItemInfo($r('app.string.sub_title3_value2'), 'XHTB/Internet', $r('app.media.ic_swiper_grid_image5')),
-        new GridItemInfo($r('app.string.sub_title3_value3'), 'pages/MinePage')*/
-      ]),
-
-    /*
-    new GridData($r('app.string.sub_title4'),
-      [
-        new GridItemInfo($r('app.string.sub_title4_value1'), 'pages/infoPage'),
-        new GridItemInfo($r('app.string.sub_title4_value2'), 'pages/ReadQR'),
-        new GridItemInfo($r('app.string.sub_title4_value3')),
-        new GridItemInfo($r('app.string.sub_title4_value4')),
-        new GridItemInfo($r('app.string.sub_title4_value5')),
-        new GridItemInfo($r('app.string.sub_title4_value6'))
+        new GridItemInfo($r('app.string.sub_title3_value1'), 'XHTB/Internet', undefined, $r('sys.symbol.wifi_router')),
+  new GridItemInfo($r('app.string.sub_title6_value1'), 'XHTB/NetTools/IPQueryPage', undefined, $r('sys.symbol.wifi_6plus')),
+        new GridItemInfo($r('app.string.sub_title6_value2'), 'XHTB/NetTools/LatencyTestPage', undefined, $r('sys.symbol.clock')),
+        new GridItemInfo($r('app.string.sub_title6_value3'), 'XHTB/NetTools/HttpStatusPage', undefined, $r('sys.symbol.mobiledata')),
       ]),
     new GridData($r('app.string.sub_title5'),
       [
-        new GridItemInfo($r('app.string.sub_title5_value1'), 'pages/DetailPage'),
-        new GridItemInfo($r('app.string.sub_title5_value2'), 'pages/HomePage'),
-        new GridItemInfo($r('app.string.sub_title5_value3'), 'pages/MinePage'),
-        new GridItemInfo($r('app.string.sub_title5_value4'), 'pages/infoPage'),
-        new GridItemInfo($r('app.string.sub_title5_value5'), 'pages/ReadQR'),
-        new GridItemInfo($r('app.string.sub_title5_value6'))]),
-    new GridData($r('app.string.sub_title6'), [
-      new GridItemInfo($r('app.string.sub_title6_value1')),
-      new GridItemInfo($r('app.string.sub_title6_value2')),
-      new GridItemInfo($r('app.string.sub_title6_value3')),
-      new GridItemInfo($r('app.string.sub_title6_value4')),
-      new GridItemInfo($r('app.string.sub_title6_value5')),
-      new GridItemInfo($r('app.string.sub_title6_value6')),
-      new GridItemInfo($r('app.string.sub_title6_value7')),
-      new GridItemInfo($r('app.string.sub_title6_value8'))]),*/
+  new GridItemInfo($r('app.string.sub_title5_value1'), 'XHTB/ImageTools/ImageCompressPage', undefined, $r('sys.symbol.arrow_down')),
+        new GridItemInfo($r('app.string.sub_title5_value2'), 'XHTB/ImageTools/ImageConvertPage', undefined, $r('sys.symbol.arrow_left_arrow_right')),
+        new GridItemInfo($r('app.string.sub_title5_value3'), 'XHTB/ImageTools/ImageInfoPage', undefined, $r('sys.symbol.info_circle')),
+      ]),
+    new GridData($r('app.string.sub_title7'),
+      [
+        new GridItemInfo($r('app.string.sub_title7_value1'), 'XHTB/Utils/PasswordGeneratorPage', undefined, $r('sys.symbol.key')),
+        new GridItemInfo($r('app.string.sub_title7_value2'), 'XHTB/Utils/ColorPickerPage', undefined, $r('sys.symbol.paintbrush')),
+        new GridItemInfo($r('app.string.sub_title7_value3'), 'XHTB/Utils/StopwatchPage', undefined, $r('sys.symbol.stopwatch')),
+      ]),
   ];

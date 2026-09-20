@@ -42,7 +42,7 @@
     },
     {
       "name": "page_title_height",
-      "value": "40vp"
+      "value": "60vp"
     },
     {
       "name": "page_title_left_margin",
@@ -143,6 +143,10 @@
     {
       "name": "grid_rows_gap_size",
       "value": "8vp"
+    },
+    {
+      "name": "list_friction",
+      "value": "0.6"
     }
   ]
 }

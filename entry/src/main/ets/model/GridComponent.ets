@@ -1,59 +1,59 @@
 import { GridData, GridItemInfo } from '../model/GridListDataSources';
-import { CommonConstants } from '../constants/CommonConstants';
 import GridItemComponent from './GridItemComponent';
 
 @Component
 export default struct GridComponent {
   @State gridData: GridData = new GridData('', []);
   @State isLastItem: boolean = false;
+  @Prop columns: number = 2;
+  @Prop itemH: number = 92;
+  @Prop iconSize: number = 24;
+  @Prop titleSize: number = 14;
+  @Prop showTitle: boolean = true;
+  @State gridWidth: number = 0;
+
+  // 拖拽分栏时宫格宽度变化，按宽度自适应列数（常用功能约 80vp/列，分类宫格约 130vp/列，2~4 列）
+  private getColumnsTemplate(): string {
+    if (this.gridWidth <= 0) {
+      return this.columns >= 4 ? '1fr 1fr 1fr 1fr' : '1fr 1fr';
+    }
+    const minCell = this.columns >= 4 ? 80 : 130;
+    const cols = Math.max(2, Math.min(4, Math.floor(this.gridWidth / minCell)));
+    return new Array(cols).fill('1fr').join(' ');
+  }
 
   build() {
     Column() {
-      Row() {
+      if (this.showTitle) {
         Text(this.gridData.groupName)
-          .fontSize($r('app.float.grid_title_font_size'))
-          .height($r('app.float.grid_title_height'))
+          .fontSize(this.titleSize)
           .fontWeight(FontWeight.Bold)
-          .margin({ top: $r('app.float.title_list_top_margin') })
+          .fontColor($r('app.color.font_primary'))
+          .margin({ top: 8, bottom: 6 })
+          .padding({ left: 16, right: 16 })
+          .width('100%')
       }
-      .padding({ left: $r('app.float.title_padding') })
-      .width(CommonConstants.FULL_PERCENT)
-      .justifyContent(FlexAlign.Start)
 
       Grid() {
-        ForEach(this.gridData.gridItemList, (item: GridItemInfo) => {
-          GridItemComponent({ itemName: item.name, pageUrl: item.pageUrl, itemImage: item.icon })
-        },(item:GridItemInfo,index:number)=>index+JSON.stringify(item))
+        ForEach(this.gridData.gridItemList, (item: GridItemInfo, index: number) => {
+          GridItem() {
+            GridItemComponent({ itemName: item.name, pageUrl: item.pageUrl, itemImage: item.icon, itemSymbol: item.symbol, cardHeight: this.itemH, glyphSize: this.iconSize })
+          }
+        }, (item: GridItemInfo, index: number) => index + JSON.stringify(item))
       }
-      .margin({
-        left: $r('app.float.grid_left_margin'),
-        right: $r('app.float.grid_right_margin'),
-        top: $r('app.float.grid_top_margin')
+      .columnsTemplate(this.getColumnsTemplate())
+      .onAreaChange((oldArea: Area, newArea: Area) => {
+        this.gridWidth = Number(newArea.width);
       })
-      .borderRadius($r('app.float.grid_border_radius'))
-      .padding($r('app.float.grid_padding_size'))
-      .height(this.getGridHeight())
-      .rowsGap($r('app.float.grid_rows_gap_size'))
-      .scrollBar(BarState.Off)
-      .columnsTemplate(CommonConstants.GRID_COLUMNS_TEMPLATE)
+      .margin({ left: 12, right: 12, bottom: 4 })
+      .borderRadius(16)
+      .padding({ top: 2, bottom: 2 })
       .backgroundColor($r('app.color.second'))
 
       if (this.isLastItem) {
         Blank()
-          .height(CommonConstants.FULL_PERCENT)
+          .height(20)
       }
     }
-  }
-
-  getGridHeight(): number {
-    //Grid height to be calculated
-    let gridHeight: number = 0;
-    //Total height of grid items in each row.
-    gridHeight += Math.ceil(this.gridData.gridItemList.length / 4) * 68;
-    //Total height of the intervals between grid items.
-    gridHeight += (Math.ceil(this.gridData.gridItemList.length / 4) - 1) * 8;
-    //Top and bottom margins of the grid
-    gridHeight += 12 * 2;
-    return gridHeight;
   }
 }

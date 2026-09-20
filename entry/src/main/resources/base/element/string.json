@@ -10,11 +10,7 @@
 		},
 		{
 			"name":"EntryAbility_label",
-			"value":"Xinghe Tool Box"
-		},
-		{
-			"name":"servicecollabutton",
-			"value":"Use remote device to insert images"
+			"value":"星河工具盒"
 		},
 		{
 			"name":"defaultForm_label",
@@ -33,20 +29,32 @@
 			"value":"JumpLabel"
 		},
 		{
-			"name":"ButtonA",
-			"value":"ButtonA"
-		},
-		{
 			"name":"ButtonB",
 			"value":"ButtonB"
 		},
 		{
 			"name": "shareinfo",
-			"value": "文本/链接分享"
+			"value": "链接分享"
 		},
 		{
 			"name": "pengyipeng_title",
-			"value": "分享当前的文本/链接"
+			"value": "分享当前的链接"
+		},
+		{
+			"name": "share_text_title",
+			"value": "分享当前的文本"
+		},
+		{
+			"name": "share_image_title",
+			"value": "分享当前的图片"
+		},
+		{
+			"name": "share_video_title",
+			"value": "分享当前的视频"
+		},
+		{
+			"name": "share_file_title",
+			"value": "分享当前的文件"
 		},
 		{
 			"name": "pengyipeng_description",
@@ -57,16 +65,8 @@
 			"value": "星河工具盒 · 隔空传送分享"
 		},
 		{
-			"name":"nopeng",
-			"value":"没有可以分享的文本/链接 ⪩ ⪨"
-		},
-		{
-			"name":"aboutpage",
-			"value":"我的"
-		},
-		{
 			"name":"Home",
-			"value": "工具"
+			"value":"分享预览"
 		},
 		{
 			"name":"Second",
@@ -85,40 +85,24 @@
 			"value":"控制栏已隐藏 ⌯>₃<⌯ಣ"
 		},
 		{
-			"name":"linkinput",
-			"value":"linkinput"
-		},
-		{
 			"name":"share",
 			"value":"\uDB80\uDC3D 使用系统分享"
 		},
 		{
-			"name":"sharesuccess",
-			"value":"发起分享成功！当前正在分享："
-		},
-		{
-			"name":"play",
-			"value":"\uDB80\uDCB4/\uDB80\uDCB1"
-		},
-		{
-			"name":"playing",
-			"value":"正在播放视频... ᜊ•ᴗ•ᜊ"
-		},
-		{
-			"name":"noplay",
-			"value":"请输入要分享的文本/视频链接 ⪩ ⪨"
-		},
-		{
-			"name":"paused",
-			"value":"按暂停了喵 QAQ"
-		},
-		{
 			"name":"testinput",
-			"value":"\uDB81\uDC94 输入文本/链接"
+			"value": "\uDB81\uDC94 请输入要分享的链接"
 		},
 		{
-			"name":"scancode",
-			"value":"\uDB80\uDC28\uDB80\uDD28 扫码提取文本或链接，可复制"
+			"name":"scancodelinkpad",
+			"value": "\uDB80\uDC28\uDB80\uDD28 从二维码提取链接"
+		},
+		{
+			"name":"scancodelink",
+			"value": "\uDB80\uDC28 扫码提取链接"
+		},
+		{
+			"name":"textinput",
+			"value": "\uDB81\uDC94 请输入要分享的文本"
 		},
 		{
 			"name":"downloaded",
@@ -129,100 +113,76 @@
 			"value":"\uDB80\uDC6D 从剪贴板粘贴成功！！！"
 		},
 		{
-			"name":"speedtitle",
-			"value":"倍速"
-		},
-		{
-			"name":"1xspeed",
-			"value":"1倍速（原速）"
-		},
-		{
-			"name":"1xspeedyes",
-			"value":"已成功切换至1倍速播放"
-		},
-		{
-			"name":"125xspeed",
-			"value":"1.25倍速"
-		},
-		{
-			"name":"125xspeedyes",
-			"value":"已成功切换至1.25倍速播放"
-		},
-		{
-			"name":"175xspeed",
-			"value":"1.75倍速"
-		},
-		{
-			"name":"175xspeedyes",
-			"value":"已成功切换至1.75倍速播放"
-		},
-		{
-			"name":"2xspeed",
-			"value":"2倍速"
-		},
-		{
-			"name":"2xspeedyes",
-			"value":"已成功切换至2倍速播放"
-		},
-		{
-			"name":"075xspeed",
-			"value":"0.75倍速"
-		},
-		{
-			"name":"fullscreen",
-			"value":"\uDB82\uDCAD 横屏播放"
-		},
-		{
-			"name":"ImageFittitle",
-			"value":"视频缩放方式"
-		},
-		{
-			"name":"075xspeedyes",
-			"value":"已成功切换至0.75倍速播放"
-		},
-		{
-			"name":"Fill",
-			"value":"强制填充屏幕（拉伸以完全填满屏幕）"
-		},
-		{
-			"name":"Fillyes",
-			"value":"当前缩放模式为：强制填充屏幕，表示内容会拉伸以完全填满屏幕，可能会导致画面变形（宽高比失真），但不会有黑边或裁剪。 ⌯･ᴗ･⌯ಣ"
-		},
-		{
-			"name":"Auto",
-			"value":"自适应（根据显示区域自动调整缩放比例）"
-		},
-		{
-			"name":"Autoyes",
-			"value":"当前缩放模式为：自适应，表示内容会根据显示区域自动调整缩放比例，通常会在保持比例和填充屏幕之间取得平衡，以适配不同分辨率或屏幕尺寸。 ⌯ᕑᗢᓫ⌯ಣ"
-		},
-		{
-			"name":"Contain",
-			"value":"保持比例（按照原始宽高比进行缩放）"
-		},
-		{
-			"name":"Containyes",
-			"value":"当前缩放模式：保持比例，表示内容会按照原始宽高比进行缩放，以适应显示区域，不会拉伸或变形，但可能会有黑边或留白。 ⌯˃ ᵕ ˂⌯ಣ"
-		},
-		{
-			"name":"Cover",
-			"value":"\uDB80\uDC09 比例放大填充（按原始比例放大以填满显示区域）"
-		},
-		{
-			"name":"Coveryes",
-			"value":"\uDB80\uDC09 当前缩放模式为：比例放大填充，意味着画面会按原始比例放大以填满显示区域，可能会裁剪部分边缘内容，但不会变形。 ⌯>ᴗo⌯ಣ"
-		},
-		{
 			"name":"nowplayingon",
-			"value":"可碰一碰分享至 HarmonyOS 5 及以上版本手机"
+			"value":"碰一碰分享需手机参与，支持与手机、PC/2in1、部分平板互碰，平板与平板、电脑与平板、电脑与电脑之间暂不支持。"
 		},
 		{
-			"name":"nowplaying",
-			"value":"③当前扫描的结果/待分享/待处理的文本或链接"
+			"name": "can_knock_share",
+			"value": "可碰一碰分享"
+		},
+		{
+			"name": "phone_can_knock_share",
+			"value": "手机间可碰一碰分享"
+		},
+		{
+			"name": "pc_can_knock_share",
+			"value": "电脑可碰一碰分享"
+		},
+		{
+			"name": "phone_to_pc_can_knock_share",
+			"value": "手机→电脑/部分平板可碰一碰分享"
+		},
+		{
+			"name": "pc_to_phone_can_knock_share",
+			"value": "电脑/部分平板→手机可碰一碰分享"
+		},
+		{
+			"name": "knock_guide_phone_hos5",
+			"value": "手机需 HarmonyOS 5 及以上版本。"
+		},
+		{
+			"name": "knock_guide_pc_hos6",
+			"value": "电脑需 HarmonyOS 6 及以上版本。\n平板需 HarmonyOS 7 及以上版本。"
+		},
+		{
+			"name": "knock_guide_phone_hos6",
+			"value": "电脑需 HarmonyOS 6 及以上版本。\n平板需 HarmonyOS 7 及以上版本。"
+		},
+		{
+			"name": "newyear_card_spring_festival",
+			"value": "春节放假安排"
+		},
+		{
+			"name": "newyear_card_lantern_festival",
+			"value": "了解元宵节"
+		},
+		{
+			"name": "newyear_card_2024_gala",
+			"value": "回看2024春晚"
+		},
+		{
+			"name": "newyear_card_2025_gala",
+			"value": "回看2025春晚"
+		},
+		{
+			"name": "newyear_quick_share_title",
+			"value": "🎉 2026新年快乐！点击可快速分享："
+		},
+		{
+			"name": "segment_knock_preview",
+			"value": "碰一碰传送预览"
+		},
+		{
+			"name": "segment_air_preview",
+			"value": "隔空传送预览"
+		},
+		{
+			"name":"createqrcode",
+			"value":"\uDB80\uDD28 生成二维码"
 		},
 		{
 			"name":"pick",
-			"value":"\uDB80\uDD28 生成二维码"
+			"value":"\uDB81\uDCE5 Pick"
 		},
 		{
 			"name":"takephotos",
@@ -238,31 +198,19 @@
 		},
 		{
 			"name":"copyright",
-			"value":"版权所有 © 2025 保留一切权利"
-		},
-		{
-			"name":"mineunder",
-			"value":"前往下载AppTest"
-		},
-		{
-			"name":"expagetitle",
-			"value":"嘘！不要告诉别人哦~ > < "
-		},
-		{
-			"name":"exunder",
-			"value":"前往MeoW订阅时事推送"
+			"value":"版权所有 © 2025-2026 保留一切权利"
 		},
 		{
 			"name":"infopagetitle",
-			"value":"软件信息 > < "
+			"value":"软件设置与信息 > < "
 		},
 		{
 			"name":"mine1",
-			"value":"软件信息"
+			"value": "软件设置与信息"
 		},
 		{
 			"name":"mine2",
-			"value":"前往官网"
+          "value": "加入邀请测试"
 		},
 		{
 			"name":"mine3",
@@ -275,6 +223,30 @@
 		{
 			"name":"mine5",
 			"value":"前往个人博客"
+		},
+		{
+		  "name":"bilibili_subtitle_1",
+		  "value":"bilibili - hnyqwq"
+		},
+		{
+		  "name":"bilibili_subtitle_2",
+		  "value":"bilibili - Happynewyear_QwQ"
+		},
+		{
+		  "name":"douyin_subtitle_1",
+		  "value":"抖音 - hnyqwq"
+		},
+		{
+		  "name":"douyin_subtitle_2",
+		  "value":"抖音 - hny"
+		},
+		{
+		  "name":"visit_official_website",
+		  "value":"访问官方网站"
+		},
+		{
+		  "name":"blog_subtitle",
+		  "value":"hnyqwq's blog"
 		},
 		{
 			"name":"info1",
@@ -290,15 +262,23 @@
 		},
 		{
 			"name":"info4",
-			"value":"软件版本"
+			"value":"系统软件版本"
 		},
 		{
 			"name":"info5",
 			"value":"HarmonyOS"
 		},
 		{
+			"name":"info6",
+			"value": "CPU型号（API 21+）"
+		},
+		{
 			"name":"choose",
 			"value":"选择图片"
+		},
+		{
+			"name":"choosepad",
+			"value":"选择本地/附近设备"
 		},
 		{
 			"name":"appname",
@@ -310,7 +290,7 @@
 		},
 		{
 			"name":"appysxy",
-			"value":"星河工具盒与隐私的声明"
+			"value": "星河工具盒隐私声明"
 		},
 		{
 			"name":"speak",
@@ -322,34 +302,27 @@
 		},
 		{
 			"name":"sharepngon",
-			"value": "查看图片直链"
+			"value": "设置分享的背景图片"
 		},
 		{
 			"name":"sharepng",
-			"value":"\uDB81\uDC94 输入分享的背景图片直链"
+			"value": "\uDB81\uDC94 输入网络图片链接"
 		},
 		{
 			"name":"texton",
-			"value": "文本/链接生成二维码"
-		},{
-			"name": "local_image_selected",
-			"value": "已选择本地图片"
-		},
-		{
-			"name": "select_image_failed",
-			"value": "选择图片失败"
-		},
-		{
-			"name": "share_failed",
-			"value": "分享失败"
+			"value": "填写需要分享的链接"
 		},
 		{
 			"name": "pengtitleset",
-			"value": "自定义分享标题"
+			"value": "设置分享的标题"
 		},
 		{
-			"name": "minelongpress",
-			"value": "前往星河工具盒/云影工具屋APP"
+			"name": "meow",
+			"value": "前往MeoW订阅官方频道"
+		},
+        {
+			"name": "5star",
+			"value": "给个五星好评叭 ๑>ᴗO๑"
 		},
 		{
 			"name": "ShareUIAbility_label",
@@ -384,240 +357,28 @@
 			"value": "网络"
 		},
 		{
-			"name": "sub_title4",
-			"value": "轻松娱乐"
-		},
-		{
-			"name": "sub_title5",
-			"value": "出行助手"
-		},
-		{
-			"name": "sub_title6",
-			"value": "拓展业务"
-		},
-		{
 			"name": "sub_title1_value1",
-			"value": "朗读&生成二维码"
+			"value": "朗读文字"
 		},
 		{
 			"name": "sub_title1_value2",
 			"value": "网络认证工具"
 		},
 		{
-			"name": "sub_title1_value3",
-			"value": "航旅商城"
-		},
-		{
-			"name": "sub_title1_value4",
-			"value": "我的订单"
-		},
-		{
-			"name": "sub_title1_value5",
-			"value": "自助退票"
-		},
-		{
-			"name": "sub_title1_value6",
-			"value": "机票兑换"
-		},
-		{
-			"name": "sub_title1_value7",
-			"value": "我的行程"
-		},
-		{
 			"name": "sub_title2_value1",
-			"value": "朗读&生成二维码"
+			"value": "朗读文字"
 		},
 		{
 			"name": "sub_title2_value2",
-			"value": "网络认证工具"
+			"value": "生成二维码"
 		},
 		{
 			"name": "sub_title2_value3",
-			"value": "我的订单"
-		},
-		{
-			"name": "sub_title2_value4",
-			"value": "退改服务"
-		},
-		{
-			"name": "sub_title2_value5",
-			"value": "行李购买"
-		},
-		{
-			"name": "sub_title2_value6",
-			"value": "轻装出行"
-		},
-		{
-			"name": "sub_title2_value7",
-			"value": "贵宾休息室"
-		},
-		{
-			"name": "sub_title2_value8",
-			"value": "地面畅行"
-		},
-		{
-			"name": "sub_title2_value9",
-			"value": "礼品"
-		},
-		{
-			"name": "sub_title2_value10",
-			"value": "自助归票"
-		},
-		{
-			"name": "sub_title2_value11",
-			"value": "电子发票"
-		},
-		{
-			"name": "sub_title2_value12",
-			"value": "登机牌"
-		},
-		{
-			"name": "sub_title2_value13",
-			"value": "行李查询"
-		},
-		{
-			"name": "sub_title2_value14",
-			"value": "美食预定"
+			"value": "文本OCR"
 		},
 		{
 			"name": "sub_title3_value1",
 			"value": "网络认证工具"
-		},
-		{
-			"name": "sub_title3_value2",
-			"value": "机场接送"
-		},
-		{
-			"name": "sub_title3_value3",
-			"value": "中转旅游"
-		},
-		{
-			"name": "sub_title4_value1",
-			"value": "我的家庭"
-		},
-		{
-			"name": "sub_title4_value2",
-			"value": "机票兑换"
-		},
-		{
-			"name": "sub_title4_value3",
-			"value": "积分补登"
-		},
-		{
-			"name": "sub_title4_value4",
-			"value": "积分乐园"
-		},
-		{
-			"name": "sub_title4_value5",
-			"value": "积分商城"
-		},
-		{
-			"name": "sub_title4_value6",
-			"value": "积分计算器"
-		},
-		{
-			"name": "sub_title5_value1",
-			"value": "我的家庭"
-		},
-		{
-			"name": "sub_title5_value2",
-			"value": "机票兑换"
-		},
-		{
-			"name": "sub_title5_value3",
-			"value": "积分补登"
-		},
-		{
-			"name": "sub_title5_value4",
-			"value": "积分乐园"
-		},
-		{
-			"name": "sub_title5_value5",
-			"value": "积分商城"
-		},
-		{
-			"name": "sub_title5_value6",
-			"value": "积分计算器"
-		},
-		{
-			"name": "sub_title6_value1",
-			"value": "外卖"
-		},
-		{
-			"name": "sub_title6_value2",
-			"value": "酒店预定"
-		},
-		{
-			"name": "sub_title6_value3",
-			"value": "游玩攻略"
-		},
-		{
-			"name": "sub_title6_value4",
-			"value": "开发票"
-		},
-		{
-			"name": "sub_title6_value5",
-			"value": "手机充值"
-		},
-		{
-			"name": "sub_title6_value6",
-			"value": "公益活动"
-		},
-		{
-			"name": "sub_title6_value7",
-			"value": "鲜花"
-		},
-		{
-			"name": "sub_title6_value8",
-			"value": "KTV"
-		},
-		{
-			"name": "sub_title7_value1",
-			"value": "外卖"
-		},
-		{
-			"name": "sub_title7_value2",
-			"value": "酒店预定"
-		},
-		{
-			"name": "sub_title7_value3",
-			"value": "游玩攻略"
-		},
-		{
-			"name": "sub_title7_value4",
-			"value": "开发票"
-		},
-		{
-			"name": "sub_title7_value5",
-			"value": "手机充值"
-		},
-		{
-			"name": "sub_title7_value6",
-			"value": "公益活动"
-		},
-		{
-			"name": "sub_title7_value7",
-			"value": "鲜花"
-		},
-		{
-			"name": "sub_title7_value8",
-			"value": "KTV"
-		},
-		{
-			"name": "sub_title8_value1",
-			"value": "外卖"
-		},
-		{
-			"name": "sub_title8_value2",
-			"value": "酒店预定"
-		},
-		{
-			"name": "sub_title8_value3",
-			"value": "游玩攻略"
-		},
-		{
-			"name": "sub_title8_value4",
-			"value": "开发票"
 		},
 		{
 			"name": "InternetMon",
@@ -641,7 +402,7 @@
 		},
 		{
 			"name": "Internet5",
-			"value": "1.1.1.1"
+			"value": "1.1.1.1\n可切换账号"
 		},
 		{
 			"name": "Internet6",
@@ -674,6 +435,589 @@
 		{
 			"name": "Internetselfsuccess",
 			"value": "自动播放intro视频 即表示已连接到互联网，否则会无法播放"
-		}
+		},
+		{
+			"name": "large_device_hint",
+			"value": "大部分平板设备不支持碰一碰传送，已为您自动选择隔空传送预览。"
+		},
+		{
+			"name": "text_share",
+			"value": "文本分享"
+		},
+		{
+			"name": "link_share",
+			"value": "链接分享"
+		},
+		{
+			"name": "image_share",
+			"value": "图片分享"
+		},
+		{
+			"name": "video_share",
+			"value": "视频分享"
+		},
+		{
+			"name": "choosevideo",
+			"value": "选择视频"
+		},
+		{
+			"name": "pictureon",
+			"value": "选择需要分享的图片"
+		},
+		{
+			"name": "videoon",
+			"value": "选择需要分享的视频"
+		},
+      {
+        "name": "ai_core_speech_support",
+		  "value": "内容由 AI 生成，使用 Core Speech Kit"
+      },
+		{
+			"name": "link",
+			"value": "链接"
+		},
+		{
+			"name": "text",
+			"value": "文本"
+		},
+		{
+			"name": "image",
+			"value": "图片"
+		},
+		{
+			"name": "video",
+			"value": "视频"
+		},
+		{
+			"name": "file",
+			"value": "文件"
+		},
+		{
+			"name": "file_share",
+			"value": "文件分享"
+		},
+		{
+			"name": "share_image_count",
+			"value": "图片数量: %d"
+		},
+		{
+			"name": "share_video_count",
+			"value": "视频数量: %d"
+		},
+		{
+			"name": "share_file_count",
+			"value": "文件数量: %d"
+		},
+		{
+			"name": "share_forward_no_content",
+			"value": "没有可转发的内容"
+		},
+		{
+			"name": "share_forward_failed",
+			"value": "转发分享失败"
+		},
+		{
+			"name": "share_copy_failed",
+			"value": "部分文件复制失败,转发可能不可用"
+		},
+		{
+			"name": "share_forward_image_desc",
+			"value": "分享%d张图片"
+		},
+		{
+			"name": "share_forward_video_desc",
+			"value": "分享%d个视频"
+		},
+		{
+			"name": "share_forward_file_desc",
+			"value": "分享%d个文件"
+		},
+		{
+			"name": "api_name",
+			"value": "API版本名称"
+		},
+		{
+			"name": "api_version",
+			"value": "API版本号"
+		},
+		{
+			"name": "performance_level",
+			"value": "设备能力定级"
+		},
+		{
+			"name": "show_newyear_card",
+			"value": "春节卡片"
+		},
+		{
+			"name": "immersive_tab_style",
+			"value": "沉浸式界面样式"
+		},
+		{
+			"name": "immersive_style_on",
+			"value": "沉浸式（悬浮+材质）"
+		},
+		{
+			"name": "immersive_style_off",
+			"value": "传统式（分离效果）"
+		},
+		{
+			"name": "new_year_card_on",
+			"value": "显示"
+		},
+		{
+			"name": "new_year_card_off",
+			"value": "隐藏"
+		},
+		{
+			"name": "select_feature_hint",
+			"value": "请从左侧选择一个功能"
+		},
+		{
+			"name": "check_update",
+			"value": "检查更新"
+		},
+		{
+			"name": "phone_multi_device",
+			"value": "手机多设备选择"
+		},
+		{
+			"name": "phone_multi_device_on",
+			"value": "已开启"
+		},
+		{
+			"name": "phone_multi_device_off",
+			"value": "已关闭"
+		},
+		{
+			"name": "choosevideo_cross",
+			"value": "选择本地/附近设备"
+		},
+		{
+			"name": "setasbackgroundatthesametime",
+			"value": "同时作为背景图片"
+		},
+		{
+			"name":"login_hint",
+			"value":"即点即用 · 无需安装"
+		},
+		{
+			"name":"xh_passport_logged_in",
+			"value":"星河通行证已登录"
+		},
+		{
+			"name":"logout",
+			"value":"退出登录"
+		},
+		{
+			"name":"mine2_short",
+			"value":"邀请测试"
+		},
+		{
+			"name":"social_links",
+			"value":"社交与链接"
+		},
+		{
+			"name":"tab_password_login",
+			"value":"密码登录"
+		},
+		{
+			"name":"tab_sms_login",
+			"value":"验证码登录"
+		},
+		{
+			"name":"tab_register",
+			"value":"注册"
+		},
+		{
+			"name":"hint_username",
+			"value":"请输入用户名"
+		},
+		{
+			"name":"hint_password",
+			"value":"请输入密码"
+		},
+		{
+			"name":"hint_phone",
+			"value":"手机号"
+		},
+		{
+			"name":"hint_sms_code",
+			"value":"验证码"
+		},
+		{
+			"name":"hint_login_account",
+			"value":"11 位手机号或邮箱地址"
+		},
+		{
+			"name":"hint_code_6",
+			"value":"6 位验证码"
+		},
+		{
+			"name":"hint_reg_username",
+			"value":"3-20位字母、数字或下划线"
+		},
+		{
+			"name":"hint_reg_password",
+			"value":"至少6位密码"
+		},
+		{
+			"name":"hint_phone_11",
+			"value":"11 位手机号"
+		},
+		{
+			"name":"hint_email",
+			"value":"邮箱（可选）"
+		},
+		{
+			"name":"hint_email_code",
+			"value":"邮箱验证码"
+		},
+		{
+			"name":"agreement_prefix",
+			"value":"我已阅读并同意"
+		},
+		{
+			"name":"agreement_user_protocol",
+			"value":"《用户协议》"
+		},
+		{
+			"name":"agreement_and",
+			"value":"和"
+		},
+		{
+			"name":"agreement_privacy",
+			"value":"《隐私政策》"
+		},
+		{
+			"name":"send_code",
+			"value":"发送验证码"
+		},
+		{
+			"name":"btn_login",
+			"value":"登录"
+		},
+		{
+			"name":"btn_register",
+			"value":"注册"
+		},
+		{
+			"name":"no_account_register",
+			"value":"没有账号？立即注册"
+		},
+		{
+			"name":"has_account_login",
+			"value":"已有账号？立即登录"
+		},
+		{
+			"name":"bind_phone_title",
+			"value":"绑定手机号"
+		},
+		{
+			"name":"bind_phone_hint",
+			"value":"首次华为登录需绑定手机号"
+		},
+		{
+			"name":"btn_bind",
+			"value":"绑定并登录"
+		},
+		{"name":"sub_title4","value":"Text Advanced"},
+		{"name":"sub_title5","value":"Image Tools"},
+		{"name":"sub_title6","value":"Network Diagnostics"},
+		{"name":"sub_title7","value":"Utilities"},
+		{"name":"sub_title4_value1","value":"Word Count"},
+		{"name":"sub_title4_value2","value":"Encrypt/Decrypt"},
+		{"name":"sub_title4_value3","value":"JSON Format"},
+		{"name":"sub_title5_value1","value":"Image Compress"},
+		{"name":"sub_title5_value2","value":"Image Convert"},
+		{"name":"sub_title5_value3","value":"Image Info"},
+		{"name":"sub_title6_value1","value":"IP Query"},
+		{"name":"sub_title6_value2","value":"Latency Test"},
+		{"name":"sub_title6_value3","value":"HTTP Status"},
+		{"name":"sub_title7_value1","value":"Password Generator"},
+		{"name":"sub_title7_value2","value":"Color Picker"},
+		{"name":"sub_title7_value3","value":"Stopwatch"},
+		{"name":"word_count_title","value":"Word Count"},
+		{"name":"word_count_hint","value":"Enter or paste text here"},
+		{"name":"word_count_total_chars","value":"Total Characters"},
+		{"name":"word_count_chars_no_space","value":"Chars (no spaces)"},
+		{"name":"word_count_chinese","value":"Chinese Characters"},
+		{"name":"word_count_english","value":"English Words"},
+		{"name":"word_count_lines","value":"Lines"},
+		{"name":"word_count_paragraphs","value":"Paragraphs"},
+		{"name":"encrypt_title","value":"Text Encrypt/Decrypt"},
+		{"name":"encrypt_mode_encrypt","value":"Encrypt"},
+		{"name":"encrypt_mode_decrypt","value":"Decrypt"},
+		{"name":"encrypt_input_hint","value":"Enter text to encrypt/decrypt"},
+		{"name":"encrypt_key_hint","value":"Enter secret key"},
+		{"name":"encrypt_execute","value":"Execute"},
+		{"name":"encrypt_result","value":"Result"},
+		{"name":"encrypt_error","value":"Error"},
+		{"name":"json_format_title","value":"JSON Format"},
+		{"name":"json_format_prettify","value":"Prettify"},
+		{"name":"json_format_compress","value":"Compress"},
+		{"name":"json_format_input_hint","value":"Paste JSON here"},
+		{"name":"json_format_execute","value":"Format"},
+		{"name":"json_format_result","value":"Result"},
+		{"name":"image_compress_title","value":"Image Compress"},
+		{"name":"image_select","value":"Select Image"},
+		{"name":"image_original_size","value":"Original Size"},
+		{"name":"image_compress_quality","value":"Quality"},
+		{"name":"image_compress_execute","value":"Compress"},
+		{"name":"image_compressed_size","value":"Compressed Size"},
+		{"name":"image_convert_title","value":"Image Convert"},
+		{"name":"image_convert_source_format","value":"Source Format"},
+		{"name":"image_convert_target_format","value":"Target Format"},
+		{"name":"image_convert_execute","value":"Convert"},
+		{"name":"image_convert_result","value":"Converted"},
+		{"name":"image_info_title","value":"Image Info"},
+		{"name":"image_info_width","value":"Width"},
+		{"name":"image_info_height","value":"Height"},
+		{"name":"image_info_size","value":"File Size"},
+		{"name":"image_info_format","value":"Format"},
+		{"name":"image_info_ratio","value":"Aspect Ratio"},
+		{"name":"ip_query_title","value":"IP Query"},
+		{"name":"ip_query_execute","value":"Query My IP"},
+		{"name":"ip_query_address","value":"IP Address"},
+		{"name":"ip_query_city","value":"City"},
+		{"name":"ip_query_region","value":"Region"},
+		{"name":"ip_query_country","value":"Country"},
+		{"name":"ip_query_isp","value":"ISP"},
+		{"name":"latency_test_title","value":"Latency Test"},
+		{"name":"latency_test_execute","value":"Start Test"},
+		{"name":"latency_test_testing","value":"Testing"},
+		{"name":"http_status_title","value":"HTTP Status Check"},
+		{"name":"http_status_url_hint","value":"Enter URL to check"},
+		{"name":"http_status_execute","value":"Check"},
+		{"name":"http_status_code","value":"Status Code"},
+		{"name":"http_status_headers","value":"Response Headers"},
+		{"name":"password_gen_title","value":"Password Generator"},
+		{"name":"password_gen_length","value":"Length"},
+		{"name":"password_gen_uppercase","value":"Uppercase (A-Z)"},
+		{"name":"password_gen_lowercase","value":"Lowercase (a-z)"},
+		{"name":"password_gen_numbers","value":"Numbers (0-9)"},
+		{"name":"password_gen_symbols","value":"Symbols (!@#$...)"},
+		{"name":"password_gen_execute","value":"Generate"},
+		{"name":"color_picker_title","value":"Color Picker"},
+		{"name":"color_picker_red","value":"R"},
+		{"name":"color_picker_green","value":"G"},
+		{"name":"color_picker_blue","value":"B"},
+		{"name":"stopwatch_title","value":"Stopwatch"},
+		{"name":"stopwatch_countup","value":"Count Up"},
+		{"name":"stopwatch_countdown","value":"Count Down"},
+		{"name":"stopwatch_minutes","value":"Min"},
+		{"name":"stopwatch_seconds","value":"Sec"},
+		{"name":"stopwatch_start","value":"Start"},
+		{"name":"stopwatch_stop","value":"Stop"},
+		{"name":"stopwatch_reset","value":"Reset"},
+		{"name":"stopwatch_lap","value":"Lap"},
+		{"name":"image_sr_title","value":"图像超分"},
+		{"name":"image_sr_value","value":"图像超分"},
+		{"name":"image_sr_execute","value":"开始超分"},
+		{"name":"image_sr_result","value":"超分结果"},
+		{"name":"image_sr_process_fail","value":"超分失败，请重试"},
+		{"name":"image_sr_size_not_supported","value":"图片尺寸不支持，请更换图片"},
+		{"name":"image_sr_save_success","value":"已保存到图库"},
+		{"name":"image_sr_save_fail","value":"保存失败"},
+		{"name":"ip_querying","value":"查询中..."},
+		{"name":"saved_to_album","value":"已保存到相册"},
+		{"name":"save_failed","value":"保存失败"},
+		{"name":"from_nearby_device","value":"来自附近设备"},
+		{"name":"audio_generated_by_ai","value":"音频由AI生成。"},
+		{"name":"common_features","value":"常用功能"},
+		{"name":"already_latest_version","value":"已是最新版本，"},
+		{"name":"tap_to_your_heart_content","value":"我没分批，让你点到爽 (ᗜ ˰ ᗜ)"},
+		{"name":"check_update_failed","value":"检查更新失败"},
+		{"name":"material_types_none_bug","value":"无（系统返回空数组 什么bug我在查...）"},
+		{"name":"get_failed","value":"获取失败"},
+		{"name":"load_failed","value":"加载失败"},
+		{"name":"network_error_retry","value":"网络连接失败，请检查网络后重试"},
+		{"name":"authorization_revoked","value":"已撤销授权"},
+		{"name":"revoke_failed","value":"撤销失败"},
+		{"name":"xinghe_download_station","value":"星河下载站"},
+		{"name":"revoke_authorization","value":"撤销授权"},
+		{"name":"cancel","value":"取消"},
+		{"name":"confirm_revoke","value":"确认撤销"},
+		{"name":"authorized_apps","value":"已授权应用"},
+		{"name":"no_authorized_apps","value":"暂无已授权的应用"},
+		{"name":"revoke","value":"撤销"},
+		{"name":"agreement_tip","value":"请先阅读并勾选同意《用户协议》和《隐私政策》"},
+		{"name":"huawei_auth_agreement","value":"《华为账号用户认证协议》"},
+		{"name":"phone_label","value":"手机号"},
+		{"name":"not_bound","value":"未绑定"},
+		{"name":"email_label","value":"邮箱"},
+		{"name":"verified","value":"已验证"},
+		{"name":"passport_user_agreement","value":"通行证用户协议"},
+		{"name":"passport_privacy_policy","value":"通行证隐私政策"},
+		{"name":"more_features","value":"更多功能"},
+		{"name":"user_agreement","value":"用户协议"},
+		{"name":"privacy_policy","value":"隐私政策"},
+		{"name":"logging_in","value":"登录中..."},
+		{"name":"registering","value":"注册中..."},
+		{"name":"collapse_other_login","value":"收起其他登录方式 ▲"},
+		{"name":"expand_other_login","value":"其他登录方式 ▼"},
+		{"name":"change_avatar","value":"更改头像"},
+		{"name":"authorize_huawei_avatar","value":"授权华为账号头像"},
+		{"name":"select_image","value":"选择图片"},
+		{"name":"bind_phone_after_login","value":"登录后需绑定手机号"},
+		{"name":"enter_11digit_phone_and_code","value":"请输入11位手机号和验证码"},
+		{"name":"enter_username_and_password","value":"请输入用户名和密码"},
+		{"name":"login_failed","value":"登录失败"},
+		{"name":"enter_valid_phone_or_email","value":"请输入正确的手机号或邮箱地址"},
+		{"name":"enter_6digit_code","value":"请输入6位验证码"},
+		{"name":"username_rule","value":"用户名需为3-20位字母、数字或下划线"},
+		{"name":"password_min_length","value":"密码长度至少6位"},
+		{"name":"enter_valid_phone","value":"请输入正确的手机号"},
+		{"name":"enter_6digit_sms_code","value":"请输入6位短信验证码"},
+		{"name":"enter_valid_email","value":"请输入正确的邮箱地址"},
+		{"name":"enter_6digit_email_code","value":"请输入6位邮箱验证码"},
+		{"name":"register_success","value":"注册成功"},
+		{"name":"register_failed","value":"注册失败"},
+		{"name":"code_sent","value":"验证码已发送"},
+		{"name":"email_code_sent","value":"邮箱验证码已发送"},
+		{"name":"send_failed","value":"发送失败"},
+		{"name":"enter_11digit_phone","value":"请输入11位手机号"},
+		{"name":"agreement_privacy_prompt","value":"协议及隐私保护提示"},
+		{"name":"huawei_login_agreement_message","value":"请阅读并同意《用户协议》《隐私政策》和《华为账号用户认证协议》后使用华为账号登录"},
+		{"name":"agree_and_login","value":"同意并登录"},
+		{"name":"huawei_login_no_permission","value":"华为账号登录权限未开通"},
+		{"name":"huawei_login_failed","value":"华为登录失败"},
+		{"name":"need_bind_phone","value":"需要绑定手机号"},
+		{"name":"bind_failed","value":"绑定失败"},
+		{"name":"cannot_open_browser","value":"无法打开浏览器"},
+		{"name":"huawei_account_info_not_found","value":"未获取到华为账号信息"},
+		{"name":"huawei_account_no_avatar","value":"华为账号没有头像"},
+		{"name":"huawei_avatar_applied","value":"已使用华为账号头像"},
+		{"name":"authorization_failed_retry","value":"授权失败，请重试"},
+		{"name":"login_first_change_avatar","value":"请先登录后再更改头像"},
+		{"name":"image_size_limit_5mb","value":"图片大小不能超过5MB"},
+		{"name":"uploading_avatar","value":"正在上传头像..."},
+		{"name":"avatar_updated","value":"头像已更新"},
+		{"name":"upload_failed_retry","value":"上传失败，请重试"},
+		{"name":"huawei_login_method","value":"华为登录"},
+		{"name":"password_login_method","value":"密码登录"},
+		{"name":"sms_login_method","value":"验证码登录"},
+		{"name":"register_method","value":"注册"},
+		{"name":"code_sent_countdown","value":"已发送"},
+		{"name":"image_select_cancel_or_failed","value":"图片选择取消或失败"},
+		{"name":"no_image_selected","value":"未选择图片"},
+		{"name":"image_copy_to_sandbox_failed","value":"图片复制到沙箱失败，分享可能不可用"},
+		{"name":"set_as_background_success","value":"已设置为背景图片"},
+		{"name":"set_background_failed","value":"设置背景图片失败"},
+		{"name":"please_enter_link_to_share","value":"请输入要分享的链接 ⪩ ⪨"},
+		{"name":"please_enter_text_to_share","value":"请输入要分享的文本 ⪩ ⪨"},
+		{"name":"please_select_image_to_share","value":"请先选择要分享的图片 ⪩ ⪨"},
+		{"name":"please_select_video_to_share","value":"请先选择要分享的视频 ⪩ ⪨"},
+		{"name":"please_select_file_to_share","value":"请先选择要分享的文件 ⪩ ⪨"},
+		{"name":"share_text_title_short","value":"分享文本"},
+		{"name":"share_image_title_short","value":"分享图片"},
+		{"name":"share_video_title_short","value":"分享视频"},
+		{"name":"share_file_title_short","value":"分享文件"},
+		{"name":"unsupported_share_type","value":"不支持的分享类型"},
+		{"name":"card_resource_loading","value":"卡片资源加载中..."},
+		{"name":"clear","value":"清空"},
+		{"name":"add","value":"添加"},
+		{"name":"select_file","value":"选择文件"},
+		{"name":"download_network_file","value":"下载网络文件"},
+		{"name":"download_and_share","value":"下载"},
+		{"name":"preparing_download","value":"准备开始下载..."},
+		{"name":"enter_download_url","value":"输入网络文件下载链接"},
+		{"name":"scan_success","value":"扫码成功: "},
+		{"name":"scan_cancel_or_failed","value":"手动取消或扫码失败（PC/2in1设备暂不支持扫描二维码，请使用其它类型的设备）"},
+		{"name":"scan_start_failed","value":"扫码失败: 启动扫码服务失败"},
+		{"name":"cross_device_file_process_failed","value":"跨设备文件处理失败"},
+		{"name":"cross_device_image_failed","value":"获取跨设备图片失败"},
+		{"name":"cross_device_video_failed","value":"获取跨设备视频失败"},
+		{"name":"set_background_from_nearby","value":"已从附近设备设置背景图片"},
+		{"name":"image_from_nearby","value":"已从附近设备获取图片"},
+		{"name":"video_from_nearby","value":"已从附近设备获取视频"},
+		{"name":"files_from_nearby","value":"已从附近设备获取%1$d个文件"},
+		{"name":"share_function_error","value":"分享功能异常: "},
+		{"name":"enter_link_share_title","value":"请输入链接分享的标题"},
+		{"name":"enter_text_share_title","value":"请输入文本分享的标题"},
+		{"name":"enter_image_share_title","value":"请输入图片分享的标题"},
+		{"name":"enter_video_share_title","value":"请输入视频分享的标题"},
+		{"name":"enter_file_share_title","value":"请输入文件分享的标题"},
+		{"name":"enter_share_title","value":"请输入分享标题"},
+		{"name":"switched_to","value":"已切换到: "},
+		{"name":"image_path_label","value":"图片路径"},
+		{"name":"video_path_label","value":"视频路径"},
+		{"name":"file_path_label","value":"文件路径"},
+		{"name":"selected_images_count","value":"已选择%1$d张图片"},
+		{"name":"selected_videos_count","value":"已选择%1$d个视频"},
+		{"name":"selected_files_count","value":"已选择%1$d个文件"},
+		{"name":"share_image_n","value":"分享图片"},
+		{"name":"share_video_n","value":"分享视频"},
+		{"name":"share_file_n","value":"分享文件"},
+		{"name":"upload_failed_http","value":"上传失败"},
+		{"name":"upload_failed","value":"上传失败"},
+		{"name":"huawei_account_auth_agreement","value":"华为账号用户认证协议"},
+		{"name":"video_select_success","value":"视频选择成功"},
+		{"name":"video_select_failed","value":"选择视频失败"},
+		{"name":"video_copy_to_sandbox_failed","value":"视频复制到沙箱失败，分享可能不可用"},
+		{"name":"file_select_success","value":"文件选择成功"},
+		{"name":"file_select_failed","value":"选择文件失败"},
+		{"name":"file_copy_to_sandbox_failed","value":"文件复制到沙箱失败，分享可能不可用"},
+		{"name":"file_already_exists","value":"文件已存在"},
+		{"name":"download_complete_dir","value":"下载完成，存储目录："},
+		{"name":"download_failed_format","value":"下载失败"},
+		{"name":"download_task_create_failed","value":"下载任务创建失败"},
+		{"name":"download_failed","value":"下载失败"},
+		{"name":"enter_download_link","value":"请输入下载链接"},
+		{"name":"revoke_confirm_message","value":"确定要撤销「%s」的授权吗？"},
+		{"name":"selected_images_processing","value":"已选择%1$d张图片，正在处理..."},
+		{"name":"added_images","value":"已添加%1$d张图片"},
+		{"name":"added_videos","value":"已添加%1$d个视频"},
+		{"name":"added_files","value":"已添加%1$d个文件"},
+		{"name":"share_text_label","value":"分享文本"},
+		{"name":"share_image_label","value":"分享图片"},
+		{"name":"share_video_label","value":"分享视频"},
+		{"name":"share_file_label","value":"分享文件"},
+		{"name":"share_images_desc","value":"分享%1$d张图片"},
+		{"name":"share_videos_desc","value":"分享%1$d个视频"},
+		{"name":"all_material_types","value":"NONE(无材质效果) | ADAPTIVE(自适应系统材质) | IMMERSIVE(沉浸式材质)"},
+		{"name":"all_material_levels","value":"EXQUISITE(精美) | GENTLE(轻柔) | SMOOTH(流畅) | ADAPTIVE(系统自适应)"},
+		{"name":"tab_home","value":"首页"},
+		{"name":"tab_discover","value":"发现"},
+		{"name":"tab_mine","value":"我的"},
+		{"name":"already_latest_full","value":"已是最新版本，我没分批，让你点到爽 (ᗜ ˰ ᗜ)"},
+		{"name":"selected_images_count_label","value":"已选择%1$d张图片"},
+		{"name":"selected_videos_count_label","value":"已选择%1$d个视频"},
+		{"name":"selected_files_count_label","value":"已选择%1$d个文件"},
+		{"name":"image_path_index","value":"图片路径%1$d"},
+		{"name":"video_path_index","value":"视频路径%1$d"},
+		{"name":"file_path_index","value":"文件路径%1$d"},
+		{"name":"share_file_index","value":"分享文件%1$d"},
+		{"name":"share_image_index","value":"分享图片%1$d"},
+		{"name":"share_video_index","value":"分享视频%1$d"},
+		{"name":"change_username","value":"修改用户名"},
+		{"name":"username_cooldown","value":"用户名每30天可修改一次"},
+		{"name":"username_cooldown_days","value":"还需等待%d天才能修改"},
+		{"name":"username_rules_placeholder","value":"3-20位字母数字下划线，不能以数字或下划线开头"},
+		{"name":"username_invalid","value":"用户名格式不正确"},
+		{"name":"username_change_success","value":"用户名修改成功"},
+		{"name":"edit_nickname_bio","value":"编辑昵称和签名"},
+		{"name":"nickname_placeholder","value":"请输入昵称"},
+		{"name":"bio_placeholder","value":"请输入签名"},
+		{"name":"nickname_cannot_empty","value":"昵称不能为空"},
+		{"name":"save_success","value":"保存成功"},
+		{"name":"copied_id","value":"已复制ID"},
+		{"name":"copy_failed","value":"复制失败"},
+		{"name":"modify","value":"修改"},
+		{"name":"not_set","value":"未设置"},
+		{"name":"save","value":"保存"},
+		{"name":"nickname","value":"昵称"},
+		{"name":"bio_label","value":"签名"},
+		{"name":"username_label","value":"用户名"},
+		{"name":"logout_confirm_msg","value":"确定要退出登录吗？"},
+		{"name":"login_expired","value":"登录已过期，请重新登录"},
+		{"name":"request_failed","value":"请求失败"},
+		{"name":"image_too_large","value":"图片大小不能超过5MB"},
+		{"name":"read_image_failed","value":"读取图片失败"},
+		{"name":"confirm","value":"确认"},
+		{"name":"copy","value":"复制"},
+		{"name":"modify_failed","value":"修改失败"},
+		{"name":"save_avatar_failed","value":"保存头像失败"},
+		{"name":"huawei_avatar_used","value":"已使用华为账号头像"},
+		{"name":"network_error_with_msg","value":"网络错误: %s"}
 	]
 }

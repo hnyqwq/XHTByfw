@@ -1,62 +1,100 @@
-import { common, Want } from '@kit.AbilityKit';
+import { common, Want, bundleManager } from '@kit.AbilityKit';
 import { BusinessError } from '@kit.BasicServicesKit';
-import router from '@ohos.router';
+import { navigationManager } from '../common/NavigationManager';
+import { GlobalInfoModel } from '../common/GlobalInfoModel';
+
 
 @Observed
 class SettingMenu {
   public uri?: string;
+  public webUrl?: string;
   public id: string;
-  public image: Resource;
+  public symbol: Resource;
   public text: Resource;
   public des: Resource;
 
-  constructor(id: string, image: Resource, text: Resource, des: Resource) {
+  constructor(id: string, symbol: Resource, text: Resource, des: Resource, uri?: string, webUrl?: string) {
     this.id = id;
-    this.image = image;
+    this.symbol = symbol;
     this.text = text;
     this.des = des;
+    this.uri = uri;
+    this.webUrl = webUrl;
   }
 }
 
 @Entry
 @Component
 export struct MinePage {
-  @State inputText: string = ''
-  private customDialogComponentId: number = 0
-  @State isDialogActive: boolean = false
+  @StorageProp('GlobalInfoModel') globalInfoModel: GlobalInfoModel = AppStorage.get('GlobalInfoModel')!;
+  @StorageProp('topRectHeight')
+  topRectHeight: number = 0;
+  @StorageProp('bottomRectHeight')
+  bottomRectHeight: number = 0;
+  @StorageProp('isImmersiveTab')
+  isImmersiveTab: boolean = false;
 
-  aboutToDisappear(): void {  // 显式声明返回类型
-    if (this.isDialogActive) {
-      this.safeCloseDialog()
+  private openUrl(url: string, webUrl?: string, context?: common.UIAbilityContext): void {
+    const ctx = context || getContext(this) as common.UIAbilityContext;
+
+    if (url.startsWith('http://') || url.startsWith('https://')) {
+      const want: Want = {
+        action: 'ohos.want.action.viewData',
+        entities: ['entity.system.browsable'],
+        uri: url
+      };
+      ctx.startAbility(want).catch((e: BusinessError) => {
+        console.error(`网页跳转失败: ${e.code}`, e.message);
+      });
+      return;
+    }
+
+    try {
+      const canOpen: boolean = bundleManager.canOpenLink(url);
+      if (canOpen) {
+        ctx.openLink(url, { appLinkingOnly: false }).catch(() => {
+          if (webUrl) {
+            this.openWebUrl(webUrl, ctx);
+          }
+        });
+      } else {
+        if (webUrl) {
+          this.openWebUrl(webUrl, ctx);
+        } else {
+          console.warn(`无法打开URL: ${url}，且无备用网页`);
+        }
+      }
+    } catch (e) {
+      console.error(`URL跳转异常:`, e);
+      if (webUrl) {
+        this.openWebUrl(webUrl, ctx);
+      }
     }
   }
-  private safeCloseDialog() {
-    if (this.customDialogComponentId === 0 || !this.isDialogActive) return
+
+  private openWebUrl(url: string, context: common.UIAbilityContext): void {
+    const want: Want = {
+      action: 'ohos.want.action.viewData',
+      entities: ['entity.system.browsable'],
+      uri: url
+    };
+    context.startAbility(want).catch((e: BusinessError) => {
+      console.error(`网页跳转失败: ${e.code}`, e.message);
+    });
   }
+
   private iconStr: ResourceStr = $r("app.media.CIcon");
+
   @State menuGroup: SettingMenu[] = [
-    new SettingMenu('setting', $r('app.media.mine_settings'), $r('app.string.mine1'), $r('app.string.void')),
-    new SettingMenu('vipownsetting', $r('app.media.mine_vipsettings'), $r('app.string.mine2'), $r('app.string.void')),
-    new SettingMenu('mycollection', $r('app.media.ic_collect'), $r('app.string.mine3'), $r('app.string.void')),
-    new SettingMenu('mylike', $r('app.media.mine_like'), $r('app.string.mine4'), $r('app.string.void')),
-    new SettingMenu('browsinghistory', $r('app.media.mine_time'), $r('app.string.mine5'), $r('app.string.void'))
+    new SettingMenu('setting', $r('sys.symbol.gearshape'), $r('app.string.mine1'), $r('app.string.void')),
+    new SettingMenu('vipownsetting', $r('sys.symbol.person_badge_plus'), $r('app.string.mine2'), $r('app.string.void'),
+      'https://appgallery.huawei.com/apptest/8q2ifpJx0Qz'),
   ];
-  //设置一镜到底动效
+
   @Builder
   MyMenu() {
     Menu() {
-      MenuItem({ startIcon: this.iconStr, content: $r('app.string.minelongpress'), })
-        .onClick(() => {
-            let want: Want = {
-              "action": "ohos.want.action.viewData",
-              "entities": ["entity.system.browsable"],
-              uri: 'https://hnyqwq.cn/hvideo',
-            }
-            let context = getContext(this) as common.UIAbilityContext;
-            context.startAbility(want)
-            console.info(`MenuItem1 ability succeed`)
-        })
-      MenuItem({ startIcon: this.iconStr, content: "前往MeoW，订阅官方频道" })
+      MenuItem({ startIcon: this.iconStr, content: $r('app.string.meow') })
         .onClick(() => {
           let want: Want = {
             "action": "ohos.want.action.viewData",
@@ -69,6 +107,7 @@ export struct MinePage {
         })
     }
   }
+
   @Builder
   MyPreview() {
     Column() {
@@ -78,83 +117,75 @@ export struct MinePage {
     }
   }
 
+  @Builder
+  UserCard() {
+    Row() {
+      Row() {
+        Image($r('app.media.CIcon'))
+          .width(48)
+          .height(48)
+          .borderRadius(12)
+          .bindContextMenu(this.MyMenu, ResponseType.LongPress,
+            {
+              preview: this.MyPreview,
+              previewAnimationOptions: {
+                hoverScale: [1.0, 0.95]
+              }
+            })
+        Column() {
+          Text($r('app.string.appname'))
+            .fontWeight(700)
+            .fontSize(16)
+            .fontColor($r('app.color.font_color_info'))
+            .maxLines(1)
+            .textOverflow({ overflow: TextOverflow.Ellipsis })
+           Text($r('app.string.login_hint'))
+            .fontWeight(400)
+            .fontSize(12)
+            .fontColor($r('app.color.font_secondary'))
+            .margin({ top: 2 })
+        }
+        .margin({ left: 12 })
+        .alignItems(HorizontalAlign.Start)
+        .layoutWeight(1)
+      }
+      .layoutWeight(1)
+
+    }
+    .width('90%')
+    .padding({ left: 16, right: 16, top: 16, bottom: 16 })
+    .borderRadius(16)
+    .backgroundColor($r('app.color.mine'))
+    .alignItems(VerticalAlign.Center)
+  }
+
   build() {
     Scroll() {
       Column() {
         Column() {
-          Text($r('app.string.aboutpage'))
-            .fontSize(20)
-            .fontColor($r('app.color.font_color_info'))
-            .fontWeight(FontWeight.Bold)
-        }
-        // 顶部用户信息区域 - 保持不变
-        Column() {
-          Image($r('app.media.CIcon'))
-            .width(60)
-            .height(60)
-            .bindContextMenu(this.MyMenu, ResponseType.LongPress,
-              {
-                preview: this.MyPreview,
-                previewAnimationOptions: {
-                  hoverScale: [1.0, 0.95]
-                }
-              })
-          Text($r('app.string.appname'))
-            .fontWeight(700)
-            .fontSize('14fp')
-            .margin({ top: 10 });
-          Text('')
-            .fontWeight(600)
-            .fontSize('12fp')
-            .margin({ top: 10 });
+          this.UserCard()
         }
         .width('100%')
-        .height(222)
-        .justifyContent(FlexAlign.Center)
+        .padding({ top: 8 })
         .alignItems(HorizontalAlign.Center)
-        //.backgroundColor($r('app.color.start_window_background'))
 
-        // 设置项列表区域 - 保持不变
         Column() {
           Row() {
             List() {
               ForEach(this.menuGroup,
                 (item: SettingMenu) => {
                   ListItem() {
-                    SettingItemView({ image: item.image, text: item.text, des: item.des });
+                    SettingItemView({ symbol: item.symbol, text: item.text, des: item.des });
                   }
                   .width('100%')
                   .onClick(() => {
                     const context = getContext(this) as common.UIAbilityContext;
-                    let uri = '';
-                    switch (item.id) {
-                      case 'setting':
-                        router.pushUrl({ url: 'pages/infoPage' })
-                          .catch((e: BusinessError) => {
-                            console.error('路由跳转失败', e);
-                          });
-                        break;
-                      case 'vipownsetting':
-                        uri = 'https://www.hnyqwq.cn';
-                        //uri = 'bilibili://live/21220648';
-                        break;
-                      case 'mycollection':
-                        uri = 'bilibili://space/338142387';
-                        break;
-                      case 'mylike':
-                        uri =
-                          //'snssdk1128://user/profile/2118115953227692?refer=web';
-                           'snssdk1128://user/profile/618379012226540?refer=web';
-                        break;
-                      case 'browsinghistory':
-                        uri = 'https://blog.hnyqwq.cn';
-                        break;
+                    if (item.id === 'setting') {
+                      navigationManager.pushPath('pages/infoPage');
+                      return;
                     }
-                    if (uri) {
-                      const want: Want = { uri };
-                      context.startAbility(want).catch((e: BusinessError) => {
-                        console.error(`跳转失败: ${e.code}`, e.message);
-                      });
+                    if (item.uri) {
+                      this.openUrl(item.uri, item.webUrl, context);
                     }
                   })
                 },
@@ -172,19 +203,37 @@ export struct MinePage {
           .width('90%')
           .borderRadius($r('app.integer.layout_size_24'))
           .alignItems(VerticalAlign.Center)
-          .margin({ bottom: $r('app.integer.layout_size_12') })
-          //.backgroundColor($r('app.color.font_color_FFFFFF'));
+          .margin({ top: 20, bottom: 30 })
           .backgroundColor($r('app.color.mine'))
         }
-        .layoutWeight(1)
         .width('100%');
 
-        // 底部协议信息区域 - 保持不变
         Column() {
+          Text() {
+            Span($r('app.string.appysxy'))
+              .onClick(() => {
+                try {
+                  let want: Want = {
+                    "action": "ohos.want.action.viewData",
+                    "entities": ["entity.system.browsable"],
+                    uri: 'https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=2033827646390939584',
+                    "type": "text/plain"
+                  }
+                  let context = getContext(this) as common.UIAbilityContext;
+                  context.startAbility(want)
+                  console.info(`explicit start ability succeed`)
+                } catch (error) {
+                  console.info(`explicit start ability failed with ${error.code}`)
+                }
+              })
+              .fontColor(Color.Blue)
+              .fontSize(12);
+          };
+
           Text($r('app.string.copyright'))
             .fontSize(12);
           Text() {
-            Span('蜀ICP备2025142744号-3K')
+            Span('蜀ICP备2025142744号-2A')
               .onClick(() => {
                 try {
                   let want: Want = {
@@ -205,38 +254,38 @@ export struct MinePage {
           }
         }
         .width('100%')
-        .height(60)
+        .height(80)
         .alignItems(HorizontalAlign.Center)
-        .padding(10);
+        .padding({ left: 10, right: 10 });
       }
       .width('100%')
-      .height('100%')
-      .padding({ top: 30 }) // 为标题栏留出空间
     }
     .width('100%')
     .height('100%')
-    //.backgroundColor($r('app.color.start_window_background'))
+    .padding({ top: 30 + px2vp(this.topRectHeight), bottom: px2vp(this.bottomRectHeight) + (this.isImmersiveTab ? 84 : 0) })
+    .scrollable(ScrollDirection.Vertical)
+    .scrollBar(BarState.Auto)
+    .edgeEffect(EdgeEffect.Spring)
   }
 }
 
 @Component
 export struct SettingItemView {
-  private image: string | Resource = '';
-  private text: string | Resource = '';
-  private des: string | Resource = '';
+  @Prop symbol: Resource;
+  @Prop text: string | Resource;
+  @Prop des: string | Resource;
 
   build() {
     Row() {
       Row() {
-        Image(this.image)
-          .width($r('app.integer.layout_size_22'))
-          .height($r('app.integer.layout_size_32'))
-          .objectFit(ImageFit.Contain);
+        SymbolGlyph(this.symbol)
+          .fontSize($r('app.integer.layout_size_22'))
+          .fontColor([$r('sys.color.icon_primary')]);
         Text(this.text)
           .fontSize($r('app.integer.layout_size_16'))
           .fontWeight(400)
           .fontFamily('HarmonyHeiTi')
-          .fontColor($r('app.color.font_color_182431'))
+          .fontColor($r('sys.color.font_primary'))
           .margin({ left: $r('app.integer.layout_size_12') })
           .layoutWeight(1)
           .lineHeight($r('app.integer.layout_size_22'));
@@ -246,7 +295,7 @@ export struct SettingItemView {
           .fontSize($r('app.integer.layout_size_14'))
           .fontWeight(400)
           .fontFamily('HarmonyHeiTi')
-          .fontColor($r('app.color.font_color_182431'))
+          .fontColor($r('sys.color.font_secondary'))
           .lineHeight($r('app.integer.layout_size_19'));
       }
       .width('100%')

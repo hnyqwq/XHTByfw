@@ -5,8 +5,16 @@
       "value": "#000000"
     },
     {
+      "name": "barBackgroundColor",
+      "value": "#CC1C1C1E"
+    },
+    {
+      "name": "font_color_00000",
+      "value": "#0cFFFFFF"
+    },
+    {
       "name": "font_color_182431",
-      "value": "#000000"
+      "value": "#E5E5E5"
     },
     {
       "name": "font_color_FFFFFF",
@@ -25,8 +33,12 @@
       "value": "#FFFFFF"
     },
     {
+      "name": "pengtitle",
+      "value": "#000000"
+    },
+    {
       "name": "mine",
-      "value": "#8da2e0"
+      "value": "#1C1C1E"
     },
     {
       "name": "second",
@@ -34,7 +46,7 @@
     },
     {
       "name": "info",
-      "value": "#455b98"
+      "value": "#1C1C1E"
     },
     {
       "name": "isChick_title_color",
@@ -67,6 +79,38 @@
     {
       "name": "tab_text_color_unselected",
       "value": "#CCCCCC"
+    },
+    {
+      "name": "comp_background_list_card",
+      "value": "#1C1C1E"
+    },
+    {
+      "name": "card_border_color",
+      "value": "#38383A"
+    },
+    {
+      "name": "card_container_background",
+      "value": "#1C1C1E"
+    },
+    {
+      "name": "font_secondary",
+      "value": "#666666"
+    },
+    {
+      "name": "font_primary",
+      "value": "#FFFFFF"
+    },
+    {
+      "name": "icon_primary",
+      "value": "#007DFF"
+    },
+    {
+      "name": "page_background_gradient_end",
+      "value": "#1C1C1E"
+    },
+    {
+      "name": "brand",
+      "value": "#3D7DFF"
     }
   ]
 }

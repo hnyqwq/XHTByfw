@@ -13,10 +13,6 @@
       "value":"Xinghe Tool Box"
     },
     {
-      "name":"servicecollabutton",
-      "value":"Use remote device to insert images"
-    },
-    {
       "name":"defaultForm_label",
       "value":"Default Form Label"
     },
@@ -33,44 +29,48 @@
       "value":"JumpLabel"
     },
     {
-      "name":"ButtonA",
-      "value":"ButtonA"
-    },
-    {
       "name":"ButtonB",
       "value":"Start APP"
     },
     {
       "name": "shareinfo",
-      "value": "Share text or Link"
+      "value": "Share Link"
     },
     {
       "name": "pengyipeng_title",
-      "value": "Share text or Link"
+      "value": "Share Link"
+    },
+    {
+      "name": "share_text_title",
+      "value": "Share Text"
+    },
+    {
+      "name": "share_image_title",
+      "value": "Share Image"
+    },
+    {
+      "name": "share_video_title",
+      "value": "Share Video"
+    },
+    {
+      "name": "share_file_title",
+      "value": "Share File"
     },
     {
       "name": "pengyipeng_description",
-      "value": "星河工具盒 · Tap to Transfer"
+      "value": "Xinghe Tool Box · Tap to Transfer"
     },
     {
       "name": "gekong_description",
-      "value": "星河工具盒 · AI Air Transfer Sharing"
-    },
-    {
-      "name":"nopeng",
-      "value": "It seems there's no text or link to share at the moment. ⪩ ⪨"
-    },
-    {
-      "name":"aboutpage",
-      "value":"Mine"
+      "value": "Xinghe Tool Box · AI Air Transfer Sharing"
     },
     {
       "name":"Home",
-      "value": "Tools"
+      "value": "Share Preview"
     },
     {
       "name":"Second",
-      "value":"Tools"
+      "value": "Tool List"
     },
     {
       "name":"Mine",
@@ -85,144 +85,100 @@
       "value":"Playback controls are now hidden. ⌯>₃<⌯ಣ"
     },
     {
-      "name":"linkinput",
-      "value":"\uDB80\uDDDB Enter text or link"
-    },
-    {
       "name":"share",
-      "value":"\uDB80\uDC3D Use System Share Menu"
-    },
-    {
-      "name":"sharesuccess",
-      "value":"Sharing initiated successfully! Currently sharing:"
-    },
-    {
-      "name":"play",
-      "value":"\uDB80\uDCB4/\uDB80\uDCB1"
-    },
-    {
-      "name":"playing",
-      "value":"Video is playing... ᜊ•ᴗ•ᜊ"
-    },
-    {
-      "name":"noplay",
-      "value":"Please enter the text or link ⪩ ⪨"
-    },
-    {
-      "name":"paused",
-      "value":"Paused~"
+      "value":"\uDB80\uDC3D Use System Share"
     },
     {
       "name":"testinput",
-      "value":"\uDB81\uDC94 Text or link to share"
+      "value": "\uDB81\uDC94 Enter link to share"
     },
     {
-      "name":"scancode",
-      "value":"\uDB80\uDC28\uDB80\uDD28 Scan QR Codes"
+      "name":"scancodelinkpad",
+      "value": "\uDB80\uDC28\uDB80\uDD28 Extract QR code link"
+    },
+    {
+      "name":"scancodelink",
+      "value": "\uDB80\uDC28 Extract QR code"
+    },
+    {
+      "name":"textinput",
+      "value": "\uDB81\uDC94 Enter text to share"
     },
     {
       "name":"downloaded",
-      "value":"\uDB80\uDCD0\uDB80\uDC13 Download request successful! After the download is complete, you can view the video in Albums > Videos , and it will be categorized by the video’s creation date ."
+      "value":"\uDB80\uDCD0\uDB80\uDC13 Download request successful! After download is complete, you can view the video in Albums > Videos , and it will be categorized by the video's creation date ."
     },
     {
       "name":"pastedtishi",
       "value":"\uDB80\uDC6D Paste from clipboard successfully!!!"
     },
     {
-      "name":"speedtitle",
-      "value":"Speed"
-    },
-    {
-      "name":"1xspeed",
-      "value":"1x Speed（Normal Speed）"
-    },
-    {
-      "name":"1xspeedyes",
-      "value":"You have successfully switched to normal(1x) playback speed."
-    },
-    {
-      "name":"125xspeed",
-      "value":"1.25x Speed"
-    },
-    {
-      "name":"125xspeedyes",
-      "value":"You have successfully switched to 1.25x playback speed."
-    },
-    {
-      "name":"175xspeed",
-      "value":"1.75x Speed"
-    },
-    {
-      "name":"175xspeedyes",
-      "value":"You have successfully switched to 1.75x playback speed."
-    },
-    {
-      "name":"2xspeed",
-      "value":"2x Speed"
-    },
-    {
-      "name":"2xspeedyes",
-      "value":"You have successfully switched to 2x playback speed."
-    },
-    {
-      "name":"075xspeed",
-      "value":"0.75x Speed"
-    },
-    {
-      "name":"075xspeedyes",
-      "value":"You have successfully switched to 0.75x playback speed."
-    },
-    {
-      "name":"fullscreen",
-      "value":"\uDB82\uDCAD Landscape"
-    },
-    {
-      "name":"ImageFittitle",
-      "value":"Scaling Mode"
-    },
-    {
-      "name":"Fill",
-      "value":"Force Full Screen / Stretch to Fit"
-    },
-    {
-      "name":"Fillyes",
-      "value":"Current scaling mode: Force Full Screen / Stretch to Fit ⌯･ᴗ･⌯ಣ"
-    },
-    {
-      "name":"Auto",
-      "value":"Adaptive / Auto Fit"
-    },
-    {
-      "name":"Autoyes",
-      "value":"Current scaling mode: Adaptive / Auto Fit ⌯ᕑᗢᓫ⌯ಣ"
-    },
-    {
-      "name":"Contain",
-      "value":"Maintain Aspect Ratio"
-    },
-    {
-      "name":"Containyes",
-      "value":"Current scaling mode: Maintain Aspect Ratio ⌯ᕑᗢᓫ⌯ಣ"
-    },
-    {
-      "name":"Cover",
-      "value":"\uDB80\uDC09 Proportional Zoom"
-    },
-    {
-      "name":"Coveryes",
-      "value":"\uDB80\uDC09 Current scaling mode: Proportional Zoom / Fit to Fill (Aspect Ratio Zoom Fill) ⌯>ᴗo⌯ಣ"
-    },
-    {
       "name":"nowplayingon",
-      "value":"Tap to Transfer is available"
+      "value":"Knock to share requires a phone: supports knocking between phones, PC/2in1, and select tablets. Tablet-to-tablet, PC-to-tablet, and PC-to-PC are not supported."
     },
     {
-      "name":"nowplaying",
-      "value":"③Current scan results , texts or links pending sharing or processing."
+      "name": "can_knock_share",
+      "value": "Tap to Transfer available"
+    },
+    {
+      "name": "phone_can_knock_share",
+      "value": "Phone-to-Phone Tap to Transfer available"
+    },
+    {
+      "name": "pc_can_knock_share",
+      "value": "PC Tap to Transfer available"
+    },
+    {
+      "name": "phone_to_pc_can_knock_share",
+      "value": "Phone→PC/Select Tablets Tap to Transfer available"
+    },
+    {
+      "name": "pc_to_phone_can_knock_share",
+      "value": "PC/Select Tablets→Phone Tap to Transfer available"
+    },
+    {
+      "name": "knock_guide_phone_hos5",
+      "value": "Phone needs HarmonyOS 5 or above."
+    },
+    {
+      "name": "knock_guide_pc_hos6",
+      "value": "PC needs HarmonyOS 6 or above.\nTablet needs HarmonyOS 7 or above."
+    },
+    {
+      "name": "knock_guide_phone_hos6",
+      "value": "PC needs HarmonyOS 6 or above.\nTablet needs HarmonyOS 7 or above."
+    },
+    {
+      "name": "newyear_card_spring_festival",
+      "value": "Spring Festival Holiday Schedule"
+    },
+    {
+      "name": "newyear_card_lantern_festival",
+      "value": "Learn About Lantern Festival"
+    },
+    {
+      "name": "newyear_card_2024_gala",
+      "value": "Rewatch 2024 Spring Gala"
+    },
+    {
+      "name": "newyear_card_2025_gala",
+      "value": "Rewatch 2025 Spring Gala"
+    },
+    {
+      "name": "newyear_quick_share_title",
+      "value": "🎉 Happy 2026 New Year! Click to quickly share:"
+    },
+    {
+      "name": "segment_knock_preview",
+      "value": "Tap to Transfer Preview"
+    },
+    {
+      "name": "segment_air_preview",
+      "value": "Air Transfer Preview"
     },
     {
       "name":"pick",
-      "value":"\uDB80\uDD28 Create QRCode"
+      "value": "\uDB81\uDCE5 Pick"
     },
     {
       "name":"takephotos",
@@ -238,31 +194,19 @@
     },
     {
       "name":"copyright",
-      "value":"All rights reserved © 2025."
-    },
-    {
-      "name":"mineunder",
-      "value":"Download AppTest"
-    },
-    {
-      "name":"expagetitle",
-      "value":"Hidden Page > < "
-    },
-    {
-      "name":"exunder",
-      "value":"Go to MeoW to subscribe to HSR news updates"
+      "value":"All rights reserved © 2025-2026."
     },
     {
       "name":"infopagetitle",
-      "value":"APP Info > < "
+      "value": "Settings & Info > < "
     },
     {
       "name":"mine1",
-      "value":"APP info"
+      "value": "Settings & Info"
     },
     {
       "name":"mine2",
-      "value":"Official website"
+      "value": "Join invite test"
     },
     {
       "name":"mine3",
@@ -270,11 +214,35 @@
     },
     {
       "name":"mine4",
-      "value":"Subscribe Douyin"
+      "value": "Subscribe douyin"
     },
     {
       "name":"mine5",
       "value":"Official Blog"
+    },
+    {
+      "name":"bilibili_subtitle_1",
+      "value":"bilibili - hnyqwq"
+    },
+    {
+      "name":"bilibili_subtitle_2",
+      "value":"bilibili - Happynewyear_QwQ"
+    },
+    {
+      "name":"douyin_subtitle_1",
+      "value":"Douyin - hnyqwq"
+    },
+    {
+      "name":"douyin_subtitle_2",
+      "value":"Douyin - hny"
+    },
+    {
+      "name":"visit_official_website",
+      "value":"Visit Official Website"
+    },
+    {
+      "name":"blog_subtitle",
+      "value":"hnyqwq's blog"
     },
     {
       "name":"info1",
@@ -290,7 +258,7 @@
     },
     {
       "name":"info4",
-      "value":"Serial number"
+      "value":"Software version"
     },
     {
       "name":"info5",
@@ -298,7 +266,15 @@
     },
     {
       "name":"choose",
-      "value":"Choose local photo"
+      "value":"Select Photo"
+    },
+    {
+      "name":"choosevideo",
+      "value":"Select Video"
+    },
+    {
+      "name":"choosepad",
+      "value":"Select Local/Nearby"
     },
     {
       "name":"appname",
@@ -314,42 +290,39 @@
     },
     {
       "name":"speak",
-      "value":"Enter the text to be spoken"
+      "value":"Enter text to be spoken"
     },
     {
       "name":"qrcode",
-      "value":"Enter the text to generate a QR code"
+      "value":"Enter text to generate a QR code"
     },
     {
       "name":"sharepngon",
-      "value": "Photo link"
+      "value": "Set the background image"
     },
     {
       "name":"sharepng",
-      "value":"\uDB81\uDC94 Enter the direct link to the background image for sharing"
+      "value": "\uDB81\uDC94 Enter a web image link"
     },
     {
       "name":"texton",
-      "value": "Create QR Code"
-    },{
-      "name": "local_image_selected",
-      "value": "Local image selected"
+      "value": "Set the link to be shared"
     },
     {
-      "name": "select_image_failed",
-      "value": "Select image failed"
+      "name":"pictureon",
+      "value": "Set the picture to be shared"
     },
     {
-      "name": "share_failed",
-      "value": "Share failed"
+      "name":"videoon",
+      "value": "Set the video to be shared"
     },
     {
-      "name": "pengtitleset",
-      "value": "Custom Sharing title"
+      "name": "meow",
+      "value": "Subscribe to the official channel"
     },
     {
-      "name": "minelongpress",
-      "value": "Go to APP"
+      "name": "5star",
+      "value": "Give a five-star review ๑>ᴗO๑"
     },
     {
       "name": "ShareUIAbility_label",
@@ -361,7 +334,690 @@
     },
     {
       "name": "toshare",
-      "value": "Go to app sharing"
-    }
+      "value": "Share on APP"
+    },
+    {
+      "name": "pengtitleset",
+      "value": "Set sharing title"
+    },
+    {
+      "name": "info6",
+      "value": "CPU（API 21+）"
+    },
+    {
+      "name": "ShareExtensionAbility_label",
+      "value": "Share link"
+    },
+    {
+      "name": "page_title",
+      "value": "Tool List"
+    },
+    {
+      "name": "sub_title1",
+      "value": "Common tools"
+    },
+    {
+      "name": "sub_title2",
+      "value": "Text processing"
+    },
+    {
+      "name": "sub_title3",
+      "value": "Internet"
+    },
+    {
+      "name": "sub_title1_value1",
+      "value": "Read text"
+    },
+    {
+      "name": "sub_title1_value2",
+      "value": "Network auth tool"
+    },
+    {
+      "name": "sub_title2_value1",
+      "value": "Read text"
+    },
+    {
+      "name": "sub_title3_value1",
+      "value": "Network auth tool"
+    },
+    {
+      "name": "InternetMon",
+      "value": "Please ensure that the current WIFI is connected to a network that requires authentication, and that you are currently attempting to open:"
+    },
+    {
+      "name": "Internet1",
+      "value": "Huawei source\nHuawei redirect"
+    },
+    {
+      "name": "Internet2",
+      "value": "Microsoft source\nPC redirect"
+    },
+    {
+      "name": "Internet3",
+      "value": "Apple source\nApple redirect"
+    },
+    {
+      "name": "Internet4",
+      "value": "Google source"
+    },
+    {
+      "name": "Internet5",
+      "value": "1.1.1.1\nAccount switch"
+    },
+    {
+      "name": "Internet6",
+      "value": "Test\nOpen website"
+    },
+    {
+      "name": "Internet7",
+      "value": "Test\nPlay video"
+    },
+    {
+      "name": "Internet1success",
+      "value": "Displaying 404 Not Found indicates that you have connected to the Internet; otherwise, it will automatically redirect to the login page"
+    },
+    {
+      "name": "Internet2success",
+      "value": "Displaying a blank interface indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
+    },
+    {
+      "name": "Internetmsnsuccess",
+      "value": "Displaying MSN homepage indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
+    },
+    {
+      "name": "Internetapplesuccess",
+      "value": "Displaying a blank interface or \"Success\" indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
+    },
+    {
+      "name": "Internet3success",
+      "value": "Opening \"Version Description\" > \"All HarmonyOS Versions\" indicates that you have connected to the Internet; otherwise, it cannot be opened"
+    },
+    {
+      "name": "Internetselfsuccess",
+      "value": "The intro video will automatically play, indicating that you have connected to the Internet; otherwise, it will not be able to play"
+    },
+    {
+      "name": "sub_title2_value2",
+      "value": "Create QR Code"
+    },
+    {
+      "name": "sub_title2_value3",
+      "value": "OCR"
+    },
+    {
+      "name": "createqrcode",
+      "value": "\uDB80\uDD28 Create QR Code"
+    },
+    {
+      "name": "large_device_hint",
+      "value": "Most tablets do not support Knock Share. AirDrop preview has been automatically selected."
+    },
+    {
+      "name": "text_share",
+      "value": "Text Share"
+    },
+    {
+      "name": "link_share",
+      "value": "Link Share"
+    },
+    {
+      "name": "image_share",
+      "value": "Image Share"
+    },
+    {
+      "name": "video_share",
+      "value": "Video Share"
+    },
+    {
+      "name": "link",
+      "value": "Link"
+    },
+    {
+      "name": "text",
+      "value": "Text"
+    },
+    {
+      "name": "image",
+      "value": "Image"
+    },
+    {
+      "name": "video",
+      "value": "Video"
+    },
+    {
+      "name": "file",
+      "value": "File"
+    },
+    {
+      "name": "file_share",
+      "value": "File Share"
+    },
+    {
+      "name": "share_image_count",
+      "value": "Images: %d"
+    },
+    {
+      "name": "share_video_count",
+      "value": "Videos: %d"
+    },
+    {
+      "name": "share_file_count",
+      "value": "Files: %d"
+    },
+    {
+      "name": "share_forward_no_content",
+      "value": "Nothing to forward"
+    },
+    {
+      "name": "share_forward_failed",
+      "value": "Forward failed"
+    },
+    {
+      "name": "share_copy_failed",
+      "value": "Some files failed to copy, forwarding may be unavailable"
+    },
+    {
+      "name": "share_forward_image_desc",
+      "value": "Share %d images"
+    },
+    {
+      "name": "share_forward_video_desc",
+      "value": "Share %d videos"
+    },
+    {
+      "name": "share_forward_file_desc",
+      "value": "Share %d files"
+    },
+    {
+      "name": "ai_core_speech_support",
+      "value": "AI powered, using Core Speech Kit"
+    },
+    {
+      "name": "api_name",
+      "value": "API version name"
+    },
+    {
+      "name": "api_version",
+      "value": "API version"
+    },
+    {
+      "name": "performance_level",
+      "value": "PerformanceClassLevel"
+    },
+    {
+      "name": "show_newyear_card",
+      "value": "New Year Card"
+    },
+    {
+      "name": "immersive_tab_style",
+      "value": "Immersive Interface Style"
+    },
+    {
+      "name": "immersive_style_on",
+      "value": "Immersive (Float+Material)"
+    },
+    {
+      "name": "immersive_style_off",
+      "value": "Traditional (Separate)"
+    },
+    {
+      "name": "new_year_card_on",
+      "value": "Show"
+    },
+    {
+      "name": "new_year_card_off",
+      "value": "Hide"
+    },
+    {
+      "name": "select_feature_hint",
+      "value": "Please select a feature from the left"
+    },
+    {
+      "name": "check_update",
+      "value": "Check for updates"
+    },
+    {
+      "name": "phone_multi_device",
+      "value": "Phone Multi-Device"
+    },
+    {
+      "name": "phone_multi_device_on",
+      "value": "On"
+    },
+    {
+      "name": "phone_multi_device_off",
+      "value": "Off"
+    },
+    {
+      "name": "choosevideo_cross",
+      "value": "Select Local/Nearby"
+    },
+    {
+      "name": "setasbackgroundatthesametime",
+      "value": "As background"
+    },
+    {
+      "name": "login_hint",
+      "value": "Instant Use - No Install Needed"
+    },
+    {
+      "name": "xh_passport_logged_in",
+      "value": "Xinghe Passport Logged In"
+    },
+    {
+      "name": "logout",
+      "value": "Log Out"
+    },
+    {
+      "name": "mine2_short",
+      "value": "Invite Test"
+    },
+    {
+      "name": "social_links",
+      "value": "Social & Links"
+    },
+    {
+      "name":"tab_password_login",
+      "value":"Password"
+    },
+    {
+      "name":"tab_sms_login",
+      "value":"SMS Login"
+    },
+    {
+      "name":"tab_register",
+      "value":"Register"
+    },
+    {
+      "name":"hint_username",
+      "value":"Enter username"
+    },
+    {
+      "name":"hint_password",
+      "value":"Enter password"
+    },
+    {
+      "name":"hint_phone",
+      "value":"Phone"
+    },
+    {
+      "name":"hint_sms_code",
+      "value":"Code"
+    },
+    {
+      "name":"hint_login_account",
+      "value":"Phone number or email"
+    },
+    {
+      "name":"hint_code_6",
+      "value":"6-digit code"
+    },
+    {
+      "name":"hint_reg_username",
+      "value":"3-20 letters, digits or underscores"
+    },
+    {
+      "name":"hint_reg_password",
+      "value":"At least 6 characters"
+    },
+    {
+      "name":"hint_phone_11",
+      "value":"11-digit phone number"
+    },
+    {
+      "name":"hint_email",
+      "value":"Email (optional)"
+    },
+    {
+      "name":"hint_email_code",
+      "value":"Email code"
+    },
+    {
+      "name":"agreement_prefix",
+      "value":"I have read and agree to "
+    },
+    {
+      "name":"agreement_user_protocol",
+      "value":"the User Agreement"
+    },
+    {
+      "name":"agreement_and",
+      "value":" and "
+    },
+    {
+      "name":"agreement_privacy",
+      "value":"the Privacy Policy"
+    },
+    {
+      "name":"send_code",
+      "value":"Send Code"
+    },
+    {
+      "name":"btn_login",
+      "value":"Login"
+    },
+    {
+      "name":"btn_register",
+      "value":"Register"
+    },
+    {
+      "name":"no_account_register",
+      "value":"No account? Register"
+    },
+    {
+      "name":"has_account_login",
+      "value":"Have account? Login"
+    },
+    {
+      "name":"bind_phone_title",
+      "value":"Bind Phone"
+    },
+    {
+      "name":"bind_phone_hint",
+      "value":"Phone required for first Huawei login"
+    },
+    {
+      "name":"btn_bind",
+      "value":"Bind & Login"
+    },
+    {"name":"sub_title4","value":"Text Advanced"},
+    {"name":"sub_title5","value":"Image Tools"},
+    {"name":"sub_title6","value":"Network Diagnostics"},
+    {"name":"sub_title7","value":"Utilities"},
+    {"name":"sub_title4_value1","value":"Word Count"},
+    {"name":"sub_title4_value2","value":"Encrypt/Decrypt"},
+    {"name":"sub_title4_value3","value":"JSON Format"},
+    {"name":"sub_title5_value1","value":"Image Compress"},
+    {"name":"sub_title5_value2","value":"Image Convert"},
+    {"name":"sub_title5_value3","value":"Image Info"},
+    {"name":"sub_title6_value1","value":"IP Query"},
+    {"name":"sub_title6_value2","value":"Latency Test"},
+    {"name":"sub_title6_value3","value":"HTTP Status"},
+    {"name":"sub_title7_value1","value":"Password Generator"},
+    {"name":"sub_title7_value2","value":"Color Picker"},
+    {"name":"sub_title7_value3","value":"Stopwatch"},
+    {"name":"word_count_title","value":"Word Count"},
+    {"name":"word_count_hint","value":"Enter or paste text here"},
+    {"name":"word_count_total_chars","value":"Total Characters"},
+    {"name":"word_count_chars_no_space","value":"Chars (no spaces)"},
+    {"name":"word_count_chinese","value":"Chinese Characters"},
+    {"name":"word_count_english","value":"English Words"},
+    {"name":"word_count_lines","value":"Lines"},
+    {"name":"word_count_paragraphs","value":"Paragraphs"},
+    {"name":"encrypt_title","value":"Text Encrypt/Decrypt"},
+    {"name":"encrypt_mode_encrypt","value":"Encrypt"},
+    {"name":"encrypt_mode_decrypt","value":"Decrypt"},
+    {"name":"encrypt_input_hint","value":"Enter text to encrypt/decrypt"},
+    {"name":"encrypt_key_hint","value":"Enter secret key"},
+    {"name":"encrypt_execute","value":"Execute"},
+    {"name":"encrypt_result","value":"Result"},
+    {"name":"encrypt_error","value":"Error"},
+    {"name":"json_format_title","value":"JSON Format"},
+    {"name":"json_format_prettify","value":"Prettify"},
+    {"name":"json_format_compress","value":"Compress"},
+    {"name":"json_format_input_hint","value":"Paste JSON here"},
+    {"name":"json_format_execute","value":"Format"},
+    {"name":"json_format_result","value":"Result"},
+    {"name":"image_compress_title","value":"Image Compress"},
+    {"name":"image_select","value":"Select Image"},
+    {"name":"image_original_size","value":"Original Size"},
+    {"name":"image_compress_quality","value":"Quality"},
+    {"name":"image_compress_execute","value":"Compress"},
+    {"name":"image_compressed_size","value":"Compressed Size"},
+    {"name":"image_convert_title","value":"Image Convert"},
+    {"name":"image_convert_source_format","value":"Source Format"},
+    {"name":"image_convert_target_format","value":"Target Format"},
+    {"name":"image_convert_execute","value":"Convert"},
+    {"name":"image_convert_result","value":"Converted"},
+    {"name":"image_info_title","value":"Image Info"},
+    {"name":"image_info_width","value":"Width"},
+    {"name":"image_info_height","value":"Height"},
+    {"name":"image_info_size","value":"File Size"},
+    {"name":"image_info_format","value":"Format"},
+    {"name":"image_info_ratio","value":"Aspect Ratio"},
+    {"name":"ip_query_title","value":"IP Query"},
+    {"name":"ip_query_execute","value":"Query My IP"},
+    {"name":"ip_query_address","value":"IP Address"},
+    {"name":"ip_query_city","value":"City"},
+    {"name":"ip_query_region","value":"Region"},
+    {"name":"ip_query_country","value":"Country"},
+    {"name":"ip_query_isp","value":"ISP"},
+    {"name":"latency_test_title","value":"Latency Test"},
+    {"name":"latency_test_execute","value":"Start Test"},
+    {"name":"latency_test_testing","value":"Testing"},
+    {"name":"http_status_title","value":"HTTP Status Check"},
+    {"name":"http_status_url_hint","value":"Enter URL to check"},
+    {"name":"http_status_execute","value":"Check"},
+    {"name":"http_status_code","value":"Status Code"},
+    {"name":"http_status_headers","value":"Response Headers"},
+    {"name":"password_gen_title","value":"Password Generator"},
+    {"name":"password_gen_length","value":"Length"},
+    {"name":"password_gen_uppercase","value":"Uppercase (A-Z)"},
+    {"name":"password_gen_lowercase","value":"Lowercase (a-z)"},
+    {"name":"password_gen_numbers","value":"Numbers (0-9)"},
+    {"name":"password_gen_symbols","value":"Symbols (!@#$...)"},
+    {"name":"password_gen_execute","value":"Generate"},
+    {"name":"color_picker_title","value":"Color Picker"},
+    {"name":"color_picker_red","value":"R"},
+    {"name":"color_picker_green","value":"G"},
+    {"name":"color_picker_blue","value":"B"},
+    {"name":"stopwatch_title","value":"Stopwatch"},
+    {"name":"stopwatch_countup","value":"Count Up"},
+    {"name":"stopwatch_countdown","value":"Count Down"},
+    {"name":"stopwatch_minutes","value":"Min"},
+    {"name":"stopwatch_seconds","value":"Sec"},
+    {"name":"stopwatch_start","value":"Start"},
+    {"name":"stopwatch_stop","value":"Stop"},
+    {"name":"stopwatch_reset","value":"Reset"},
+    {"name":"stopwatch_lap","value":"Lap"},
+    {"name":"image_sr_title","value":"Super Resolution"},
+    {"name":"image_sr_value","value":"Super Resolution"},
+    {"name":"image_sr_execute","value":"Start"},
+    {"name":"image_sr_result","value":"Result"},
+    {"name":"image_sr_process_fail","value":"Super resolution failed, please try again"},
+    {"name":"image_sr_size_not_supported","value":"Unsupported image size, please select another"},
+    {"name":"image_sr_save_success","value":"Saved to Gallery"},
+    {"name":"image_sr_save_fail","value":"Save failed"},
+    {"name":"ip_querying","value":"Querying..."},
+    {"name":"saved_to_album","value":"Saved to gallery"},
+    {"name":"save_failed","value":"Save failed"},
+    {"name":"from_nearby_device","value":"From nearby device"},
+    {"name":"audio_generated_by_ai","value":"Audio generated by AI. "},
+    {"name":"common_features","value":"Features"},
+    {"name":"already_latest_version","value":"Already up to date, "},
+    {"name":"tap_to_your_heart_content","value":"No batch limit, tap all you want (ᗜ ˰ ᗜ)"},
+    {"name":"check_update_failed","value":"Update check failed"},
+    {"name":"material_types_none_bug","value":"None"},
+    {"name":"get_failed","value":"Failed to get"},
+    {"name":"load_failed","value":"Load failed"},
+    {"name":"network_error_retry","value":"Network error, please check your connection"},
+    {"name":"authorization_revoked","value":"Authorization revoked"},
+    {"name":"revoke_failed","value":"Revoke failed"},
+    {"name":"xinghe_download_station","value":"Xinghe Download"},
+    {"name":"revoke_authorization","value":"Revoke Authorization"},
+    {"name":"cancel","value":"Cancel"},
+    {"name":"confirm_revoke","value":"Confirm Revoke"},
+    {"name":"authorized_apps","value":"Authorized Apps"},
+    {"name":"no_authorized_apps","value":"No authorized apps"},
+    {"name":"revoke","value":"Revoke"},
+    {"name":"agreement_tip","value":"Please read and agree to the User Agreement and Privacy Policy"},
+    {"name":"huawei_auth_agreement","value":"Huawei Account Authentication Agreement"},
+    {"name":"phone_label","value":"Phone"},
+    {"name":"not_bound","value":"Not bound"},
+    {"name":"email_label","value":"Email"},
+    {"name":"verified","value":"Verified"},
+    {"name":"passport_user_agreement","value":"Passport User Agreement"},
+    {"name":"passport_privacy_policy","value":"Passport Privacy Policy"},
+    {"name":"more_features","value":"More Features"},
+    {"name":"user_agreement","value":"User Agreement"},
+    {"name":"privacy_policy","value":"Privacy Policy"},
+    {"name":"logging_in","value":"Logging in..."},
+    {"name":"registering","value":"Registering..."},
+    {"name":"collapse_other_login","value":"Hide other login methods ▲"},
+    {"name":"expand_other_login","value":"Other login methods ▼"},
+    {"name":"change_avatar","value":"Change Avatar"},
+    {"name":"authorize_huawei_avatar","value":"Use Huawei Account Avatar"},
+    {"name":"select_image","value":"Select Image"},
+    {"name":"bind_phone_after_login","value":"Phone binding required after login"},
+    {"name":"enter_11digit_phone_and_code","value":"Please enter 11-digit phone and verification code"},
+    {"name":"enter_username_and_password","value":"Please enter username and password"},
+    {"name":"login_failed","value":"Login failed"},
+    {"name":"enter_valid_phone_or_email","value":"Please enter a valid phone number or email"},
+    {"name":"enter_6digit_code","value":"Please enter 6-digit code"},
+    {"name":"username_rule","value":"Username: 3-20 letters, digits or underscores"},
+    {"name":"password_min_length","value":"Password must be at least 6 characters"},
+    {"name":"enter_valid_phone","value":"Please enter a valid phone number"},
+    {"name":"enter_6digit_sms_code","value":"Please enter 6-digit SMS code"},
+    {"name":"enter_valid_email","value":"Please enter a valid email address"},
+    {"name":"enter_6digit_email_code","value":"Please enter 6-digit email code"},
+    {"name":"register_success","value":"Registration successful"},
+    {"name":"register_failed","value":"Registration failed"},
+    {"name":"code_sent","value":"Code sent"},
+    {"name":"email_code_sent","value":"Email code sent"},
+    {"name":"send_failed","value":"Send failed"},
+    {"name":"enter_11digit_phone","value":"Please enter 11-digit phone number"},
+    {"name":"agreement_privacy_prompt","value":"Agreement & Privacy Notice"},
+    {"name":"huawei_login_agreement_message","value":"Please read and agree to the User Agreement, Privacy Policy, and Huawei Account Authentication Agreement before logging in"},
+    {"name":"agree_and_login","value":"Agree & Login"},
+    {"name":"huawei_login_no_permission","value":"Huawei account login not available"},
+    {"name":"huawei_login_failed","value":"Huawei login failed"},
+    {"name":"need_bind_phone","value":"Phone binding required"},
+    {"name":"bind_failed","value":"Binding failed"},
+    {"name":"cannot_open_browser","value":"Cannot open browser"},
+    {"name":"huawei_account_info_not_found","value":"Huawei account info not found"},
+    {"name":"huawei_account_no_avatar","value":"Huawei account has no avatar"},
+    {"name":"huawei_avatar_applied","value":"Huawei account avatar applied"},
+    {"name":"authorization_failed_retry","value":"Authorization failed, please retry"},
+    {"name":"login_first_change_avatar","value":"Please log in first to change avatar"},
+    {"name":"image_size_limit_5mb","value":"Image size cannot exceed 5MB"},
+    {"name":"uploading_avatar","value":"Uploading avatar..."},
+    {"name":"avatar_updated","value":"Avatar updated"},
+    {"name":"upload_failed_retry","value":"Upload failed, please retry"},
+    {"name":"huawei_login_method","value":"Huawei Login"},
+    {"name":"password_login_method","value":"Password Login"},
+    {"name":"sms_login_method","value":"Code Login"},
+    {"name":"register_method","value":"Register"},
+    {"name":"code_sent_countdown","value":"Sent"},
+    {"name":"image_select_cancel_or_failed","value":"Image selection cancelled or failed"},
+    {"name":"no_image_selected","value":"No image selected"},
+    {"name":"image_copy_to_sandbox_failed","value":"Failed to copy image, sharing may not work"},
+    {"name":"set_as_background_success","value":"Set as background image"},
+    {"name":"set_background_failed","value":"Failed to set background image"},
+    {"name":"please_enter_link_to_share","value":"Please enter a link to share ⪩ ⪨"},
+    {"name":"please_enter_text_to_share","value":"Please enter text to share ⪩ ⪨"},
+    {"name":"please_select_image_to_share","value":"Please select an image to share ⪩ ⪨"},
+    {"name":"please_select_video_to_share","value":"Please select a video to share ⪩ ⪨"},
+    {"name":"please_select_file_to_share","value":"Please select a file to share ⪩ ⪨"},
+    {"name":"share_text_title_short","value":"Share Text"},
+    {"name":"share_image_title_short","value":"Share Image"},
+    {"name":"share_video_title_short","value":"Share Video"},
+    {"name":"share_file_title_short","value":"Share File"},
+    {"name":"unsupported_share_type","value":"Unsupported share type"},
+    {"name":"card_resource_loading","value":"Loading card resources..."},
+    {"name":"clear","value":"Clear"},
+    {"name":"add","value":"Add"},
+    {"name":"select_file","value":"Select File"},
+    {"name":"download_network_file","value":"Download Network File"},
+    {"name":"download_and_share","value":"Download"},
+    {"name":"preparing_download","value":"Preparing download..."},
+    {"name":"enter_download_url","value":"Enter download URL"},
+    {"name":"scan_success","value":"Scan success: "},
+    {"name":"scan_cancel_or_failed","value":"Scan cancelled or failed (PC/2in1 devices do not support QR scanning)"},
+    {"name":"scan_start_failed","value":"Scan failed: Failed to start scanner"},
+    {"name":"cross_device_file_process_failed","value":"Cross-device file processing failed"},
+    {"name":"cross_device_image_failed","value":"Failed to get cross-device image"},
+    {"name":"cross_device_video_failed","value":"Failed to get cross-device video"},
+    {"name":"set_background_from_nearby","value":"Background set from nearby device"},
+    {"name":"image_from_nearby","value":"Image received from nearby device"},
+    {"name":"video_from_nearby","value":"Video received from nearby device"},
+    {"name":"files_from_nearby","value":"%1$d file(s) received from nearby device"},
+    {"name":"share_function_error","value":"Share error: "},
+    {"name":"enter_link_share_title","value":"Enter link share title"},
+    {"name":"enter_text_share_title","value":"Enter text share title"},
+    {"name":"enter_image_share_title","value":"Enter image share title"},
+    {"name":"enter_video_share_title","value":"Enter video share title"},
+    {"name":"enter_file_share_title","value":"Enter file share title"},
+    {"name":"enter_share_title","value":"Enter share title"},
+    {"name":"switched_to","value":"Switched to: "},
+    {"name":"image_path_label","value":"Image path"},
+    {"name":"video_path_label","value":"Video path"},
+    {"name":"file_path_label","value":"File path"},
+    {"name":"selected_images_count","value":"%1$d image(s) selected"},
+    {"name":"selected_videos_count","value":"%1$d video(s) selected"},
+    {"name":"selected_files_count","value":"%1$d file(s) selected"},
+    {"name":"share_image_n","value":"Share Image"},
+    {"name":"share_video_n","value":"Share Video"},
+    {"name":"share_file_n","value":"Share File"},
+    {"name":"upload_failed_http","value":"Upload failed"},
+    {"name":"upload_failed","value":"Upload failed"},
+    {"name":"huawei_account_auth_agreement","value":"Huawei Account Authentication Agreement"},
+    {"name":"video_select_success","value":"Video selected"},
+    {"name":"video_select_failed","value":"Failed to select video"},
+    {"name":"video_copy_to_sandbox_failed","value":"Failed to copy video to sandbox, sharing may be unavailable"},
+    {"name":"file_select_success","value":"File selected"},
+    {"name":"file_select_failed","value":"Failed to select file"},
+    {"name":"file_copy_to_sandbox_failed","value":"Failed to copy file to sandbox, sharing may be unavailable"},
+    {"name":"file_already_exists","value":"File already exists"},
+    {"name":"download_complete_dir","value":"Download complete, saved to: "},
+    {"name":"download_failed_format","value":"Download failed"},
+    {"name":"download_task_create_failed","value":"Failed to create download task"},
+    {"name":"download_failed","value":"Download failed"},
+    {"name":"enter_download_link","value":"Please enter download link"},
+    {"name":"revoke_confirm_message","value":"Are you sure you want to revoke authorization for \"%s\"?"},
+    {"name":"selected_images_processing","value":"Selected %1$d image(s), processing..."},
+    {"name":"added_images","value":"Added %1$d image(s)"},
+    {"name":"added_videos","value":"Added %1$d video(s)"},
+    {"name":"added_files","value":"Added %1$d file(s)"},
+    {"name":"share_text_label","value":"Share Text"},
+    {"name":"share_image_label","value":"Share Image"},
+    {"name":"share_video_label","value":"Share Video"},
+    {"name":"share_file_label","value":"Share File"},
+    {"name":"share_images_desc","value":"Share %1$d image(s)"},
+    {"name":"share_videos_desc","value":"Share %1$d video(s)"},
+    {"name":"all_material_types","value":"NONE(No effect) | ADAPTIVE(System adaptive) | IMMERSIVE(Immersive)"},
+    {"name":"all_material_levels","value":"EXQUISITE | GENTLE | SMOOTH | ADAPTIVE(System adaptive)"},
+    {"name":"tab_home","value":"Home"},
+    {"name":"tab_discover","value":"Discover"},
+    {"name":"tab_mine","value":"Mine"},
+    {"name":"already_latest_full","value":"Already up to date! Tap away (ᗜ ˰ ᗜ)"},
+    {"name":"selected_images_count_label","value":"%1$d image(s) selected"},
+    {"name":"selected_videos_count_label","value":"%1$d video(s) selected"},
+    {"name":"selected_files_count_label","value":"%1$d file(s) selected"},
+    {"name":"image_path_index","value":"Image path %1$d"},
+    {"name":"video_path_index","value":"Video path %1$d"},
+    {"name":"file_path_index","value":"File path %1$d"},
+    {"name":"share_file_index","value":"Share File %1$d"},
+    {"name":"share_image_index","value":"Share Image %1$d"},
+    {"name":"share_video_index","value":"Share Video %1$d"},
+    {"name":"change_username","value":"Change Username"},
+    {"name":"username_cooldown","value":"Username can be changed every 30 days"},
+    {"name":"username_cooldown_days","value":"%d days remaining before next change"},
+    {"name":"username_rules_placeholder","value":"3-20 chars, alphanumeric+underscore, no leading digit/underscore"},
+    {"name":"username_invalid","value":"Invalid username format"},
+    {"name":"username_change_success","value":"Username changed successfully"},
+    {"name":"edit_nickname_bio","value":"Edit Nickname & Bio"},
+    {"name":"nickname_placeholder","value":"Enter nickname"},
+    {"name":"bio_placeholder","value":"Enter bio"},
+    {"name":"nickname_cannot_empty","value":"Nickname cannot be empty"},
+    {"name":"save_success","value":"Saved successfully"},
+    {"name":"copied_id","value":"ID copied"},
+    {"name":"copy_failed","value":"Copy failed"},
+    {"name":"modify","value":"Modify"},
+    {"name":"not_set","value":"Not set"},
+    {"name":"save","value":"Save"},
+    {"name":"nickname","value":"Nickname"},
+    {"name":"bio_label","value":"Bio"},
+    {"name":"username_label","value":"Username"},
+    {"name":"logout_confirm_msg","value":"Are you sure you want to log out?"},
+    {"name":"login_expired","value":"Login expired, please log in again"},
+    {"name":"request_failed","value":"Request failed"},
+    {"name":"image_too_large","value":"Image must be under 5MB"},
+    {"name":"read_image_failed","value":"Failed to read image"},
+    {"name":"confirm","value":"Confirm"},
+    {"name":"copy","value":"Copy"},
+    {"name":"modify_failed","value":"Modify failed"},
+    {"name":"save_avatar_failed","value":"Failed to save avatar"},
+    {"name":"huawei_avatar_used","value":"Huawei avatar applied"},
+    {"name":"network_error_with_msg","value":"Network error: %s"}
   ]
 }

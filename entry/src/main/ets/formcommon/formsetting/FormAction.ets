@@ -28,9 +28,6 @@ export function actionNewWant(want: Want, entryAbility: UIAbility) {
     console.info("onNewWant router targetPage:" + params.targetPage);
     selectPage = params.targetPage;
   }
-  if (currentWindowStage != null) {
-    entryAbility.onWindowStageCreate(currentWindowStage);
-  }
 }
 
 /**

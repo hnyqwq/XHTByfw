@@ -1,40 +1,48 @@
 import { CommonConstants } from '../constants/CommonConstants';
-import { router } from '@kit.ArkUI';
+import { navigationManager } from '../common/NavigationManager';
+import { GlobalInfoModel } from '../common/GlobalInfoModel';
+import { UsageTracker } from '../common/utils/UsageTracker';
 
 @Component
 export default struct GridItemComponent {
   itemName: ResourceStr = '';
-  itemImage: Resource = $r('app.media.ic_grid_item_entrances_icon');
+  itemImage?: Resource;
+  itemSymbol?: Resource;
   @State isPressed: boolean = false;
-  // 页面路径参数，支持 ResourceStr 或 string 类型
-  pageUrl: ResourceStr | string = '';
+  @Prop cardHeight: number = 92;
+  @Prop glyphSize: number = 24;
+  pageUrl: string = '';
+  @StorageProp('GlobalInfoModel') globalInfoModel: GlobalInfoModel = AppStorage.get('GlobalInfoModel')!;
 
   build() {
-
-    GridItem() {
-      Column() {
+    Column() {
+      if (this.itemSymbol) {
+        SymbolGlyph(this.itemSymbol)
+          .fontSize(this.glyphSize)
+          .fontColor([$r('sys.color.icon_primary')])
+      } else if (this.itemImage) {
         Image(this.itemImage)
-          .width($r('app.float.grid_item_image_size'))
-          .height($r('app.float.grid_item_image_size'))
-        Text(this.itemName)
-          .fontSize($r('app.float.grid_item_name_font_size'))
-          .textAlign(TextAlign.Center)
-          .margin({ top: $r('app.float.grid_item_name_top_margin') })
-          .height($r('app.float.grid_item_name_height'))
+          .width(this.glyphSize)
+          .height(this.glyphSize)
       }
-      .height(CommonConstants.FULL_PERCENT)
-      .justifyContent(FlexAlign.Center)
-      .backgroundColor(this.isPressed ? $r('app.color.pressed_color') : Color.Transparent)
-      .borderRadius($r('app.float.grid_item_border_radius'))
+      Text(this.itemName)
+        .fontSize(13)
+        .fontColor($r('app.color.font_primary'))
+        .margin({ top: 8 })
+        .textAlign(TextAlign.Center)
+        .maxLines(2)
+        .textOverflow({ overflow: TextOverflow.Ellipsis })
     }
-    .height($r('app.float.grid_item_height'))
+    .width('100%')
+    .height(this.cardHeight)
+    .justifyContent(FlexAlign.Center)
+    .alignItems(HorizontalAlign.Center)
+    .backgroundColor(this.isPressed ? $r('app.color.pressed_color') : Color.Transparent)
+    .borderRadius(10)
     .onClick(() => {
-      console.info(`Clicked on ${this.itemName}`);
-      // 如果设置了页面路径，则进行跳转
       if (this.pageUrl !== '') {
-        // 确保 pageUrl 是 string 类型
-        const url: string = typeof this.pageUrl === 'string' ? this.pageUrl : this.pageUrl.toString();
-        router.pushUrl({ url: url });
+        navigationManager.pushPath(this.pageUrl);
+        UsageTracker.getInstance().recordUsage(this.pageUrl);
       }
     })
     .onTouch((event: TouchEvent) => {
