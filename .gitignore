@@ -10,5 +10,4 @@
 /.clang-tidy
 **/.test
 /.appanalyzer
-.backup_before_sync_20260917
 .workbuddy
