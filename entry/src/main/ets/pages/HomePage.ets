@@ -5,7 +5,6 @@ import { scanCore, scanBarcode } from '@kit.ScanKit';
 // 导入日志模块和错误码模块
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError, deviceInfo } from '@kit.BasicServicesKit';
-import { http } from '@kit.NetworkKit';
 import { effectKit } from '@kit.ArkGraphics2D';
 import { fileIo as fs } from '@kit.CoreFileKit';
 import Logger from '../utils/Logger';
@@ -25,7 +24,6 @@ import { picker } from '@kit.CoreFileKit';
 import MediaFileUri from '../media/MediaFileUri';
 import { GlobalInfoModel } from '../common/GlobalInfoModel';
 import { DeviceSegmentButton } from '../components/DeviceSegmentButton';
-import { clearDirExceptSync } from '../common/utils/SandboxCleaner';
 
 let logger = Logger.getLogger('[HomePage]');
 let context = getContext(this) as common.UIAbilityContext;
@@ -37,13 +35,6 @@ function toFileUri(path: string): string {
     return path;
   }
   return fileUri.getUriFromPath(path);
-}
-
-// 新年卡片接口定义
-interface NewYearCard {
-  title: string;
-  imageUrl: string;
-  jumpUrl: string;
 }
 
 @Entry
@@ -104,13 +95,8 @@ export struct HomePage {
   @State shareImagePaths: string[] = []; // 图片路径数组（多个）
   @StorageLink('shareVideoPath') shareVideoPath: string = ''; // 视频路径（单个）- 使用StorageLink以响应AppStorage更新
   @State shareVideoPaths: string[] = []; // 视频路径数组（多个）
-  @State shareFilePath: string = ''; // 文件路径（单个）
   @State shareFilePaths: string[] = []; // 文件路径数组（多个）
-  @State downloadUrl: string = ''; // 下载链接
-  @State downloadProgress: string = '0'; // 下载进度
-  @State isDownloading: boolean = false; // 是否正在下载
-  @State receivedBytes: number = 0; // 已下载字节数
-  @State totalBytes: number = 0; // 下载文件总字节数(服务器未返回时为0)
+  @State shareFilePath: string = ''; // 文件路径（单个）
 
   // 主颜色获取相关
   @State mainColor: string = '#F5E5D8'; // 获取的主颜色，用于文字背景，默认为#F5E5D8
@@ -122,15 +108,11 @@ export struct HomePage {
   @State topSafeHeight: number = 0; // 顶部安全区域高度（已废弃，保留兼容性）
 
   // 新年卡片相关
-  @StorageLink('showNewYearCard') showNewYearCard: boolean = false; // 是否显示新年卡片，从AppStorage读取
-  @State newYearCards: NewYearCard[] = [];
-  @State currentNewYearCardIndex: number = 0; // 当前显示的新年卡片索引
 
   // 沉浸式Tab相关
   @StorageLink('isImmersiveTab') isImmersiveTab: boolean = false; // 沉浸式Tab栏设置，从AppStorage读取
 
   // 手机多设备选择相关
-  @StorageLink('isPhoneMultiDevice') isPhoneMultiDevice: boolean = true; // 手机多设备选择开关，从AppStorage读取
 
   // 默认背景图片URL列表（五张默认图）
   private readonly defaultBackgroundUrls: string[] = [
@@ -548,108 +530,7 @@ export struct HomePage {
     })
   }
 
-  private debounceTimer: number = 0
   private urlDebounceTimer: number = 0
-  // 修改 handleImageUpdate 方法
-  private handleImageUpdate() {
-    clearTimeout(this.debounceTimer);
-    this.debounceTimer = setTimeout(() => {
-      this.updateImageExtension(); // 确保在下载前更新扩展名
-      this.DownloadToSandbox();
-    }, 1000); // 1秒防抖
-  }
-
-  // 修改 DownloadToSandbox 方法
-  private async DownloadToSandbox() {
-    if (!this.isValidUrl(this.sharepng)) {
-      console.log('Invalid URL, skipping download');
-      return;
-    }
-
-    if (this.sharepng !== '') {
-      try {
-        console.log('=== DownloadToSandbox 开始下载 ===');
-        console.log('sharepng: ' + this.sharepng);
-        // 根据URL确定图片扩展名（再次确认）
-        this.updateImageExtension();
-
-        // 先删除旧文件（如果存在）
-        try {
-          await fs.unlink(filesDir + '/pengyipeng' + this.imageExtension);
-        } catch (e) {
-          // 文件不存在是正常情况，忽略错误
-        }
-
-        // 下载新文件（元服务不支持request.downloadFile，改用http流式下载）
-        const targetPath = filesDir + '/pengyipeng' + this.imageExtension;
-        await this.downloadToSandboxHttp(this.sharepng, targetPath);
-        console.log('Image downloaded successfully as ' + this.imageExtension);
-
-        // 下载完成后，等待文件系统同步
-        await new Promise<void>((resolve) => {
-          setTimeout(async () => {
-              console.log('下载完成，开始获取宽高比');
-              await this.getImageAspectRatio();
-              console.log('getImageAspectRatio 执行完成，宽高比: ' + this.imageAspectRatio);
-              console.log('=== DownloadToSandbox 下载完成 ===');
-
-              // 只有当用户没有手动设置自定义背景时，才更新 backgroundPixelMap 和 backgroundImagePath
-              if (!this.useCustomBackground) {
-                let localPath = filesDir + '/pengyipeng' + this.imageExtension;
-                let imageSource: image.ImageSource | undefined = undefined;
-                try {
-                  // 释放之前的背景PixelMap
-                  if (this.backgroundPixelMap) {
-                    this.backgroundPixelMap.release();
-                    this.backgroundPixelMap = undefined;
-                  }
-                  imageSource = image.createImageSource(localPath);
-                  this.backgroundPixelMap = await imageSource.createPixelMap();
-                  this.backgroundImagePath = 'file://' + localPath;
-                  console.log('backgroundPixelMap 和 backgroundImagePath 已更新（跟随 sharepng）');
-                } catch (error) {
-                  console.error('加载 backgroundPixelMap 失败:', JSON.stringify(error));
-                } finally {
-                }
-              } else {
-                console.log('用户已设置自定义背景，保持不变');
-              }
-
-              resolve();
-            }, 500);
-          });
-      } catch (error) {
-        console.error('Download failed:', error);
-      }
-    }
-  }
-
-  // http流式下载到沙箱（元服务替代request.downloadFile）
-  private async downloadToSandboxHttp(url: string, filePath: string): Promise<void> {
-    let httpRequest: http.HttpRequest | null = null;
-    try {
-      httpRequest = http.createHttp();
-      const resp = await httpRequest.request(url, {
-        method: http.RequestMethod.GET,
-        expectDataType: http.HttpDataType.ARRAY_BUFFER,
-        connectTimeout: 20000,
-        readTimeout: 30000
-      });
-      if (resp.responseCode === 200 || resp.responseCode === 206) {
-        const file = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
-        fs.writeSync(file.fd, resp.result as ArrayBuffer);
-        fs.closeSync(file);
-      } else {
-        console.error('downloadToSandboxHttp: HTTP ' + resp.responseCode);
-      }
-    } catch (e) {
-      console.error('downloadToSandboxHttp failed: ' + JSON.stringify(e));
-    } finally {
-      if (httpRequest) {
-        httpRequest.destroy();
-      }
-    }
-  }
 
   // 添加缺失的 updateImageExtension 方法
   private updateImageExtension() {
@@ -780,7 +661,6 @@ export struct HomePage {
     console.info(`HomePage aboutToAppear: currentBreakpoint=${this.currentBreakpoint}, currentBreakpointForUI=${this.currentBreakpointForUI}`);
     // 根据屏幕宽度判断是否使用分栏布局
     this.updateSplitLayoutByWidth();
-    this.DownloadToSandbox();
     let context = getContext(this);
 
     // 从 AppStorage 读取接续数据（由 EntryAbility 在 restoreDistributedObject 中设置）
@@ -823,29 +703,6 @@ export struct HomePage {
       this.extractTopBgColor(); // 获取初始背景颜色
     });
 
-    // 初始化新年卡片
-    this.newYearCards = [
-      {
-        title: this.context.resourceManager.getStringSync($r('app.string.newyear_card_spring_festival').id),
-        imageUrl: 'https://agc-storage-drcn.platform.dbankcloud.cn/v0/xhtb-oteot/pngs%2Fxinnian.jpg?token=36f6fb55-4114-41e3-bed3-487d27f0fdaf',
-        jumpUrl: 'https://www.gov.cn/zhengce/content/202511/content_7047090.htm'
-      },
-      {
-        title: this.context.resourceManager.getStringSync($r('app.string.newyear_card_lantern_festival').id),
-        imageUrl: 'https://agc-storage-drcn.platform.dbankcloud.cn/v0/xhtb-oteot/pngs%2FYuanxiao.jpg?token=a22cfb28-15a1-4517-94f0-51a30c3b5c84',
-        jumpUrl: 'https://baike.baidu.com/item/%E5%85%83%E5%AE%B5%E8%8A%82/118213'
-      },
-      {
-        title: this.context.resourceManager.getStringSync($r('app.string.newyear_card_2024_gala').id),
-        imageUrl: 'https://agc-storage-drcn.platform.dbankcloud.cn/v0/xhtb-oteot/pngs%2F2024.png?token=1590f9b5-c1f4-4e1f-9829-e73f1ac852bf',
-        jumpUrl: 'https://www.bilibili.com/video/BV1j2waeUEsW'
-      },
-      {
-        title: this.context.resourceManager.getStringSync($r('app.string.newyear_card_2025_gala').id),
-        imageUrl: 'https://agc-storage-drcn.platform.dbankcloud.cn/v0/xhtb-oteot/pngs%2F2025.png?token=0667b71c-cd2e-4990-b118-6badc323d274',
-        jumpUrl: 'https://www.bilibili.com/video/BV1qJfHY1EYh'
-      }
-    ];
 
     // 元服务不支持分享，预览模式固定使用隔空投送卡片样式
     this.selectedShareMode = 1;
@@ -902,7 +759,6 @@ export struct HomePage {
 
   aboutToDisappear(): void {
     logger.info('aboutToDisappear invoked.');
-    clearTimeout(this.debounceTimer);
     clearTimeout(this.urlDebounceTimer);
     let context = getContext(this);
     context.eventHub.off('onFocus');
@@ -1006,8 +862,6 @@ export struct HomePage {
     }
     this.backgroundImagePath = this.sharepng;
     this.backgroundImageKey = Date.now().toString();
-    // 触发下载新背景图片到本地
-    this.handleImageUpdate();
     // 同步到 AppStorage
     AppStorage.set('pengtitle', this.pengtitle);
     AppStorage.set('sharepng', this.sharepng);
@@ -1237,6 +1091,8 @@ export struct HomePage {
 
   build() {
     Column() {
+      // 固定顶部避让边:不随滚动,避开状态栏与元服务胶囊
+      Blank().height(Math.max(px2vp(this.topRectHeight) + 25, 60)).width("100%")
       // 根据屏幕宽度选择不同的布局（>=840vp使用分栏布局）
       if (this.useSplitLayoutByWidth) {
         // 大屏：使用左右两栏布局
@@ -1247,7 +1103,6 @@ export struct HomePage {
               Column() {
                 this.PreviewTopBuilder()
                 this.PreviewStackBuilder()
-                this.NewYearCardBuilder()
               }
               .width('100%')
               .alignItems(HorizontalAlign.Center)
@@ -1275,14 +1130,13 @@ export struct HomePage {
           .height('100%')
         }
         .width('100%')
-        .height('100%')
+        .layoutWeight(1)
       } else {
         // 其他断点：保持原有的垂直布局
         Scroll() {
           Column() {
             this.PreviewTopBuilder()
             this.PreviewStackBuilder()
-            this.NewYearCardBuilder()
             this.CardContainerBuilder()
             // 底部避让空白区域(沉浸tab模式使用100vp，普通tab模式使用16vp)
             Blank().height(this.isImmersiveTab ? 100 : 16).width('100%')
@@ -1292,6 +1146,7 @@ export struct HomePage {
           .margin({ top: 10 })
           .padding({ left: '5%', right: '5%' })
         }.scrollBar(BarState.Off)
+        .layoutWeight(1)
       }
     }
     .width(CommonConstants.FULL_PARENT)
@@ -1300,7 +1155,7 @@ export struct HomePage {
       direction: GradientDirection.Bottom,
       colors: [[this.topBgColor, CommonConstants.START_GRADIENT_RANGE], [$r('app.color.page_background_gradient_end'), CommonConstants.END_GRADIENT_RANGE]]
     })
-    .padding({ top: px2vp(this.topRectHeight) })
+
   }
 
   // 处理胶囊按钮选择变化
@@ -1316,32 +1171,7 @@ export struct HomePage {
     }
   }
 
-  // 处理新年卡片点击 - 快速设置分享内容
-  private handleNewYearCardClick(card: NewYearCard) {
-    // 更新分享标题
-    this.pengtitle = card.title;
-    AppStorage.set('pengtitle', card.title);
 
-    // 更新分享链接内容
-    this.shareLinkContent = card.jumpUrl;
-
-    // 更新背景图片
-    this.sharepng = card.imageUrl;
-    this.backgroundImagePath = card.imageUrl;
-    AppStorage.set('sharepng', card.imageUrl);
-
-    // 触发图片更新
-    this.handleImageUpdate();
-
-    // 提示用户
-    this.safeShowToast({ message: this.context.resourceManager.getStringSync($r('app.string.switched_to').id) + card.title });
-  }
-
-  // 新年卡片Builder - 已废弃,现在直接使用按钮
-  @Builder
-  NewYearCardItem(card: NewYearCard, index: number) {
-    // 此Builder已废弃,新年卡片现在直接显示为按钮
-  }
 
   // ========== 通用 @Builder 函数（消除手机/平板布局重复代码） ==========
 
@@ -1535,89 +1365,6 @@ export struct HomePage {
     .margin({ bottom: this.useSplitLayoutByWidth ? 0 : 20 })
   }
 
-  // 新年卡片区域
-  @Builder
-  NewYearCardBuilder() {
-    if (this.showNewYearCard) {
-      Column() {
-        Row() {
-          Text($r('app.string.newyear_quick_share_title'))
-            .fontSize(16)
-            .fontWeight(FontWeight.Bold)
-            .fontColor(0xCC0000)
-            .layoutWeight(1)
-          Text('✕')
-            .fontSize(18)
-            .fontColor(0x999999)
-            .onClick(() => {
-              this.showNewYearCard = false;
-            })
-        }
-        .width('100%')
-        .padding({ left: 12, right: 12, top: 8, bottom: 8 })
-        .justifyContent(FlexAlign.SpaceBetween)
-
-        Column({ space: 8 }) {
-          Row({ space: 8 }) {
-            Column() {
-              Text(this.newYearCards[0].title)
-                .fontSize(14).fontColor(0xFFFFFF).maxLines(1)
-                .textOverflow({ overflow: TextOverflow.Ellipsis })
-            }
-            .width('100%').height(40).layoutWeight(1)
-            .backgroundColor(0xFF6666).borderRadius(8)
-            .shadow({ radius: 4, color: 0x1A000000, offsetX: 0, offsetY: 2 })
-            .justifyContent(FlexAlign.Center).padding({ left: 8, right: 8 })
-            .onClick(() => { this.handleNewYearCardClick(this.newYearCards[0]); })
-            Column() {
-              Text(this.newYearCards[1].title)
-                .fontSize(14).fontColor(0xFFFFFF).maxLines(1)
-                .textOverflow({ overflow: TextOverflow.Ellipsis })
-            }
-            .width('100%').height(40).layoutWeight(1)
-            .backgroundColor(0xFF6666).borderRadius(8)
-            .shadow({ radius: 4, color: 0x1A000000, offsetX: 0, offsetY: 2 })
-            .justifyContent(FlexAlign.Center).padding({ left: 8, right: 8 })
-            .onClick(() => { this.handleNewYearCardClick(this.newYearCards[1]); })
-          }
-          .width('100%')
-          Row({ space: 8 }) {
-            Column() {
-              Text(this.newYearCards[2].title)
-                .fontSize(14).fontColor(0xFFFFFF).maxLines(1)
-                .textOverflow({ overflow: TextOverflow.Ellipsis })
-            }
-            .width('100%').height(40).layoutWeight(1)
-            .backgroundColor(0xFF6666).borderRadius(8)
-            .shadow({ radius: 4, color: 0x1A000000, offsetX: 0, offsetY: 2 })
-            .justifyContent(FlexAlign.Center).padding({ left: 8, right: 8 })
-            .onClick(() => { this.handleNewYearCardClick(this.newYearCards[2]); })
-            Column() {
-              Text(this.newYearCards[3].title)
-                .fontSize(14).fontColor(0xFFFFFF).maxLines(1)
-                .textOverflow({ overflow: TextOverflow.Ellipsis })
-            }
-            .width('100%').height(40).layoutWeight(1)
-            .backgroundColor(0xFF6666).borderRadius(8)
-            .shadow({ radius: 4, color: 0x1A000000, offsetX: 0, offsetY: 2 })
-            .justifyContent(FlexAlign.Center).padding({ left: 8, right: 8 })
-            .onClick(() => { this.handleNewYearCardClick(this.newYearCards[3]); })
-          }
-          .width('100%')
-        }
-        .width('100%')
-        .padding({ left: 12, right: 12, bottom: 8 })
-      }
-      .width('100%')
-      .linearGradient({
-        direction: GradientDirection.Bottom,
-        colors: [[0xFFFEF5E5, 0.0], [0xFFFFE0E0, 1.0]]
-      })
-      .borderRadius(12)
-      .margin({ top: this.useSplitLayoutByWidth ? 16 : 0, bottom: 16 })
-    }
-  }
-
   // 卡片容器：分享图片 + 分享内容 + 分享标题 + (平板含分享按钮)
   @Builder
   CardContainerBuilder() {
@@ -1662,7 +1409,13 @@ export struct HomePage {
           .onChange((sharepng: string) => {
             this.sharepng = sharepng;
             if (this.isValidUrl(sharepng)) {
-              this.handleImageUpdate();
+              // 直接由 Image 组件加载网络图;清掉旧的本地预览像素图
+              if (this.backgroundPixelMap) {
+                this.backgroundPixelMap.release();
+                this.backgroundPixelMap = undefined;
+              }
+              this.backgroundImagePath = sharepng;
+              this.backgroundImageKey = Date.now().toString();
             }
           })
         Row() {
@@ -2083,72 +1836,7 @@ export struct HomePage {
           .fontColor('#999999')
           .margin({ top: 5 })
       }
-      Row() {
-         Text($r('app.string.download_network_file'))
-          .width('55%')
-          .margin({ right: 10 })
-          .textAlign(TextAlign.Center)
-        if (this.isDownloading) {
-          // 下载中:原按钮位置变为单行进度条+状态文字
-          Row({ space: 8 }) {
-            if (this.totalBytes > 0) {
-              Progress({ value: Number(this.downloadProgress), total: 100, type: ProgressType.Linear })
-                .layoutWeight(1)
-                .color(0xFF66CC)
-            } else {
-              LoadingProgress()
-                .width(24)
-                .height(24)
-                .color(0xFF66CC)
-            }
-            Text(this.receivedBytes > 0 ? this.downloadSizeText() : $r('app.string.preparing_download'))
-              .fontSize(12)
-              .fontColor(0xFF66CC)
-              .maxLines(1)
-          }
-          .width('40%')
-          .alignItems(VerticalAlign.Center)
-          .justifyContent(FlexAlign.Center)
-        } else {
-           Button($r('app.string.download_and_share'))
-            .height(50)
-            .width('40%')
-            .backgroundColor(0xFF66CC)
-            .onClick(() => {
-              this.downloadAndShare();
-            })
-        }
-      }
-      .width('100%')
-      .margin({ top: 10, bottom: 10 })
-      Row() {
-         TextArea({ placeholder: $r('app.string.enter_download_url'), text: this.downloadUrl })
-          .layoutWeight(1)
-          .onChange((value: string) => {
-            this.downloadUrl = value;
-          })
-        Row() {
-          PasteButton({ icon: PasteIconStyle.LINES, buttonType: ButtonType.ROUNDED_RECTANGLE })
-            .backgroundColor(0xFF66CC)
-            .height(40)
-            .onClick((_event: ClickEvent, result: PasteButtonOnClickResult) => {
-              if (PasteButtonOnClickResult.SUCCESS === result) {
-                pasteboard.getSystemPasteboard().getData((err: BusinessError, pasteData: pasteboard.PasteData) => {
-                  if (err) {
-                    console.error(`Failed to get paste data. Code is ${err.code}, message is ${err.message}`);
-                    return;
-                  }
-                  this.downloadUrl = pasteData.getPrimaryText();
-                  this.safeShowToast({ message: $r('app.string.pastedtishi') });
-                });
-              }
-            })
-        }
-        .margin({ left: 10 })
-      }
-      .width('100%')
-      .alignItems(VerticalAlign.Center)
-    }
+  }
   }
 
   // 区域3：分享标题
@@ -2361,138 +2049,4 @@ export struct HomePage {
     }
   }
 
-  // 获取文件名:优先保留URL中的原始文件名,取不到有效文件名时用时间戳+扩展名兜底
-  private getFileName(url: string): string {
-    try {
-      let path = url.split('?')[0].split('#')[0];
-      let name = decodeURIComponent(path.substring(path.lastIndexOf('/') + 1)).trim();
-      if (name && name.includes('.')) {
-        return name;
-      }
-    } catch (e) {
-      // URL编码非法时走兜底命名
-    }
-
-    let date = new Date();
-    let year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
-    let hour = date.getHours();
-    let minute = date.getMinutes();
-    let seconds = date.getSeconds();
-
-    // 从URL中提取扩展名
-    let extension = '';
-    let lastSlashIndex = url.lastIndexOf('/');
-    let lastDotIndex = url.lastIndexOf('.');
-    if (lastDotIndex > lastSlashIndex) {
-      extension = url.substring(lastDotIndex);
-    }
-
-    return `${year}${month}${day}${hour}${minute}${seconds}${extension}`;
-  }
-
-  // 已下载/总大小的可读文本(总大小未知时只显示已下载)
-  private downloadSizeText(): string {
-    const mb = 1024 * 1024;
-    const fmt = (n: number): string => n >= mb ? (n / mb).toFixed(2) + 'MB' : (n / 1024).toFixed(0) + 'KB';
-    if (this.totalBytes > 0) {
-      return `${fmt(this.receivedBytes)} / ${fmt(this.totalBytes)}`;
-    }
-    return `已下载 ${fmt(this.receivedBytes)}`;
-  }
-
-  // 下载文件
-  private async downloadAndShare() {
-    if (!this.downloadUrl) {
-      this.safeShowToast({ message: $r('app.string.enter_download_link') });
-      return;
-    }
-    // 输入/粘贴的链接可能混入换行或空格,下载前清理(URL不含有意义空白)
-    const url = this.downloadUrl.replace(new RegExp('\\s+', 'g'), '');
-    if (!url) {
-      this.safeShowToast({ message: $r('app.string.enter_download_link') });
-      return;
-    }
-    if (this.isDownloading) {
-      return;
-    }
-
-    const uiContext = this.getUIContext();
-    let contextFaker: Context = uiContext.getHostContext() as Context;
-
-    // 创建下载目录
-    let cacheDir = contextFaker.cacheDir;
-    let dirPath = cacheDir + '/down_export';
-    let fileName = this.getFileName(url);
-    let filePath = dirPath + '/' + fileName;
-
-    // 同步建目录,确保目录存在后才开始下载(忽略已存在)
-    try {
-      fs.mkdirSync(dirPath, true);
-    } catch (e) {
-      let mkErr = e as BusinessError;
-      if (mkErr.code !== 13900015) {
-        console.error('mkdir failed: ' + mkErr.message);
-      }
-    }
-
-    // 清掉上次会话遗留的下载文件,保留同名文件以复用"文件已存在"逻辑
-    try {
-      clearDirExceptSync(dirPath, fileName);
-    } catch (e) {
-      console.error('clean down_export failed: ' + JSON.stringify(e));
-    }
-
-    try {
-      // 判断文件是否已存在
-      let res = fs.accessSync(filePath);
-      if (res) {
-        this.safeShowToast({ message: $r('app.string.file_already_exists') });
-        console.info('file exists');
-        this.shareFilePath = filePath;
-      } else {
-        this.isDownloading = true;
-        this.receivedBytes = 0;
-        this.totalBytes = 0;
-        this.downloadProgress = '0';
-        // 下载文件（元服务不支持request.downloadFile与http.on事件，改用request全量下载）
-        const httpRequestDL = http.createHttp();
-        httpRequestDL.request(url, {
-          method: http.RequestMethod.GET,
-          expectDataType: http.HttpDataType.ARRAY_BUFFER,
-          connectTimeout: 20000,
-          readTimeout: 120000
-        }).then((resp: http.HttpResponse) => {
-          if (resp.responseCode === 200 || resp.responseCode === 206) {
-            const buf = resp.result as ArrayBuffer;
-            const fileHandle = fs.openSync(filePath, fs.OpenMode.READ_WRITE | fs.OpenMode.CREATE | fs.OpenMode.TRUNC);
-            fs.writeSync(fileHandle.fd, buf);
-            fs.closeSync(fileHandle);
-            this.receivedBytes = buf.byteLength;
-            this.totalBytes = buf.byteLength;
-            this.downloadProgress = '100';
-            this.isDownloading = false;
-            this.safeShowToast({ message: this.context.resourceManager.getStringSync($r('app.string.download_complete_dir').id) + filePath });
-            this.shareFilePath = filePath;
-          } else {
-            this.isDownloading = false;
-            this.safeShowToast({ message: $r('app.string.download_failed_format') });
-            console.error('download HTTP ' + resp.responseCode);
-          }
-          httpRequestDL.destroy();
-        }).catch((e: BusinessError) => {
-          this.isDownloading = false;
-          this.safeShowToast({ message: $r('app.string.download_failed_format') });
-          console.error('download failed: ' + JSON.stringify(e));
-          httpRequestDL.destroy();
-        });
-      }
-    } catch (error) {
-      this.isDownloading = false;
-      let err: BusinessError = error as BusinessError;
-      console.error(`download failed, code is ${err.code}, message is ${err.message}`);
-      this.safeShowToast({ message: $r('app.string.download_failed') });
-    }
-  }
 }

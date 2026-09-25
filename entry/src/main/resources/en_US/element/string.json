@@ -149,26 +149,6 @@
       "value": "PC needs HarmonyOS 6 or above.\nTablet needs HarmonyOS 7 or above."
     },
     {
-      "name": "newyear_card_spring_festival",
-      "value": "Spring Festival Holiday Schedule"
-    },
-    {
-      "name": "newyear_card_lantern_festival",
-      "value": "Learn About Lantern Festival"
-    },
-    {
-      "name": "newyear_card_2024_gala",
-      "value": "Rewatch 2024 Spring Gala"
-    },
-    {
-      "name": "newyear_card_2025_gala",
-      "value": "Rewatch 2025 Spring Gala"
-    },
-    {
-      "name": "newyear_quick_share_title",
-      "value": "🎉 Happy 2026 New Year! Click to quickly share:"
-    },
-    {
       "name": "segment_knock_preview",
       "value": "Tap to Transfer Preview"
     },
@@ -199,10 +179,6 @@
     {
       "name":"infopagetitle",
       "value": "Settings & Info > < "
-    },
-    {
-      "name":"mine1",
-      "value": "Settings & Info"
     },
     {
       "name":"mine2",
@@ -247,10 +223,6 @@
     {
       "name":"info1",
       "value":"Model name"
-    },
-    {
-      "name":"info2",
-      "value":"Model number"
     },
     {
       "name":"info3",
@@ -361,10 +333,6 @@
       "value": "Text processing"
     },
     {
-      "name": "sub_title3",
-      "value": "Internet"
-    },
-    {
       "name": "sub_title1_value1",
       "value": "Read text"
     },
@@ -375,14 +343,6 @@
     {
       "name": "sub_title2_value1",
       "value": "Read text"
-    },
-    {
-      "name": "sub_title3_value1",
-      "value": "Network auth tool"
-    },
-    {
-      "name": "InternetMon",
-      "value": "Please ensure that the current WIFI is connected to a network that requires authentication, and that you are currently attempting to open:"
     },
     {
       "name": "Internet1",
@@ -411,30 +371,6 @@
     {
       "name": "Internet7",
       "value": "Test\nPlay video"
-    },
-    {
-      "name": "Internet1success",
-      "value": "Displaying 404 Not Found indicates that you have connected to the Internet; otherwise, it will automatically redirect to the login page"
-    },
-    {
-      "name": "Internet2success",
-      "value": "Displaying a blank interface indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
-    },
-    {
-      "name": "Internetmsnsuccess",
-      "value": "Displaying MSN homepage indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
-    },
-    {
-      "name": "Internetapplesuccess",
-      "value": "Displaying a blank interface or \"Success\" indicates that you have connected to the Internet; otherwise, the page will automatically redirect to the login page"
-    },
-    {
-      "name": "Internet3success",
-      "value": "Opening \"Version Description\" > \"All HarmonyOS Versions\" indicates that you have connected to the Internet; otherwise, it cannot be opened"
-    },
-    {
-      "name": "Internetselfsuccess",
-      "value": "The intro video will automatically play, indicating that you have connected to the Internet; otherwise, it will not be able to play"
     },
     {
       "name": "sub_title2_value2",
@@ -537,36 +473,12 @@
       "value": "API version name"
     },
     {
-      "name": "api_version",
-      "value": "API version"
-    },
-    {
       "name": "performance_level",
       "value": "PerformanceClassLevel"
     },
     {
-      "name": "show_newyear_card",
-      "value": "New Year Card"
-    },
-    {
       "name": "immersive_tab_style",
-      "value": "Immersive Interface Style"
-    },
-    {
-      "name": "immersive_style_on",
-      "value": "Immersive (Float+Material)"
-    },
-    {
-      "name": "immersive_style_off",
-      "value": "Traditional (Separate)"
-    },
-    {
-      "name": "new_year_card_on",
-      "value": "Show"
-    },
-    {
-      "name": "new_year_card_off",
-      "value": "Hide"
+      "value": "Immersive Blur Tab Bar"
     },
     {
       "name": "select_feature_hint",
@@ -577,28 +489,12 @@
       "value": "Check for updates"
     },
     {
-      "name": "phone_multi_device",
-      "value": "Phone Multi-Device"
-    },
-    {
-      "name": "phone_multi_device_on",
-      "value": "On"
-    },
-    {
-      "name": "phone_multi_device_off",
-      "value": "Off"
-    },
-    {
       "name": "choosevideo_cross",
       "value": "Select Local/Nearby"
     },
     {
       "name": "setasbackgroundatthesametime",
       "value": "As background"
-    },
-    {
-      "name": "login_hint",
-      "value": "Instant Use - No Install Needed"
     },
     {
       "name": "xh_passport_logged_in",
@@ -722,17 +618,13 @@
     },
     {"name":"sub_title4","value":"Text Advanced"},
     {"name":"sub_title5","value":"Image Tools"},
-    {"name":"sub_title6","value":"Network Diagnostics"},
-    {"name":"sub_title7","value":"Utilities"},
     {"name":"sub_title4_value1","value":"Word Count"},
     {"name":"sub_title4_value2","value":"Encrypt/Decrypt"},
     {"name":"sub_title4_value3","value":"JSON Format"},
     {"name":"sub_title5_value1","value":"Image Compress"},
     {"name":"sub_title5_value2","value":"Image Convert"},
     {"name":"sub_title5_value3","value":"Image Info"},
-    {"name":"sub_title6_value1","value":"IP Query"},
-    {"name":"sub_title6_value2","value":"Latency Test"},
-    {"name":"sub_title6_value3","value":"HTTP Status"},
+    {"name":"sub_title7","value":"Utilities"},
     {"name":"sub_title7_value1","value":"Password Generator"},
     {"name":"sub_title7_value2","value":"Color Picker"},
     {"name":"sub_title7_value3","value":"Stopwatch"},
@@ -917,10 +809,6 @@
     {"name":"clear","value":"Clear"},
     {"name":"add","value":"Add"},
     {"name":"select_file","value":"Select File"},
-    {"name":"download_network_file","value":"Download Network File"},
-    {"name":"download_and_share","value":"Download"},
-    {"name":"preparing_download","value":"Preparing download..."},
-    {"name":"enter_download_url","value":"Enter download URL"},
     {"name":"scan_success","value":"Scan success: "},
     {"name":"scan_cancel_or_failed","value":"Scan cancelled or failed (PC/2in1 devices do not support QR scanning)"},
     {"name":"scan_start_failed","value":"Scan failed: Failed to start scanner"},
@@ -957,12 +845,6 @@
     {"name":"file_select_success","value":"File selected"},
     {"name":"file_select_failed","value":"Failed to select file"},
     {"name":"file_copy_to_sandbox_failed","value":"Failed to copy file to sandbox, sharing may be unavailable"},
-    {"name":"file_already_exists","value":"File already exists"},
-    {"name":"download_complete_dir","value":"Download complete, saved to: "},
-    {"name":"download_failed_format","value":"Download failed"},
-    {"name":"download_task_create_failed","value":"Failed to create download task"},
-    {"name":"download_failed","value":"Download failed"},
-    {"name":"enter_download_link","value":"Please enter download link"},
     {"name":"revoke_confirm_message","value":"Are you sure you want to revoke authorization for \"%s\"?"},
     {"name":"selected_images_processing","value":"Selected %1$d image(s), processing..."},
     {"name":"added_images","value":"Added %1$d image(s)"},
@@ -1018,6 +900,7 @@
     {"name":"modify_failed","value":"Modify failed"},
     {"name":"save_avatar_failed","value":"Failed to save avatar"},
     {"name":"huawei_avatar_used","value":"Huawei avatar applied"},
-    {"name":"network_error_with_msg","value":"Network error: %s"}
+    {"name":"network_error_with_msg","value":"Network error: %s"},
+    {"name":"privacy_jump_unavailable","value":"Not available yet"}
   ]
 }

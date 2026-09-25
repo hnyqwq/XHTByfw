@@ -1,4 +1,3 @@
-import { FormHttpUpdate } from '../formcommon/HttpIndex';
 import FormPreference from '../formcommon/utils/FormPreference';
 import { formBindingData, FormExtensionAbility, formInfo } from '@kit.FormKit';
 import { Want } from '@kit.AbilityKit';
@@ -23,13 +22,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
   }
 
   onUpdateForm(formId: string) {
-    /**
-     * This is the automatically generated code for the logic of card interactions.
-     * Used to update(scheduledUpdateTime or updateDuration) form by http.
-     */
-    // FormHttpUpdate.updateForm(formId, this.context);
-
-
     // RDB卡片更新链路已移除(元服务不支持relationalStore,且原DB无种子数据)
     // Called to notify the form provider to update a specified form.
   }
@@ -43,9 +35,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
      * This is the automatically generated code for the logic of card interactions.
      * Used to http update form through message event.
      */
-    // FormHttpUpdate.formEvent(formId, message, this.context);
-
-
     // RDB卡片更新链路已移除(元服务不支持relationalStore,且原DB无种子数据)
     // Called when a specified message event defined by the form provider is triggered.
   }

@@ -248,7 +248,19 @@ export default class EntryAbility extends UIAbility {
           data.setWindowDecorVisible(false);
           data.setWindowDecorHeight(0);
         } else {
-          this.windowClass.setWindowLayoutFullScreen(true).catch((error: BusinessError) => {
+          this.windowClass.setWindowLayoutFullScreen(true).then(() => {
+            // 全屏生效后重新获取避让区:全屏前状态栏/导航条不在窗口内,查询值为0
+            const avoidAreaSystemFull = data.getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM);
+            AppStorage.setOrCreate('topRectHeight', avoidAreaSystemFull.topRect.height);
+            const avoidAreaNavFull = data.getWindowAvoidArea(window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR);
+            AppStorage.setOrCreate('bottomRectHeight', avoidAreaNavFull.bottomRect.height);
+            const globalInfoModelFull: GlobalInfoModel = AppStorage.get('GlobalInfoModel') || new GlobalInfoModel();
+            globalInfoModelFull.statusBarHeight = px2vp(avoidAreaSystemFull.topRect.height);
+            globalInfoModelFull.naviIndicatorHeight = px2vp(avoidAreaNavFull.bottomRect.height);
+            AppStorage.setOrCreate('GlobalInfoModel', globalInfoModelFull);
+            hilog.info(0x0000, 'testTag', 'avoidArea after fullscreen: top=%{public}d bottom=%{public}d',
+              avoidAreaSystemFull.topRect.height, avoidAreaNavFull.bottomRect.height);
+          }).catch((error: BusinessError) => {
             hilog.error(0x0000, 'testTag', 'Failed to set window layout full screen. Cause: %{public}s', JSON.stringify(error) ?? '');
           });
         }
@@ -366,7 +378,19 @@ export default class EntryAbility extends UIAbility {
           data.setWindowDecorVisible(false);
           data.setWindowDecorHeight(0);
         } else {
-          this.windowClass.setWindowLayoutFullScreen(true).catch((error: BusinessError) => {
+          this.windowClass.setWindowLayoutFullScreen(true).then(() => {
+            // 全屏生效后重新获取避让区:全屏前状态栏/导航条不在窗口内,查询值为0
+            const avoidAreaSystemFull = data.getWindowAvoidArea(window.AvoidAreaType.TYPE_SYSTEM);
+            AppStorage.setOrCreate('topRectHeight', avoidAreaSystemFull.topRect.height);
+            const avoidAreaNavFull = data.getWindowAvoidArea(window.AvoidAreaType.TYPE_NAVIGATION_INDICATOR);
+            AppStorage.setOrCreate('bottomRectHeight', avoidAreaNavFull.bottomRect.height);
+            const globalInfoModelFull: GlobalInfoModel = AppStorage.get('GlobalInfoModel') || new GlobalInfoModel();
+            globalInfoModelFull.statusBarHeight = px2vp(avoidAreaSystemFull.topRect.height);
+            globalInfoModelFull.naviIndicatorHeight = px2vp(avoidAreaNavFull.bottomRect.height);
+            AppStorage.setOrCreate('GlobalInfoModel', globalInfoModelFull);
+            hilog.info(0x0000, 'testTag', 'avoidArea after fullscreen: top=%{public}d bottom=%{public}d',
+              avoidAreaSystemFull.topRect.height, avoidAreaNavFull.bottomRect.height);
+          }).catch((error: BusinessError) => {
             hilog.error(0x0000, 'testTag', 'Failed to set window layout full screen. Cause: %{public}s', JSON.stringify(error) ?? '');
           });
         }

@@ -7,16 +7,12 @@ import { UsageTracker } from '../common/utils/UsageTracker';
 import { common } from '@kit.AbilityKit';
 import { TextToSpeechPage } from '../XHTB/TextToSpeechPage';
 import { QRCodePage } from '../XHTB/QRCodePage';
-import { Internet } from '../XHTB/Internet';
 import { WordCountPage } from '../XHTB/TextTools/WordCountPage';
 import { EncryptPage } from '../XHTB/TextTools/EncryptPage';
 import { JsonFormatPage } from '../XHTB/TextTools/JsonFormatPage';
 import { ImageCompressPage } from '../XHTB/ImageTools/ImageCompressPage';
 import { ImageConvertPage } from '../XHTB/ImageTools/ImageConvertPage';
 import { ImageInfoPage } from '../XHTB/ImageTools/ImageInfoPage';
-import { IPQueryPage } from '../XHTB/NetTools/IPQueryPage';
-import { LatencyTestPage } from '../XHTB/NetTools/LatencyTestPage';
-import { HttpStatusPage } from '../XHTB/NetTools/HttpStatusPage';
 import { PasswordGeneratorPage } from '../XHTB/Utils/PasswordGeneratorPage';
 import { ColorPickerPage } from '../XHTB/Utils/ColorPickerPage';
 import { StopwatchPage } from '../XHTB/Utils/StopwatchPage';
@@ -101,7 +97,7 @@ struct SecondPageContent {
   build() {
     Column() {
       if (this.isImmersiveTab) {
-        Blank().height(px2vp(this.topRectHeight)).width('100%')
+        Blank().height(Math.max(px2vp(this.topRectHeight) + 25, 60)).width("100%")
       }
       Row() {
         Text($r('app.string.page_title'))
@@ -309,8 +305,6 @@ export struct SecondPage {
       TextToSpeechPage()
     } else if (name === 'XHTB/QRCodePage') {
       QRCodePage()
-   } else if (name === 'XHTB/Internet') {
-      Internet()
     } else if (name === 'XHTB/TextTools/WordCountPage') {
       WordCountPage()
     } else if (name === 'XHTB/TextTools/EncryptPage') {
@@ -323,12 +317,6 @@ export struct SecondPage {
       ImageConvertPage()
     } else if (name === 'XHTB/ImageTools/ImageInfoPage') {
       ImageInfoPage()
-   } else if (name === 'XHTB/NetTools/IPQueryPage') {
-      IPQueryPage()
-    } else if (name === 'XHTB/NetTools/LatencyTestPage') {
-      LatencyTestPage()
-    } else if (name === 'XHTB/NetTools/HttpStatusPage') {
-      HttpStatusPage()
     } else if (name === 'XHTB/Utils/PasswordGeneratorPage') {
       PasswordGeneratorPage()
     } else if (name === 'XHTB/Utils/ColorPickerPage') {

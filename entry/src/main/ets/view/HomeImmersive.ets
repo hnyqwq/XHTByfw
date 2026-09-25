@@ -4,6 +4,7 @@ import { HomePage } from '../pages/HomePage';
 import { SecondPage } from '../pages/SecondPage';
 import { MinePage } from '../pages/MinePage';
 import { router } from '@kit.ArkUI';
+import { uiMaterial } from '@kit.ArkUI';
 import { preferences } from '@kit.ArkData';
 import type { common } from '@kit.AbilityKit';
 import { deviceInfo } from '@kit.BasicServicesKit';
@@ -209,9 +210,24 @@ export struct HomeImmersive {
     .justifyContent(FlexAlign.Center)
   }
 
+  private createTabBarMaterial(): uiMaterial.ImmersiveMaterial | undefined {
+    try {
+      // TabBar背板沉浸光感材质:不反色,保证页签文字(蓝色/灰色)可读
+      return new uiMaterial.ImmersiveMaterial({
+        style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+        colorInvert: false,
+        applyShadow: false,
+        interactive: true
+      });
+    } catch (err) {
+      // 部分设备渲染期不支持 ImmersiveMaterial,兜底返回 undefined(材质属性接受 undefined)
+      return undefined;
+    }
+  }
+
   build() {
     if (this.isImmersiveTab) {
-      // 沉浸式Tab模式
+      // 沉浸光感Tab模式
       Tabs({ controller: this.controller, index: this.firstLevelIndex }) {
         TabContent() {
           SecondPage()
@@ -233,6 +249,12 @@ export struct HomeImmersive {
       .vertical(false)
       // 工具页打开时收起悬浮Tab栏(高度0),返回后恢复;键盘弹出时Tab栏浮在键盘上方;平板分栏工具列表常驻左栏,Tab保持可见
       .barHeight(this.toolPageActive && !this.isTabletMode() ? 0 : 56)
+      // 沉浸光感材质:TabBar背板光感+默认底部蒙层,悬浮离底28vp(官方默认)
+      .barFloatingStyle({
+        barBottomMargin: 28,
+        adaptToHandedness: false,
+        systemMaterial: this.createTabBarMaterial()
+      })
       .onChange((index: number) => {
         this.firstLevelIndex = index;
         AppStorage.setOrCreate('currentTabIndex', index);

@@ -4,7 +4,6 @@
     "pages/IndexImmersive",
     "pages/HomePage",
     "pages/SecondPage",
-    "pages/MinePage",
-    "pages/infoPage"
+    "pages/MinePage"
   ]
 }

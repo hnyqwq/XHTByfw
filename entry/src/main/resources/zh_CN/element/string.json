@@ -133,26 +133,6 @@
       "value": "电脑需 HarmonyOS 6 及以上版本。\n平板需 HarmonyOS 7 及以上版本。"
     },
     {
-      "name": "newyear_card_spring_festival",
-      "value": "春节放假安排"
-    },
-    {
-      "name": "newyear_card_lantern_festival",
-      "value": "了解元宵节"
-    },
-    {
-      "name": "newyear_card_2024_gala",
-      "value": "回看2024春晚"
-    },
-    {
-      "name": "newyear_card_2025_gala",
-      "value": "回看2025春晚"
-    },
-    {
-      "name": "newyear_quick_share_title",
-      "value": "🎉 2026新年快乐！点击可快速分享："
-    },
-    {
       "name": "segment_knock_preview",
       "value": "碰一碰传送预览"
     },
@@ -183,10 +163,6 @@
     {
       "name":"infopagetitle",
       "value": "软件设置与信息 > < "
-    },
-    {
-      "name":"mine1",
-      "value": "软件设置与信息"
     },
     {
       "name":"mine2",
@@ -231,10 +207,6 @@
     {
       "name":"info1",
       "value":"型号名称"
-    },
-    {
-      "name":"info2",
-      "value":"型号代码"
     },
     {
       "name":"info3",
@@ -336,10 +308,6 @@
       "value": "文本处理"
     },
     {
-      "name": "sub_title3",
-      "value": "网络"
-    },
-    {
       "name": "sub_title1_value1",
       "value": "朗读文字"
     },
@@ -350,14 +318,6 @@
     {
       "name": "sub_title2_value1",
       "value": "朗读文字"
-    },
-    {
-      "name": "sub_title3_value1",
-      "value": "网络认证工具"
-    },
-    {
-      "name": "InternetMon",
-      "value": "请确保当前WIFI已连接需要认证的网络，当前正在尝试打开："
     },
     {
       "name": "Internet1",
@@ -386,30 +346,6 @@
     {
       "name": "Internet7",
       "value": "测试链接情况\n播放视频"
-    },
-    {
-      "name": "Internet1success",
-      "value": "显示 404 Not Found 即表示已连接到互联网，否则会自动跳转登录页面"
-    },
-    {
-      "name": "Internet2success",
-      "value": "显示 空白界面 即表示已连接到互联网，否则会自动跳转登录页面"
-    },
-    {
-      "name": "Internetmsnsuccess",
-      "value": "显示 MSN主页 即表示已连接到互联网，否则会自动跳转登录页面"
-    },
-    {
-      "name": "Internetapplesuccess",
-      "value": "显示 空白界面或Success 即表示已连接到互联网，否则会自动跳转登录页面"
-    },
-    {
-      "name": "Internet3success",
-      "value": "打开 版本说明>所有HarmonyOS版本 即表示已连接到互联网，否则会无法打开"
-    },
-    {
-      "name": "Internetselfsuccess",
-      "value": "自动播放intro视频 即表示已连接到互联网，否则会无法播放"
     },
     {
       "name": "sub_title2_value2",
@@ -540,36 +476,12 @@
       "value": "设备能力定级"
     },
     {
-      "name": "api_version",
-      "value": "API版本号"
-    },
-    {
       "name": "api_name",
       "value": "API版本名称"
     },
     {
-      "name": "show_newyear_card",
-      "value": "春节卡片"
-    },
-    {
       "name": "immersive_tab_style",
-      "value": "沉浸式界面样式"
-    },
-    {
-      "name": "immersive_style_on",
-      "value": "沉浸式（悬浮+材质）"
-    },
-    {
-      "name": "immersive_style_off",
-      "value": "传统式（分离效果）"
-    },
-    {
-      "name": "new_year_card_on",
-      "value": "显示"
-    },
-    {
-      "name": "new_year_card_off",
-      "value": "隐藏"
+      "value": "沉浸光感Tab栏"
     },
     {
       "name": "select_feature_hint",
@@ -580,24 +492,8 @@
       "value": "检查更新"
     },
     {
-      "name": "phone_multi_device",
-      "value": "手机多设备选择"
-    },
-    {
-      "name": "phone_multi_device_on",
-      "value": "已开启"
-    },
-    {
-      "name": "phone_multi_device_off",
-      "value": "已关闭"
-    },
-    {
       "name": "choosevideo_cross",
       "value": "选择本地/附近设备"
-    },
-    {
-      "name": "login_hint",
-      "value": "即点即用 · 无需安装"
     },
     {
       "name": "xh_passport_logged_in",
@@ -721,17 +617,13 @@
     },
     {"name":"sub_title4","value":"文本高级"},
     {"name":"sub_title5","value":"图像处理"},
-    {"name":"sub_title6","value":"网络诊断"},
-    {"name":"sub_title7","value":"实用工具"},
     {"name":"sub_title4_value1","value":"字数统计"},
     {"name":"sub_title4_value2","value":"文本加密/解密"},
     {"name":"sub_title4_value3","value":"JSON格式化"},
     {"name":"sub_title5_value1","value":"图片压缩"},
     {"name":"sub_title5_value2","value":"格式转换"},
     {"name":"sub_title5_value3","value":"图片信息"},
-    {"name":"sub_title6_value1","value":"IP查询"},
-    {"name":"sub_title6_value2","value":"网络延迟测试"},
-    {"name":"sub_title6_value3","value":"HTTP状态检测"},
+    {"name":"sub_title7","value":"实用工具"},
     {"name":"sub_title7_value1","value":"密码生成器"},
     {"name":"sub_title7_value2","value":"颜色选择器"},
     {"name":"sub_title7_value3","value":"倒计时秒表"},
@@ -916,10 +808,6 @@
     {"name":"clear","value":"清空"},
     {"name":"add","value":"添加"},
     {"name":"select_file","value":"选择文件"},
-    {"name":"download_network_file","value":"下载网络文件"},
-    {"name":"download_and_share","value":"下载"},
-    {"name":"preparing_download","value":"准备开始下载..."},
-    {"name":"enter_download_url","value":"输入网络文件下载链接"},
     {"name":"scan_success","value":"扫码成功: "},
     {"name":"scan_cancel_or_failed","value":"手动取消或扫码失败（PC/2in1设备暂不支持扫描二维码，请使用其它类型的设备）"},
     {"name":"scan_start_failed","value":"扫码失败: 启动扫码服务失败"},
@@ -956,12 +844,6 @@
     {"name":"file_select_success","value":"文件选择成功"},
     {"name":"file_select_failed","value":"选择文件失败"},
     {"name":"file_copy_to_sandbox_failed","value":"文件复制到沙箱失败，分享可能不可用"},
-    {"name":"file_already_exists","value":"文件已存在"},
-    {"name":"download_complete_dir","value":"下载完成，存储目录："},
-    {"name":"download_failed_format","value":"下载失败"},
-    {"name":"download_task_create_failed","value":"下载任务创建失败"},
-    {"name":"download_failed","value":"下载失败"},
-    {"name":"enter_download_link","value":"请输入下载链接"},
     {"name":"revoke_confirm_message","value":"确定要撤销「%s」的授权吗？"},
     {"name":"selected_images_processing","value":"已选择%1$d张图片，正在处理..."},
     {"name":"added_images","value":"已添加%1$d张图片"},
@@ -1017,6 +899,7 @@
     {"name":"modify_failed","value":"修改失败"},
     {"name":"save_avatar_failed","value":"保存头像失败"},
     {"name":"huawei_avatar_used","value":"已使用华为账号头像"},
-    {"name":"network_error_with_msg","value":"网络错误: %s"}
+    {"name":"network_error_with_msg","value":"网络错误: %s"},
+    {"name":"privacy_jump_unavailable","value":"暂无法跳转"}
   ]
 }
