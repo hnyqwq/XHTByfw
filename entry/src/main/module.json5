@@ -4,10 +4,10 @@
 			{
 				"name": "EntryAbility",
 				"srcEntry": "./ets/entryability/EntryAbility.ets",
-				"icon": "$media:layered_image",
+				"icon": "$media:app_icon",
 				"label": "$string:EntryAbility_label",
 				"exported": true,
-				"startWindowIcon": "$media:CIcon",
+				"startWindowIcon": "$media:app_icon",
 				"startWindowBackground": "$color:start_window_background",
 				"orientation": "unspecified",
 				"skills": [

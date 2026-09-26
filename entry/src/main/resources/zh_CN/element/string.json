@@ -14,11 +14,11 @@
     },
     {
       "name":"defaultForm_label",
-      "value":"Default Form Label"
+      "value":"星河工具盒"
     },
     {
       "name":"defaultForm_desc",
-      "value":"Default Form Description"
+      "value":"星河工具盒服务卡片"
     },
     {
       "name":"void",
@@ -904,6 +904,10 @@
     {"name":"copy_failed","value":"复制失败"},
     {"name":"card_btn_tools","value":"打开工具箱"},
     {"name":"card_btn_share","value":"分享预览"},
-    {"name":"card_slogan","value":"即点即用 · 无需安装"}
+    {"name":"card_slogan","value":"即点即用 · 无需安装"},
+    {"name":"card_form_startapp_name","value":"星河工具盒"},
+    {"name":"card_form_startapp_desc","value":"点击进入工具箱，即点即用"},
+    {"name":"card_form_cards_name","value":"快捷入口"},
+    {"name":"card_form_cards_desc","value":"一键打开工具箱或分享预览"}
   ]
 }

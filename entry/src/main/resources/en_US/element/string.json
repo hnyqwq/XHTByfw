@@ -14,11 +14,11 @@
     },
     {
       "name":"defaultForm_label",
-      "value":"Default Form Label"
+      "value":"Xinghe Tool Box"
     },
     {
       "name":"defaultForm_desc",
-      "value":"Default Form Description"
+      "value":"Xinghe Tool Box form card"
     },
     {
       "name":"void",
@@ -905,6 +905,10 @@
     {"name":"copy_failed","value":"Copy failed"},
     {"name":"card_btn_tools","value":"Open Tools"},
     {"name":"card_btn_share","value":"Share Preview"},
-    {"name":"card_slogan","value":"Tap & use · No install needed"}
+    {"name":"card_slogan","value":"Tap & use · No install needed"},
+    {"name":"card_form_startapp_name","value":"Xinghe Tool Box"},
+    {"name":"card_form_startapp_desc","value":"Tap to open the toolbox"},
+    {"name":"card_form_cards_name","value":"Quick Access"},
+    {"name":"card_form_cards_desc","value":"Open tools or share preview"}
   ]
 }

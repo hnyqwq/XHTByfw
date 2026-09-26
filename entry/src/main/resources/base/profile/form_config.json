@@ -2,7 +2,8 @@
   "forms": [
     {
       "name": "startApp",
-      "description": "Click to start app",
+      "displayName": "$string:card_form_startapp_name",
+      "description": "$string:card_form_startapp_desc",
       "src": "./ets/Cards/pages/StartApp.ets",
       "uiSyntax": "arkts",
       "window": {
@@ -22,7 +23,8 @@
     },
   {
     "name": "Cards",
-    "description": "Click to start app",
+    "displayName": "$string:card_form_cards_name",
+    "description": "$string:card_form_cards_desc",
     "src": "./ets/Cards/pages/Cards.ets",
     "uiSyntax": "arkts",
     "window": {
