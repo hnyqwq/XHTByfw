@@ -29,10 +29,6 @@ export default class EntryFormAbility extends FormExtensionAbility {
     // Called to notify the form provider to update a specified form.
   }
 
-  onChangeFormVisibility(newStatus: Record<string, number>) {
-    // Called when the form provider receives form events from the system.
-  }
-
   onFormEvent(formId: string, message: string) {
     /**
      * This is the automatically generated code for the logic of card interactions.
