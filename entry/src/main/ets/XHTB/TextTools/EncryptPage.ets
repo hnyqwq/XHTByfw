@@ -1,5 +1,5 @@
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { ToolPageTitleBar } from '../../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../../components/ToolNavTitleBar';
 import { util } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { GlobalInfoModel } from '../../common/GlobalInfoModel';
@@ -69,7 +69,7 @@ export struct EncryptPage {
       KeyboardLiftScroll({ scroller: this.scroller }) {
         Column({ space: 16 }) {
           // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-          ToolPageTitleBar({ title: $r('app.string.sub_title4_value2') })
+          ToolNavTitleBar({ title: $r('app.string.sub_title4_value2') })
           Row({ space: 12 }) {
             Button($r('app.string.encrypt_mode_encrypt'))
               .type(ButtonType.Capsule)
@@ -125,7 +125,7 @@ export struct EncryptPage {
       }
       .height('100%')
     }
-    .title($r('app.string.sub_title4_value2'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

@@ -1,5 +1,5 @@
 import { GlobalInfoModel } from '../../common/GlobalInfoModel';
-import { ToolPageTitleBar } from '../../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../../components/ToolNavTitleBar';
 import { KeyboardLiftScroll } from '../../common/utils/KeyboardLiftScroll';
 
 interface LapRecord {
@@ -89,7 +89,7 @@ export struct StopwatchPage {
       KeyboardLiftScroll({ scroller: this.scroller, topAlign: true }) {
       Column({ space: 20 }) {
         // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-        ToolPageTitleBar({ title: $r('app.string.sub_title7_value3') })
+        ToolNavTitleBar({ title: $r('app.string.sub_title7_value3') })
         Row({ space: 12 }) {
           Button($r('app.string.stopwatch_countup'))
             .type(ButtonType.Capsule)
@@ -197,7 +197,7 @@ export struct StopwatchPage {
       }
       .height('100%')
     }
-    .title($r('app.string.sub_title7_value3'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

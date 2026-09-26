@@ -882,8 +882,6 @@
 		{"name":"bio_placeholder","value":"请输入签名"},
 		{"name":"nickname_cannot_empty","value":"昵称不能为空"},
 		{"name":"save_success","value":"保存成功"},
-		{"name":"copied_id","value":"已复制ID"},
-		{"name":"copy_failed","value":"复制失败"},
 		{"name":"modify","value":"修改"},
 		{"name":"not_set","value":"未设置"},
 		{"name":"save","value":"保存"},
@@ -901,6 +899,9 @@
 		{"name":"save_avatar_failed","value":"保存头像失败"},
 		{"name":"huawei_avatar_used","value":"已使用华为账号头像"},
 		{"name":"network_error_with_msg","value":"网络错误: %s"},
-		{"name":"privacy_jump_unavailable","value":"暂无法跳转"}
+		{"name":"privacy_jump_unavailable","value":"暂无法跳转"},
+		{"name":"copied_link","value":"已复制链接"},
+		{"name":"beian_title","value":"工信部备案"},
+		{"name":"copy_failed","value":"复制失败"}
 	]
 }

@@ -16,19 +16,33 @@ export class TabViewModel {
         tabMap.set(this.context.resourceManager.getStringSync($r('app.string.Home').id), []);
         tabMap.set(this.context.resourceManager.getStringSync($r('app.string.Mine').id), []);
       } else {
-        // 如果context未初始化，使用默认值
-        tabMap.set('发现', []);
-        tabMap.set('首页', []);
-        tabMap.set('我的', []);
+        // 如果context未初始化，使用默认值(后续由reload()在uiContext就绪后重载资源)
+        tabMap.set('Tool List', []);
+        tabMap.set('Share Preview', []);
+        tabMap.set('Mine', []);
       }
     } catch (error) {
       hilog.error(0x0000, 'testTag', 'Failed to get string. Cause: %{public}s', JSON.stringify(error) ?? '');
-      // 使用默认值
-      tabMap.set('首页', []);
-      tabMap.set('发现', []);
-      tabMap.set('我的', []);
+      // 使用默认值(后续由reload()在uiContext就绪后重载资源)
+      tabMap.set('Tool List', []);
+      tabMap.set('Share Preview', []);
+      tabMap.set('Mine', []);
     }
     this.tabMap = new TabDataModel(tabMap);
+  }
+
+  /**
+   * uiContext 就绪后重载资源化页签名(构造时 AppStorage 未就绪会走英文兜底)
+   */
+  public reload(): void {
+    let tabMap: Map<string, string[]> = new Map();
+    this.initContext();
+    if (this.context) {
+      tabMap.set(this.context.resourceManager.getStringSync($r('app.string.Second').id), []);
+      tabMap.set(this.context.resourceManager.getStringSync($r('app.string.Home').id), []);
+      tabMap.set(this.context.resourceManager.getStringSync($r('app.string.Mine').id), []);
+      this.tabMap = new TabDataModel(tabMap);
+    }
   }
 
   private initContext(): void {

@@ -671,7 +671,8 @@ export struct HomePage {
     console.log('aboutToAppear: restoredShareLinkContent from AppStorage = ' + (restoredShareLinkContent ?? 'null'));
 
     // 恢复 pengtitle
-    if (restoredPengtitle && restoredPengtitle !== ' ' && restoredPengtitle !== '分享当前的链接') {
+    const defaultPengtitle = this.context.resourceManager.getStringSync($r('app.string.pengyipeng_title').id);
+    if (restoredPengtitle && restoredPengtitle !== ' ' && restoredPengtitle !== defaultPengtitle) {
       this.pengtitle = restoredPengtitle;
       console.log('接续恢复 pengtitle (从 AppStorage):', restoredPengtitle);
     } else {

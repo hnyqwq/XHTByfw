@@ -53,6 +53,17 @@ export class NavigationManager {
   }
 
   /**
+   * 返回上一页(Navigation模式),router模式下回退
+   */
+  public popPath(): void {
+    if (this.useNavigation && this.navPathStack) {
+      this.navPathStack.pop();
+      return;
+    }
+    router.back();
+  }
+
+  /**
    * 页面跳转
    * @param path 页面路径
    * @param params 传递的参数

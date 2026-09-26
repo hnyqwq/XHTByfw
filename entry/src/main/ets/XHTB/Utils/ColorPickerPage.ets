@@ -1,5 +1,5 @@
 import { GlobalInfoModel } from '../../common/GlobalInfoModel';
-import { ToolPageTitleBar } from '../../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../../components/ToolNavTitleBar';
 
 interface SliderRowItem {
   label: ResourceStr;
@@ -73,7 +73,7 @@ export struct ColorPickerPage {
       Scroll(this.scroller) {
         Column({ space: 16 }) {
           // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-          ToolPageTitleBar({ title: $r('app.string.sub_title7_value2') })
+          ToolNavTitleBar({ title: $r('app.string.sub_title7_value2') })
           Column() {
             Row()
               .width('100%')
@@ -118,7 +118,7 @@ export struct ColorPickerPage {
     }
     .height('100%')
     }
-    .title($r('app.string.sub_title7_value2'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

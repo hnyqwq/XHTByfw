@@ -1,5 +1,5 @@
 import { cryptoFramework } from '@kit.CryptoArchitectureKit';
-import { ToolPageTitleBar } from '../../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../../components/ToolNavTitleBar';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { GlobalInfoModel } from '../../common/GlobalInfoModel';
 
@@ -66,7 +66,7 @@ export struct PasswordGeneratorPage {
       Scroll(this.scroller) {
         Column({ space: 16 }) {
           // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-          ToolPageTitleBar({ title: $r('app.string.sub_title7_value1') })
+          ToolNavTitleBar({ title: $r('app.string.sub_title7_value1') })
           if (this.generatedPassword) {
             Text(this.generatedPassword)
               .fontSize(18)
@@ -149,7 +149,7 @@ export struct PasswordGeneratorPage {
       }
       .height('100%')
     }
-    .title($r('app.string.sub_title7_value1'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

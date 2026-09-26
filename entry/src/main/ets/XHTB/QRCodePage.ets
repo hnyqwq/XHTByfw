@@ -1,5 +1,5 @@
 import { image } from '@kit.ImageKit';
-import { ToolPageTitleBar } from '../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../components/ToolNavTitleBar';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { scanCore, generateBarcode } from '@kit.ScanKit';
@@ -27,7 +27,7 @@ export struct QRCodePage {
       KeyboardLiftScroll({ scroller: this.scroller }) {
         Column({ space: 20 }) {
           // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-          ToolPageTitleBar({ title: $r('app.string.sub_title2_value2') })
+          ToolNavTitleBar({ title: $r('app.string.sub_title2_value2') })
           TextArea({ placeholder: $r('app.string.qrcode'), text: this.networkVideoSrc })
             .id('kbLiftInput')
             .margin({
@@ -75,7 +75,7 @@ export struct QRCodePage {
       }
       .height('100%')
     }
-    .title($r('app.string.sub_title2_value2'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

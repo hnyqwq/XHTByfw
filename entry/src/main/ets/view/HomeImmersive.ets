@@ -52,6 +52,9 @@ export struct HomeImmersive {
     }
 
     // 从 Preferences 读取沉浸式Tab开关状态
+    // uiContext 就绪后重载资源化页签名(修复构造时 AppStorage 未就绪导致页签显示中文兜底)
+    this.tabViewModel.reload();
+    this.tabData = this.tabViewModel.getTabMap();
     this.loadImmersiveTabSetting();
 
     // 初始化当前Tab索引
@@ -212,9 +215,9 @@ export struct HomeImmersive {
 
   private createTabBarMaterial(): uiMaterial.ImmersiveMaterial | undefined {
     try {
-      // TabBar背板沉浸光感材质:不反色,保证页签文字(蓝色/灰色)可读
+      // TabBar背板沉浸光感材质:THIN厚薄贴近hds页签栏质感;uiMaterial等级由设备自适应(等价hdsMaterial.ADAPTIVE);不反色保证页签文字可读
       return new uiMaterial.ImmersiveMaterial({
-        style: uiMaterial.ImmersiveStyle.ULTRA_THIN,
+        style: uiMaterial.ImmersiveStyle.THIN,
         colorInvert: false,
         applyShadow: false,
         interactive: true

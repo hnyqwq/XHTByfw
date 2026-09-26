@@ -4,6 +4,7 @@ import { bundleManager } from '@kit.AbilityKit';
 import { GlobalInfoModel } from '../common/GlobalInfoModel';
 import dataPreferences from '@ohos.data.preferences';
 import { uiMaterial } from '@kit.ArkUI';
+import { AtomicServiceWeb, AtomicServiceWebController } from '@kit.ArkUI';
 import { pasteboard } from '@kit.BasicServicesKit';
 
 
@@ -82,14 +83,27 @@ export struct MinePage {
     }
   }
 
+  // WebView覆盖层状态(videoyfw 配方:元服务不支持startAbility打开外部链接,用AtomicServiceWeb内嵌)
+  @State showWebView: boolean = false;
+  @State webViewUrl: string = '';
+  @State webViewTitle: ResourceStr = '';
+  @State webController: AtomicServiceWebController = new AtomicServiceWebController();
+
+  private openInWebView(url: string, title: ResourceStr): void {
+    this.webViewUrl = url;
+    this.webViewTitle = title;
+    this.showWebView = true;
+  }
+
   private copyToClipboard(text: string): void {
     const pasteData = pasteboard.createData(pasteboard.MIMETYPE_TEXT_PLAIN, text);
     pasteboard.getSystemPasteboard().setData(pasteData).then(() => {
-      this.getUIContext().getPromptAction().showToast({ message: $r('app.string.copied_id') });
+      this.getUIContext().getPromptAction().showToast({ message: $r('app.string.copied_link') });
     }).catch(() => {
       this.getUIContext().getPromptAction().showToast({ message: $r('app.string.copy_failed') });
     });
   }
+
 
   @Builder
   ImmersiveTabToggle() {
@@ -109,6 +123,7 @@ export struct MinePage {
     }
     .width('90%')
     .height(48)
+    .margin({ top: 12 })
     .padding({ left: 16, right: 16 })
     .alignItems(VerticalAlign.Center)
     .borderRadius(16)
@@ -137,29 +152,14 @@ export struct MinePage {
   }
 
   @Builder
-  MyPreview() {
-    Column() {
-      Image($r('app.media.CIcon'))
-        .width(200)
-        .height(200)
-    }
-  }
-
-  @Builder
   UserCard() {
     Row() {
       Row() {
-        Image($r('app.media.CIcon'))
+        Image($r('app.media.app_icon'))
           .width(48)
           .height(48)
           .borderRadius(12)
-          .bindContextMenu(this.MyMenu, ResponseType.LongPress,
-            {
-              preview: this.MyPreview,
-              previewAnimationOptions: {
-                hoverScale: [1.0, 0.95]
-              }
-            })
+          .bindContextMenu(this.MyMenu, ResponseType.LongPress)
         Column() {
           Text($r('app.string.appname'))
             .fontWeight(700)
@@ -188,7 +188,8 @@ export struct MinePage {
   }
 
   build() {
-    Scroll() {
+    Stack() {
+      Scroll() {
       Column() {
         Column() {
           this.UserCard()
@@ -204,8 +205,35 @@ export struct MinePage {
               ForEach(this.menuGroup,
                 (item: SettingMenu) => {
                   ListItem() {
-                    SettingItemView({ symbol: item.symbol, text: item.text, des: item.des,
-                      subDes: item.id === 'invite' ? INVITE_URL : '' });
+                    Row() {
+                      SymbolGlyph(item.symbol)
+                        .fontSize($r('app.integer.layout_size_22'))
+                        .fontColor([$r('sys.color.icon_primary')]);
+                      Column() {
+                        // 第一行:标题
+                        Text(item.text)
+                          .fontSize(14)
+                          .fontWeight(500)
+                          .fontColor($r('sys.color.font_primary'))
+                          .maxLines(1)
+                          .textOverflow({ overflow: TextOverflow.Ellipsis })
+                        // 第二行:链接(小字)
+                        Text(INVITE_URL)
+                          .fontSize(9)
+                          .fontColor($r('sys.color.font_secondary'))
+                          .maxLines(1)
+                          .textOverflow({ overflow: TextOverflow.Ellipsis })
+                          .lineHeight(12)
+                          .margin({ top: 1 })
+                      }
+                      .alignItems(HorizontalAlign.Start)
+                      .margin({ left: 12 })
+                      .layoutWeight(1)
+                    }
+                    .width('100%')
+                    .height(56)
+                    .padding({ left: 16, right: 12 })
+                    .alignItems(VerticalAlign.Center)
                   }
                   .width('100%')
                   .onClick(() => {
@@ -215,19 +243,14 @@ export struct MinePage {
                 },
                 (item: SettingMenu) => item.id.toString());
             }
-            .scrollBar(BarState.Auto)
-            .divider({
-              strokeWidth: $r('app.float.stroke_width'),
-              color: $r('app.color.font_color_00000'),
-              startMargin: $r('app.integer.layout_size_46'),
-              endMargin: $r('app.integer.layout_size_24')
-            });
+            .scrollBar(BarState.Off)
+            .padding({ top: 5, bottom: 5 })
           }
           .padding({ bottom: $r('app.integer.layout_size_5'), top: $r('app.integer.layout_size_5') })
           .width('90%')
           .borderRadius($r('app.integer.layout_size_24'))
           .alignItems(VerticalAlign.Center)
-          .margin({ top: 20, bottom: 30 })
+          .margin({ top: 12, bottom: 12 })
           .backgroundColor($r('app.color.mine'))
         }
         .width('100%');
@@ -236,8 +259,7 @@ export struct MinePage {
           Text() {
             Span($r('app.string.appysxy'))
               .onClick(() => {
-                // 元服务内暂无法跳转隐私协议页
-                this.getUIContext().getPromptAction().showToast({ message: $r('app.string.privacy_jump_unavailable') });
+                this.openInWebView('https://agreement-drcn.hispace.dbankcloud.cn/index.html?lang=zh&agreementId=2047926116873708480', $r('app.string.appysxy'));
               })
               .fontColor(Color.Blue)
               .fontSize(12);
@@ -248,19 +270,7 @@ export struct MinePage {
           Text() {
             Span('蜀ICP备2025142744号-3K')
               .onClick(() => {
-                try {
-                  let want: Want = {
-                    "action": "ohos.want.action.viewData",
-                    "entities": ["entity.system.browsable"],
-                    uri: 'https://beian.miit.gov.cn',
-                    "type": "text/plain"
-                  }
-                  let context = getContext(this) as common.UIAbilityContext;
-                  context.startAbility(want)
-                  console.info(`explicit start ability succeed`)
-                } catch (error) {
-                  console.info(`explicit start ability failed with ${error.code}`)
-                }
+                this.openInWebView('https://beian.miit.gov.cn', $r('app.string.beian_title'));
               })
               .fontColor(Color.Blue)
               .fontSize(12);
@@ -279,61 +289,39 @@ export struct MinePage {
     .scrollable(ScrollDirection.Vertical)
     .scrollBar(BarState.Auto)
     .edgeEffect(EdgeEffect.Spring)
-  }
-}
-
-@Component
-export struct SettingItemView {
-  @Prop symbol: Resource;
-  @Prop text: string | Resource;
-  @Prop des: string | Resource;
-  @Prop subDes: string = '';
-
-  build() {
-    Row() {
-      Row() {
-        SymbolGlyph(this.symbol)
-          .fontSize($r('app.integer.layout_size_22'))
-          .fontColor([$r('sys.color.icon_primary')]);
+      // WebView覆盖层(videoyfw 配方)
+      if (this.showWebView) {
         Column() {
-          Text(this.text)
-            .fontSize($r('app.integer.layout_size_16'))
-            .fontWeight(400)
-            .fontFamily('HarmonyHeiTi')
-            .fontColor($r('sys.color.font_primary'))
-            .lineHeight($r('app.integer.layout_size_22'));
-          if (this.subDes.length > 0) {
-            Text(this.subDes)
-              .fontSize(11)
-              .fontWeight(400)
-              .fontFamily('HarmonyHeiTi')
-              .fontColor($r('sys.color.font_secondary'))
-              .maxLines(1)
-              .textOverflow({ overflow: TextOverflow.Ellipsis })
-              .margin({ top: 2 })
+          Row() {
+            SymbolGlyph($r('sys.symbol.chevron_left'))
+              .fontSize(24)
+              .fontColor([$r('sys.color.font_primary')])
+              .margin({ left: 16 })
+              .onClick(() => { this.showWebView = false; })
+            Text(this.webViewTitle)
+              .fontSize(16)
+              .fontWeight(FontWeight.Medium)
+              .fontColor($r('sys.color.font_primary'))
+              .margin({ left: 12 })
           }
-        }
-        .alignItems(HorizontalAlign.Start)
-        .margin({ left: $r('app.integer.layout_size_12') })
-        .layoutWeight(1);
+          .width('100%')
+          .padding({ top: px2vp(this.topRectHeight) + 50, bottom: 12, left: 0, right: 0 })
+          .backgroundColor($r('sys.color.ohos_id_color_background'))
+          .border({ width: { bottom: 0.5 }, color: $r('sys.color.ohos_id_color_list_separator') })
 
-        Text(this.des)
-          .opacity($r('app.float.opacity'))
-          .fontSize($r('app.integer.layout_size_14'))
-          .fontWeight(400)
-          .fontFamily('HarmonyHeiTi')
-          .fontColor($r('sys.color.font_secondary'))
-          .lineHeight($r('app.integer.layout_size_19'));
+          AtomicServiceWeb({
+            src: this.webViewUrl,
+            controller: this.webController,
+          })
+            .width('100%')
+            .layoutWeight(1)
+        }
+        .width('100%')
+        .height('100%')
+        .backgroundColor($r('sys.color.ohos_id_color_background'))
       }
-      .width('100%')
-      .height($r('app.integer.tabbar_height'))
-      .padding({
-        left: $r('app.integer.layout_size_22'),
-        right: $r('app.integer.layout_size_12')
-      })
-      .alignItems(VerticalAlign.Center);
     }
     .width('100%')
-    .alignSelf(ItemAlign.Center);
+    .height('100%')
   }
 }

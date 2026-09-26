@@ -1,5 +1,5 @@
 import { textToSpeech } from '@kit.CoreSpeechKit';//语音
-import { ToolPageTitleBar } from '../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../components/ToolNavTitleBar';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { GlobalInfoModel } from '../common/GlobalInfoModel';
 import { KeyboardLiftScroll } from '../common/utils/KeyboardLiftScroll';
@@ -49,7 +49,7 @@ export struct TextToSpeechPage {
       KeyboardLiftScroll({ scroller: this.scroller, topAlign: true }) {
       Column({ space: 20 }) {
         // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-        ToolPageTitleBar({ title: $r('app.string.sub_title2_value1') })
+        ToolNavTitleBar({ title: $r('app.string.sub_title2_value1') })
         TextArea({ placeholder: $r('app.string.speak'), text: this.networkVideoSrc })
           .id('kbLiftInput')
           .margin({
@@ -115,7 +115,7 @@ export struct TextToSpeechPage {
       }
       .height('100%')
     }
-    .title($r('app.string.sub_title2_value1'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }

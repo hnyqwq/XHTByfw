@@ -882,8 +882,6 @@
     {"name":"bio_placeholder","value":"Enter bio"},
     {"name":"nickname_cannot_empty","value":"Nickname cannot be empty"},
     {"name":"save_success","value":"Saved successfully"},
-    {"name":"copied_id","value":"ID copied"},
-    {"name":"copy_failed","value":"Copy failed"},
     {"name":"modify","value":"Modify"},
     {"name":"not_set","value":"Not set"},
     {"name":"save","value":"Save"},
@@ -901,6 +899,9 @@
     {"name":"save_avatar_failed","value":"Failed to save avatar"},
     {"name":"huawei_avatar_used","value":"Huawei avatar applied"},
     {"name":"network_error_with_msg","value":"Network error: %s"},
-    {"name":"privacy_jump_unavailable","value":"Not available yet"}
+    {"name":"privacy_jump_unavailable","value":"Not available yet"},
+    {"name":"copied_link","value":"Link copied"},
+    {"name":"beian_title","value":"MIIT Filing"},
+    {"name":"copy_failed","value":"Copy failed"}
   ]
 }

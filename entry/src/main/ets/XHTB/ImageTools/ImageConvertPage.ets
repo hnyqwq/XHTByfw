@@ -1,5 +1,5 @@
 import { image } from '@kit.ImageKit';
-import { ToolPageTitleBar } from '../../components/ToolPageTitleBar';
+import { ToolNavTitleBar } from '../../components/ToolNavTitleBar';
 import { photoAccessHelper } from '@kit.MediaLibraryKit';
 import { fileIo } from '@kit.CoreFileKit';
 import { BusinessError } from '@kit.BasicServicesKit';
@@ -169,7 +169,7 @@ export struct ImageConvertPage {
       Scroll(this.scroller) {
         Column({ space: 16 }) {
           // HDS沉浸式标题栏占位:内容从标题栏下方滚过,此处留出初始避让空间
-          ToolPageTitleBar({ title: $r('app.string.sub_title5_value2') })
+          ToolNavTitleBar({ title: $r('app.string.sub_title5_value2') })
             Button($r('app.string.image_select'))
               .type(ButtonType.Capsule)
               .backgroundColor($r('app.color.brand'))
@@ -251,7 +251,7 @@ export struct ImageConvertPage {
     }
     .height('100%')
     }
-    .title($r('app.string.sub_title5_value2'))
+    .hideTitleBar(true)
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }
