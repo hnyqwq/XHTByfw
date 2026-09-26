@@ -23,6 +23,7 @@ export struct HomePlaceholderPage {
       .backgroundColor($r('app.color.White'))
     }
     .hideTitleBar(true)
+    .backgroundColor($r('sys.color.ohos_id_color_background'))
     .onShown(() => {
       AppStorage.setOrCreate('toolPageActive', false);
     })

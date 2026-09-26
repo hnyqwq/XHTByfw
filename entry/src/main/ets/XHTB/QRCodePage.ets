@@ -76,6 +76,7 @@ export struct QRCodePage {
       .height('100%')
     }
     .hideTitleBar(true)
+    .backgroundColor($r('sys.color.ohos_id_color_background'))
     .onShown(() => { AppStorage.setOrCreate('toolPageActive', true); })
     .onHidden(() => { AppStorage.setOrCreate('toolPageSyncTick', Date.now()); })
   }
