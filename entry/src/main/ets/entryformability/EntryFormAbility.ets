@@ -12,7 +12,10 @@ export default class EntryFormAbility extends FormExtensionAbility {
 
 
     // Called to return a FormBindingData object.
-    let formData = '';
+    // 卡片尺寸透传(2=2x2, 4=4x4), 卡片侧据此切换布局密度
+    const dimKey = 'ohos.extra.param.key.form_dimension';
+    const dim = (want.parameters?.[dimKey] as number) ?? 2;
+    const formData: Record<string, number> = { 'dimension': dim };
     return formBindingData.createFormBindingData(formData);
   }
 

@@ -34,7 +34,23 @@ export default class EntryAbility extends UIAbility {
       BreakpointSystem.getInstance().updateWidthBp(this.windowClass);
     }
   }
-  private selectPage: string = '';
+  /**
+   * 桌面卡片 postCardAction 的 targetPage → 页签索引(0=工具列表,1=分享预览,2=我的)
+   * 通过 currentTabIndex(@StorageLink)驱动 HomeImmersive 切页签
+   */
+  private applyCardTargetTab(want: Want): void {
+    if (want?.parameters?.params) {
+      try {
+        const params: Record<string, Object> = JSON.parse(want.parameters.params as string);
+        const target = params.targetPage as string;
+        const idx = target === 'HomePage' ? 1 : target === 'MinePage' ? 2 : 0;
+        AppStorage.setOrCreate('currentTabIndex', idx);
+        hilog.info(DOMAIN_NUMBER, TAG, `card targetPage: ${target} -> tab ${idx}`);
+      } catch (e) {
+        hilog.error(DOMAIN_NUMBER, TAG, `card params parse failed: ${JSON.stringify(e)}`);
+      }
+    }
+  }
   private currentWindowStage: window.WindowStage | null = null;
   private distributedObject: distributedDataObject.DataObject | undefined = undefined;
   private windowClass?: window.Window = undefined;
@@ -76,12 +92,8 @@ export default class EntryAbility extends UIAbility {
     // 保留原有逻辑
     this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     hilog.info(DOMAIN_NUMBER, TAG, `Ability onCreate: ${JSON.stringify(want?.parameters)}`);
-    if (want?.parameters?.params) {
-      // want.parameters.params 对应 postCardAction() 中 params 内容
-      let params: Record<string, Object> = JSON.parse(want.parameters.params as string);
-      this.selectPage = params.targetPage as string;
-      hilog.info(DOMAIN_NUMBER, TAG, `onCreate selectPage: ${this.selectPage}`);
-    }
+    // 桌面卡片点击:冷启动直接落到目标页签
+    this.applyCardTargetTab(want);
     this.context.eventHub.emit('urlUpdate', receivedLink)
 
     //快捷方式的快速打开页面跳转
@@ -96,6 +108,8 @@ export default class EntryAbility extends UIAbility {
 
   // 热启动场景通过onNewWant回调获取码值信息
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    // 桌面卡片点击:热启动切到目标页签
+    this.applyCardTargetTab(want);
     actionNewWant(want, this);
     const receivedLink = want.parameters?.['link'] || want.uri;
     if (receivedLink) {

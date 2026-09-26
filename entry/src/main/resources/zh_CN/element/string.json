@@ -901,6 +901,9 @@
     {"name":"privacy_jump_unavailable","value":"暂无法跳转"},
     {"name":"copied_link","value":"已复制链接"},
     {"name":"beian_title","value":"工信部备案"},
-    {"name":"copy_failed","value":"复制失败"}
+    {"name":"copy_failed","value":"复制失败"},
+    {"name":"card_btn_tools","value":"打开工具箱"},
+    {"name":"card_btn_share","value":"分享预览"},
+    {"name":"card_slogan","value":"即点即用 · 无需安装"}
   ]
 }

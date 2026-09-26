@@ -902,6 +902,9 @@
     {"name":"privacy_jump_unavailable","value":"Not available yet"},
     {"name":"copied_link","value":"Link copied"},
     {"name":"beian_title","value":"MIIT Filing"},
-    {"name":"copy_failed","value":"Copy failed"}
+    {"name":"copy_failed","value":"Copy failed"},
+    {"name":"card_btn_tools","value":"Open Tools"},
+    {"name":"card_btn_share","value":"Share Preview"},
+    {"name":"card_slogan","value":"Tap & use · No install needed"}
   ]
 }
