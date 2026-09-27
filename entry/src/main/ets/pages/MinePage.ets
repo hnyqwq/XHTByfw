@@ -37,12 +37,12 @@ try {
 } catch (err) {
   const error = err as BusinessError;
   console.error(`Failed to get bundle info. Code: ${error.code}, message: ${error.message}`);
-  bundleName = 'yylx.hny.qwq';
-  versionName = '1.0.0.0';
+  bundleName = 'com.atomicservice.6917580573298834443';
+  versionName = '2.0.0.0';
 }
 let banbenhao = `${versionName}`
 
-const INVITE_URL = 'https://appgallery.huawei.com/apptest/8q2ifpJx0Qz';
+const INVITE_URL = 'https://appgallery.huawei.com/apptest/2jZdmurLRvv';
 
 @Entry
 @Component
