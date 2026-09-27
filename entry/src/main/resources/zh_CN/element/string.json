@@ -908,6 +908,7 @@
     {"name":"card_form_startapp_name","value":"星河工具盒"},
     {"name":"card_form_startapp_desc","value":"点击进入工具箱，即点即用"},
     {"name":"card_form_cards_name","value":"快捷入口"},
-    {"name":"card_form_cards_desc","value":"一键打开工具箱或分享预览"}
+    {"name":"card_form_cards_desc","value":"一键打开工具箱或分享预览"},
+    {"name":"json_format_error","value":"JSON 格式不正确，请检查后重试"}
   ]
 }

@@ -19,22 +19,41 @@ export struct JsonFormatPage {
 
   private formatJson(): void {
     this.errorMsg = '';
-    if (!this.inputText.trim()) {
+    const raw = this.inputText.trim();
+    if (!raw) {
       this.resultText = '';
       return;
     }
+    // 两段式解析: 原文失败后自动修正全角符号/零宽字符重试(中文输入法常见误输)
+    let parsed: Object | null | undefined = undefined;
     try {
-      let parsed: Object = JSON.parse(this.inputText);
-      if (this.isCompress) {
-        this.resultText = JSON.stringify(parsed);
-      } else {
-        this.resultText = JSON.stringify(parsed, null, 2);
-      }
+      parsed = JSON.parse(raw);
     } catch (e) {
-      let err = e as Error;
-      this.errorMsg = err.message;
-      this.resultText = '';
+      parsed = undefined;
     }
+    if (parsed === undefined) {
+      const fixed = raw
+        .replace(/[\u200B-\u200D\uFEFF]/g, '')
+        .replace(/[“”„]/g, '"')
+        .replace(/：/g, ':')
+        .replace(/，/g, ',')
+        .replace(/｛/g, '{')
+        .replace(/｝/g, '}')
+        .replace(/【/g, '[')
+        .replace(/】/g, ']')
+        .replace(/\u3000/g, ' ');
+      try {
+        parsed = JSON.parse(fixed);
+      } catch (e) {
+        parsed = undefined;
+      }
+    }
+    if (parsed === undefined) {
+      this.errorMsg = getContext(this).resourceManager.getStringSync($r('app.string.json_format_error'));
+      this.resultText = '';
+      return;
+    }
+    this.resultText = this.isCompress ? JSON.stringify(parsed) : JSON.stringify(parsed, null, 2);
   }
 
   build() {

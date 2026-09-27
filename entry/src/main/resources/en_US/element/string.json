@@ -909,6 +909,7 @@
     {"name":"card_form_startapp_name","value":"Xinghe Tool Box"},
     {"name":"card_form_startapp_desc","value":"Tap to open the toolbox"},
     {"name":"card_form_cards_name","value":"Quick Access"},
-    {"name":"card_form_cards_desc","value":"Open tools or share preview"}
+    {"name":"card_form_cards_desc","value":"Open tools or share preview"},
+    {"name":"json_format_error","value":"Invalid JSON format. Please check and try again."}
   ]
 }
