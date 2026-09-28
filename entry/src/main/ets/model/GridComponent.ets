@@ -3,7 +3,9 @@ import GridItemComponent from './GridItemComponent';
 
 @Component
 export default struct GridComponent {
-  @State gridData: GridData = new GridData('', []);
+  // @Prop: 父组件(SecondPageContent)每次更新 dynamicFeatureData 都会同步进来并触发刷新,
+  // 用 @State 只取首次值,常用功能点击工具后不会立即更新(AGC 审核问题)
+  @Prop gridData: GridData = new GridData('', []);
   @State isLastItem: boolean = false;
   @Prop columns: number = 2;
   @Prop itemH: number = 92;

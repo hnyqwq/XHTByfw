@@ -40,7 +40,9 @@ const allToolItems: GridItemInfo[] = [
 
 const defaultFeatureItems: GridItemInfo[] = [
   new GridItemInfo($r('app.string.sub_title1_value1'), 'XHTB/TextToSpeechPage', undefined, $r('sys.symbol.speaker_wave_2')),
-  new GridItemInfo($r('app.string.sub_title1_value2'), 'XHTB/QRCodePage', undefined, $r('sys.symbol.wifi_router')),
+  // 名称/图标/路由必须一致:原先显示"网络认证工具"(sub_title1_value2)+wifi_router 图标但路由是 QRCodePage,
+  // 且该功能并不存在于工具列表(AGC 审核问题),现改为真实存在的"生成二维码"
+  new GridItemInfo($r('app.string.sub_title2_value2'), 'XHTB/QRCodePage', undefined, $r('sys.symbol.qrcode')),
 ];
 
 export function getFeatureGridDataByUsage(): GridData {
@@ -49,10 +51,16 @@ export function getFeatureGridDataByUsage(): GridData {
     return new GridData($r('app.string.sub_title1'), defaultFeatureItems);
   }
   let sorted = allToolItems.slice();
+  // 常用功能按最近使用时间倒序:刚点的工具立即排到最左,只保留最近 4 个,
+  // 更早使用的自动被挤掉(超出 4 个就去掉之前的)
   sorted.sort((a: GridItemInfo, b: GridItemInfo): number => {
-    let countA = tracker.getUsageCount(a.pageUrl);
-    let countB = tracker.getUsageCount(b.pageUrl);
-    return countB - countA;
+    let tsA = tracker.getLastUsedTime(a.pageUrl);
+    let tsB = tracker.getLastUsedTime(b.pageUrl);
+    if (tsA !== tsB) {
+      return tsB - tsA;
+    }
+    // 兜底:都没有时间戳时(旧版本数据)按使用次数排,行为与老版本一致
+    return tracker.getUsageCount(b.pageUrl) - tracker.getUsageCount(a.pageUrl);
   });
   let topItems: GridItemInfo[] = [];
   for (let i = 0; i < sorted.length; i++) {
