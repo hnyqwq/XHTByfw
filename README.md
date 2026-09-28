@@ -1,4 +1,4 @@
-# 星河工具盒 (Xinghe Tool Box)
+# 星河工具盒 Xinghe Tool Box（元服务）
 
 一款即点即用的 HarmonyOS 元服务工具箱，无需下载安装，打开即用。
 
@@ -43,7 +43,7 @@
 
 ## 环境要求
 
-- [DevEco Studio](https://developer.huawei.com/consumer/zh/deveco-studio/)（HarmonyOS NEXT 版本）
+- [DevEco Studio](https://developer.huawei.com/consumer/zh/deveco-studio/) 26.0.0.851 及以上版本
 - SDK / API 26，hvigor 26.0.0
 - HarmonyOS 7.0.0 及以上真机或模拟器（元服务）
 
