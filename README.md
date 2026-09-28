@@ -90,4 +90,4 @@ hvigorw --mode module -p product=default assembleHap
 
 ## License
 
-本项目暂未设置开源许可证，未经授权请勿直接用于商业用途。
+本项目基于 [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.txt) 协议开源——你可以自由地学习、使用、修改和分发，但任何基于本项目的衍生作品都必须同样以 GPL-3.0 协议完整开源（禁止闭源换皮）。详见 [LICENSE](./LICENSE)。
