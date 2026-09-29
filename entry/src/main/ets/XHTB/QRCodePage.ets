@@ -4,7 +4,7 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 import { BusinessError } from '@kit.BasicServicesKit';
 import { scanCore, generateBarcode } from '@kit.ScanKit';
 import { GlobalInfoModel } from '../common/GlobalInfoModel';
-import { createMenuImmersiveMaterial } from '../common/utils/UIMaterialUtil';
+import { createBrandImmersiveMaterial } from '../common/utils/UIMaterialUtil';
 import { KeyboardLiftScroll } from '../common/utils/KeyboardLiftScroll';
 
 @Component
@@ -40,6 +40,10 @@ export struct QRCodePage {
             })
 
           Button($r('app.string.createqrcode'))
+            .type(ButtonType.Capsule)
+            .backgroundColor($r('app.color.brand'))
+            .fontColor(Color.White)
+            .width('90%')
             .margin({ top: 10 })
             .onClick(() => {
               this.pixelMap = undefined;
@@ -62,7 +66,7 @@ export struct QRCodePage {
                 hilog.error(0x0001, '[Scan Sample]', `Failed to generateBarcode. Code: ${error.code}, message: ${error.message}`);
               }
             })
-            .systemMaterial(createMenuImmersiveMaterial())
+            .systemMaterial(createBrandImmersiveMaterial())
 
           // 获取生成码后显示
           if (this.pixelMap) {

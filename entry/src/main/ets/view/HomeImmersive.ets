@@ -252,8 +252,9 @@ export struct HomeImmersive {
       .vertical(false)
       // 工具页打开时收起悬浮Tab栏(高度0),返回后恢复;键盘弹出时Tab栏浮在键盘上方;平板分栏工具列表常驻左栏,Tab保持可见
       .barHeight(this.toolPageActive && !this.isTabletMode() ? 0 : 56)
-      // 沉浸光感材质:TabBar背板光感+默认底部蒙层,悬浮离底28vp(官方默认)
-      .barFloatingStyle({
+      // 收起Tab栏时必须同时撤掉整个浮起样式:实测仅去掉 systemMaterial 材质,
+      // 浮起背板仍会渲染出一条白色圆角残条悬在底部;浮起样式整体撤掉后 bar 回归普通模式,高度0即完全不可见
+      .barFloatingStyle(this.toolPageActive && !this.isTabletMode() ? undefined : {
         barBottomMargin: 28,
         adaptToHandedness: false,
         systemMaterial: this.createTabBarMaterial()

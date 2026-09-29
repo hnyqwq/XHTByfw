@@ -236,6 +236,8 @@ export struct ImageConvertPage {
               text: SaveDescription.DOWNLOAD,
               buttonType: ButtonType.Capsule
             })
+              // 加宽与其他按钮一致,避免过窄不明显
+              .width('90%')
               .onClick((event: ClickEvent, result: SaveButtonOnClickResult) => {
                 if (result === SaveButtonOnClickResult.SUCCESS) {
                   this.saveResultToGallery();
@@ -245,9 +247,15 @@ export struct ImageConvertPage {
         }
         .width('100%')
         .alignItems(HorizontalAlign.Center)
+        // 内容至少撑满一屏,超出即可滚动(对齐 KeyboardLiftScroll 结构,修复部分机型不可滑动)
+        .constraintSize({ minHeight: '100%' })
+        .padding({ bottom: 24 })
       }
       .width('100%')
       .layoutWeight(1)
+      // 任意状态下都可拖动,内容超长时正常滚动
+      .edgeEffect(EdgeEffect.Spring, { alwaysEnabled: true })
+      .scrollBar(BarState.Off)
     }
     .height('100%')
     }
