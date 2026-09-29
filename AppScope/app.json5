@@ -3,8 +3,8 @@
     "bundleName": "com.atomicservice.6917580573298834443",
     "bundleType": "atomicService",
     "vendor": "",
-    "versionCode": 20000000,
-    "versionName": "2.0.0.0",
+    "versionCode": 20100000,
+    "versionName": "2.1.0.0",
     "icon": "$media:app_icon",
     "label": "$string:app_name"
   }
